@@ -8,13 +8,13 @@
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#050508;--s1:#0a0a12;--s2:#0f0f1a;--card:#13131f;--cardb:#16162a;
-  --b1:rgba(99,102,241,0.15);--b2:rgba(255,255,255,0.06);--b3:rgba(255,255,255,0.03);
-  --p:#6366f1;--p2:#818cf8;--p3:#c7d2fe;
-  --cyan:#22d3ee;--pink:#f472b6;--green:#4ade80;--amber:#fbbf24;
-  --red:#f87171;--orange:#fb923c;--violet:#a78bfa;
-  --txt:#eeeeff;--muted:#6060a0;--dim:#252540;
-  --r:14px;--r2:10px;
+--bg:#050508;--s1:#0a0a12;--s2:#0f0f1a;--card:#13131f;--cardb:#16162a;
+--b1:rgba(99,102,241,0.15);--b2:rgba(255,255,255,0.06);--b3:rgba(255,255,255,0.03);
+--p:#6366f1;--p2:#818cf8;--p3:#c7d2fe;
+--cyan:#22d3ee;--pink:#f472b6;--green:#4ade80;--amber:#fbbf24;
+--red:#f87171;--orange:#fb923c;--violet:#a78bfa;
+--txt:#eeeeff;--muted:#6060a0;--dim:#252540;
+--r:14px;--r2:10px;
 }
 *{margin:0;padding:0;box-sizing:border-box;}
 html{scroll-behavior:smooth;}
@@ -411,22 +411,22 @@ transition:transform 0.3s cubic-bezier(0.4,0,0.2,1);
 <!-- ══ LOGIN SCREEN ══ -->
 
 <div id="loginScreen">
-  <div class="login-box">
-    <div class="login-glow"></div>
-    <div class="login-logo">SQUAD HUB</div>
-    <div class="login-sub">A#100192 · BIT Sathy · IT Dept</div>
-    <div class="login-field">
-      <label class="login-label">Roll Number</label>
-      <input class="login-input" id="loginRoll" placeholder="e.g. 7376252IT182" onkeydown="if(event.key==='Enter')doLogin()">
-    </div>
-    <div class="login-field">
-      <label class="login-label">Name (first few letters)</label>
-      <input class="login-input" id="loginName" placeholder="e.g. Hema" onkeydown="if(event.key==='Enter')doLogin()">
-    </div>
-    <button class="login-btn" onclick="doLogin()">🚀 Enter Squad Hub</button>
-    <div class="login-err" id="loginErr">❌ Roll number not found. Try again.</div>
-    <div class="login-hint">Enter your roll number & first few letters of your name.<br>Admin: roll <strong>7376252IT182</strong></div>
-  </div>
+<div class="login-box">
+<div class="login-glow"></div>
+<div class="login-logo">SQUAD HUB</div>
+<div class="login-sub">A#100192 · BIT Sathy · IT Dept</div>
+<div class="login-field">
+<label class="login-label">Roll Number</label>
+<input class="login-input" id="loginRoll" placeholder="e.g. 7376252IT182" onkeydown="if(event.key==='Enter')doLogin()">
+</div>
+<div class="login-field">
+<label class="login-label">Name (first few letters)</label>
+<input class="login-input" id="loginName" placeholder="e.g. Hema" onkeydown="if(event.key==='Enter')doLogin()">
+</div>
+<button class="login-btn" onclick="doLogin()">🚀 Enter Squad Hub</button>
+<div class="login-err" id="loginErr">❌ Roll number not found. Try again.</div>
+<div class="login-hint">Enter your roll number & first few letters of your name.<br>Admin: roll <strong>7376252IT182</strong></div>
+</div>
 </div>
 
 <!-- ══ APP ══ -->
@@ -437,165 +437,165 @@ transition:transform 0.3s cubic-bezier(0.4,0,0.2,1);
 <!-- SIDEBAR -->
 
 <aside class="sidebar" id="sidebar">
-  <div class="sb-logo">
-    <div class="sb-badge">▸ SQUAD HUB · A#100192</div>
-    <div class="sb-title">SQUAD HUB</div>
-    <div class="sb-user" id="sbUser"></div>
-  </div>
-  <nav class="nav">
-    <button class="nav-item active" onclick="goPage('dashboard',this)"><span class="ni">🏠</span>Dashboard</button>
-    <button class="nav-item" onclick="goPage('members',this)"><span class="ni">👥</span>Members<span class="nav-badge" id="nb-members">11</span></button>
-    <div class="nav-sep"></div>
-    <button class="nav-item" onclick="goPage('tasks',this)"><span class="ni">📊</span>Tasks<span class="nav-badge" id="nb-tasks">0</span></button>
-    <button class="nav-item" onclick="goPage('chat',this)"><span class="ni">💬</span>Team Chat<span class="nav-badge" id="nb-chat">0</span></button>
-    <button class="nav-item" onclick="goPage('announcements',this)"><span class="ni">📢</span>Announcements<span class="nav-badge" id="nb-anns">0</span></button>
-    <button class="nav-item" onclick="goPage('meetings',this)"><span class="ni">📅</span>Meetings<span class="nav-badge" id="nb-meets">0</span></button>
-    <div class="nav-sep"></div>
-    <button class="nav-item" onclick="goPage('attendance',this)"><span class="ni">📈</span>Attendance</button>
-    <button class="nav-item" onclick="goPage('leaderboard',this)"><span class="ni">🏆</span>Leaderboard</button>
-  </nav>
-  <div class="sb-bottom">
-    <button class="logout-btn" onclick="doLogout()">🚪 Logout</button>
-  </div>
+<div class="sb-logo">
+<div class="sb-badge">▸ SQUAD HUB · A#100192</div>
+<div class="sb-title">SQUAD HUB</div>
+<div class="sb-user" id="sbUser"></div>
+</div>
+<nav class="nav">
+<button class="nav-item active" onclick="goPage('dashboard',this)"><span class="ni">🏠</span>Dashboard</button>
+<button class="nav-item" onclick="goPage('members',this)"><span class="ni">👥</span>Members<span class="nav-badge" id="nb-members">11</span></button>
+<div class="nav-sep"></div>
+<button class="nav-item" onclick="goPage('tasks',this)"><span class="ni">📊</span>Tasks<span class="nav-badge" id="nb-tasks">0</span></button>
+<button class="nav-item" onclick="goPage('chat',this)"><span class="ni">💬</span>Team Chat<span class="nav-badge" id="nb-chat">0</span></button>
+<button class="nav-item" onclick="goPage('announcements',this)"><span class="ni">📢</span>Announcements<span class="nav-badge" id="nb-anns">0</span></button>
+<button class="nav-item" onclick="goPage('meetings',this)"><span class="ni">📅</span>Meetings<span class="nav-badge" id="nb-meets">0</span></button>
+<div class="nav-sep"></div>
+<button class="nav-item" onclick="goPage('attendance',this)"><span class="ni">📈</span>Attendance</button>
+<button class="nav-item" onclick="goPage('leaderboard',this)"><span class="ni">🏆</span>Leaderboard</button>
+</nav>
+<div class="sb-bottom">
+<button class="logout-btn" onclick="doLogout()">🚪 Logout</button>
+</div>
 </aside>
 <div class="sb-ov" id="sbOv" onclick="closeSb()"></div>
 
 <!-- MAIN -->
 
 <main class="main">
-  <div class="topbar">
-    <div class="tb-left">
-      <button class="hamburger" onclick="toggleSb()">☰</button>
-      <div class="tb-title" id="tbTitle">Dashboard</div>
-    </div>
-    <div class="tb-right" id="tbActions"></div>
-  </div>
+<div class="topbar">
+<div class="tb-left">
+<button class="hamburger" onclick="toggleSb()">☰</button>
+<div class="tb-title" id="tbTitle">Dashboard</div>
+</div>
+<div class="tb-right" id="tbActions"></div>
+</div>
 
-  <!-- ── DASHBOARD ── -->
+<!-- ── DASHBOARD ── -->
 
-  <div class="page active" id="page-dashboard">
-    <div class="stats-row">
-      <div class="card stat-card s-p"><div class="stat-v" id="d-mem">11</div><div class="stat-l">Members</div></div>
-      <div class="card stat-card s-c"><div class="stat-v" id="d-tasks">0</div><div class="stat-l">Tasks</div></div>
-      <div class="card stat-card s-g"><div class="stat-v" id="d-msgs">0</div><div class="stat-l">Messages</div></div>
-      <div class="card stat-card s-a"><div class="stat-v" id="d-meets">0</div><div class="stat-l">Meetings</div></div>
-      <div class="card stat-card s-pk"><div class="stat-v" id="d-anns">0</div><div class="stat-l">Announcements</div></div>
-    </div>
-    <div class="dash-grid">
-      <div>
-        <div class="sec-title">Recent Announcements</div>
-        <div id="dash-anns-list"></div>
-        <button class="btn btn-o btn-sm" onclick="goPage('announcements',null)">View All →</button>
-      </div>
-      <div>
-        <div class="sec-title">Upcoming Meetings</div>
-        <div id="dash-meets-list"></div>
-        <button class="btn btn-o btn-sm" onclick="goPage('meetings',null)">View All →</button>
-      </div>
-    </div>
-  </div>
+<div class="page active" id="page-dashboard">
+<div class="stats-row">
+<div class="card stat-card s-p"><div class="stat-v" id="d-mem">11</div><div class="stat-l">Members</div></div>
+<div class="card stat-card s-c"><div class="stat-v" id="d-tasks">0</div><div class="stat-l">Tasks</div></div>
+<div class="card stat-card s-g"><div class="stat-v" id="d-msgs">0</div><div class="stat-l">Messages</div></div>
+<div class="card stat-card s-a"><div class="stat-v" id="d-meets">0</div><div class="stat-l">Meetings</div></div>
+<div class="card stat-card s-pk"><div class="stat-v" id="d-anns">0</div><div class="stat-l">Announcements</div></div>
+</div>
+<div class="dash-grid">
+<div>
+<div class="sec-title">Recent Announcements</div>
+<div id="dash-anns-list"></div>
+<button class="btn btn-o btn-sm" onclick="goPage('announcements',null)">View All →</button>
+</div>
+<div>
+<div class="sec-title">Upcoming Meetings</div>
+<div id="dash-meets-list"></div>
+<button class="btn btn-o btn-sm" onclick="goPage('meetings',null)">View All →</button>
+</div>
+</div>
+</div>
 
-  <!-- ── MEMBERS ── -->
+<!-- ── MEMBERS ── -->
 
-  <div class="page" id="page-members">
-    <div class="toolbar">
-      <input class="srch" id="mem-srch" placeholder="Search members…" oninput="renderMembers()">
-      <select class="fsel" id="mem-role" onchange="renderMembers()">
-        <option value="">All Roles</option>
-        <option value="Team Captain">Captain</option>
-        <option value="Team Vice Captain">Vice Captain</option>
-        <option value="Team Manager">Manager</option>
-        <option value="Team Strategist">Strategist</option>
-        <option value="Team Member">Members</option>
-      </select>
-    </div>
-    <div class="members-grid" id="membersGrid"></div>
-  </div>
+<div class="page" id="page-members">
+<div class="toolbar">
+<input class="srch" id="mem-srch" placeholder="Search members…" oninput="renderMembers()">
+<select class="fsel" id="mem-role" onchange="renderMembers()">
+<option value="">All Roles</option>
+<option value="Team Captain">Captain</option>
+<option value="Team Vice Captain">Vice Captain</option>
+<option value="Team Manager">Manager</option>
+<option value="Team Strategist">Strategist</option>
+<option value="Team Member">Members</option>
+</select>
+</div>
+<div class="members-grid" id="membersGrid"></div>
+</div>
 
-  <!-- ── PROFILE ── -->
+<!-- ── PROFILE ── -->
 
-  <div class="page" id="page-profile">
-    <button class="btn btn-o btn-sm" style="margin-bottom:18px;" onclick="goPage('members',null)">← Back</button>
-    <div id="profileContent"></div>
-  </div>
+<div class="page" id="page-profile">
+<button class="btn btn-o btn-sm" style="margin-bottom:18px;" onclick="goPage('members',null)">← Back</button>
+<div id="profileContent"></div>
+</div>
 
-  <!-- ── TASKS ── -->
+<!-- ── TASKS ── -->
 
-  <div class="page" id="page-tasks">
-    <div class="toolbar">
-      <input class="srch" id="task-srch" placeholder="Search tasks…" oninput="renderTasks()">
-      <select class="fsel" id="task-assignee" onchange="renderTasks()"><option value="">All Members</option></select>
-    </div>
-    <div class="task-board">
-      <div class="task-col tc-todo">
-        <div class="task-col-title"><span class="dot"></span>To Do <span id="cnt-todo" style="margin-left:auto;font-size:11px;"></span></div>
-        <div id="tasks-todo"></div>
-      </div>
-      <div class="task-col tc-prog">
-        <div class="task-col-title"><span class="dot"></span>In Progress <span id="cnt-prog" style="margin-left:auto;font-size:11px;"></span></div>
-        <div id="tasks-prog"></div>
-      </div>
-      <div class="task-col tc-done">
-        <div class="task-col-title"><span class="dot"></span>Done <span id="cnt-done" style="margin-left:auto;font-size:11px;"></span></div>
-        <div id="tasks-done"></div>
-      </div>
-    </div>
-  </div>
+<div class="page" id="page-tasks">
+<div class="toolbar">
+<input class="srch" id="task-srch" placeholder="Search tasks…" oninput="renderTasks()">
+<select class="fsel" id="task-assignee" onchange="renderTasks()"><option value="">All Members</option></select>
+</div>
+<div class="task-board">
+<div class="task-col tc-todo">
+<div class="task-col-title"><span class="dot"></span>To Do <span id="cnt-todo" style="margin-left:auto;font-size:11px;"></span></div>
+<div id="tasks-todo"></div>
+</div>
+<div class="task-col tc-prog">
+<div class="task-col-title"><span class="dot"></span>In Progress <span id="cnt-prog" style="margin-left:auto;font-size:11px;"></span></div>
+<div id="tasks-prog"></div>
+</div>
+<div class="task-col tc-done">
+<div class="task-col-title"><span class="dot"></span>Done <span id="cnt-done" style="margin-left:auto;font-size:11px;"></span></div>
+<div id="tasks-done"></div>
+</div>
+</div>
+</div>
 
-  <!-- ── CHAT ── -->
+<!-- ── CHAT ── -->
 
-  <div class="page" id="page-chat">
-    <div class="chat-layout">
-      <div class="chat-main">
-        <div class="chat-messages" id="chatMessages"><div class="empty-state"><div class="ei">💬</div><p>No messages yet. Say hi!</p></div></div>
-        <div class="chat-input-row">
-          <input class="chat-inp" id="chatInp" placeholder="Type a message… (Enter to send)" onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();sendMsg();}">
-          <button class="btn btn-p" onclick="sendMsg()">Send ↗</button>
-        </div>
-      </div>
-      <div class="chat-sidebar">
-        <div class="card" style="padding:14px;">
-          <div class="sec-title" style="margin-bottom:10px;">📌 Pinned</div>
-          <div class="pinned-list" id="pinnedList"><p style="font-size:12px;color:var(--muted);">No pinned messages</p></div>
-        </div>
-        <div class="card" style="padding:14px;">
-          <div class="sec-title" style="margin-bottom:10px;">🟢 Online</div>
-          <div class="online-list" id="onlineList"></div>
-        </div>
-      </div>
-    </div>
-  </div>
+<div class="page" id="page-chat">
+<div class="chat-layout">
+<div class="chat-main">
+<div class="chat-messages" id="chatMessages"><div class="empty-state"><div class="ei">💬</div><p>No messages yet. Say hi!</p></div></div>
+<div class="chat-input-row">
+<input class="chat-inp" id="chatInp" placeholder="Type a message… (Enter to send)" onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();sendMsg();}">
+<button class="btn btn-p" onclick="sendMsg()">Send ↗</button>
+</div>
+</div>
+<div class="chat-sidebar">
+<div class="card" style="padding:14px;">
+<div class="sec-title" style="margin-bottom:10px;">📌 Pinned</div>
+<div class="pinned-list" id="pinnedList"><p style="font-size:12px;color:var(--muted);">No pinned messages</p></div>
+</div>
+<div class="card" style="padding:14px;">
+<div class="sec-title" style="margin-bottom:10px;">🟢 Online</div>
+<div class="online-list" id="onlineList"></div>
+</div>
+</div>
+</div>
+</div>
 
-  <!-- ── ANNOUNCEMENTS ── -->
+<!-- ── ANNOUNCEMENTS ── -->
 
-  <div class="page" id="page-announcements">
-    <div id="annsList"></div>
-  </div>
+<div class="page" id="page-announcements">
+<div id="annsList"></div>
+</div>
 
-  <!-- ── MEETINGS ── -->
+<!-- ── MEETINGS ── -->
 
-  <div class="page" id="page-meetings">
-    <div class="meetings-list" id="meetsList"></div>
-  </div>
+<div class="page" id="page-meetings">
+<div class="meetings-list" id="meetsList"></div>
+</div>
 
-  <!-- ── ATTENDANCE ── -->
+<!-- ── ATTENDANCE ── -->
 
-  <div class="page" id="page-attendance">
-    <div class="meetings-tracker card" style="padding:18px;margin-bottom:20px;">
-      <div class="sec-title">Meetings – Mark Attendance</div>
-      <div id="attMeetings"><div class="empty-state"><div class="ei">📅</div><p>No meetings yet. Create one first.</p></div></div>
-    </div>
-    <div class="sec-title">Member Attendance Summary</div>
-    <div class="att-grid" id="attGrid"></div>
-  </div>
+<div class="page" id="page-attendance">
+<div class="meetings-tracker card" style="padding:18px;margin-bottom:20px;">
+<div class="sec-title">Meetings – Mark Attendance</div>
+<div id="attMeetings"><div class="empty-state"><div class="ei">📅</div><p>No meetings yet. Create one first.</p></div></div>
+</div>
+<div class="sec-title">Member Attendance Summary</div>
+<div class="att-grid" id="attGrid"></div>
+</div>
 
-  <!-- ── LEADERBOARD ── -->
+<!-- ── LEADERBOARD ── -->
 
-  <div class="page" id="page-leaderboard">
-    <div class="lb-podium" id="lbPodium"></div>
-    <div class="sec-title">All Members</div>
-    <div class="lb-list" id="lbList"></div>
-  </div>
+<div class="page" id="page-leaderboard">
+<div class="lb-podium" id="lbPodium"></div>
+<div class="sec-title">All Members</div>
+<div class="lb-list" id="lbList"></div>
+</div>
 
 </main>
 </div>
@@ -606,53 +606,53 @@ transition:transform 0.3s cubic-bezier(0.4,0,0.2,1);
 <!-- Add Member -->
 
 <div class="modal-ov" id="mo-member"><div class="modal-box">
-  <div class="modal-h"><div class="modal-ht">➕ Add New Member</div><button class="modal-xbtn" onclick="closeMo('mo-member')">✕</button></div>
-  <div class="modal-b">
-    <div class="frow"><div class="fg"><label class="fl">Full Name *</label><input class="fi" id="mf-name" placeholder="Full name"></div><div class="fg"><label class="fl">Roll Number *</label><input class="fi" id="mf-roll" placeholder="7376252IT___"></div></div>
-    <div class="fg"><label class="fl">Role *</label><select class="fs" id="mf-role"><option>Team Captain</option><option>Team Vice Captain</option><option>Team Manager</option><option>Team Strategist</option><option>Team Member 1</option><option>Team Member 2</option><option>Team Member 3</option><option>Team Member 4</option><option>Team Member 5</option><option>Team Member 6</option><option>Team Member 7</option><option>Team Member</option></select></div>
-    <div class="frow"><div class="fg"><label class="fl">Email</label><input class="fi" id="mf-email" placeholder="name.it25@bitsathy.ac.in"></div><div class="fg"><label class="fl">Phone</label><input class="fi" id="mf-phone" placeholder="9XXXXXXXXX"></div></div>
-    <div class="fg"><label class="fl">Joined Date</label><input class="fi" id="mf-joined" type="date"></div>
-    <div class="modal-footer"><button class="btn btn-o" onclick="closeMo('mo-member')">Cancel</button><button class="btn btn-p" onclick="addMember()">Add Member</button></div>
-  </div>
+<div class="modal-h"><div class="modal-ht">➕ Add New Member</div><button class="modal-xbtn" onclick="closeMo('mo-member')">✕</button></div>
+<div class="modal-b">
+<div class="frow"><div class="fg"><label class="fl">Full Name *</label><input class="fi" id="mf-name" placeholder="Full name"></div><div class="fg"><label class="fl">Roll Number *</label><input class="fi" id="mf-roll" placeholder="7376252IT___"></div></div>
+<div class="fg"><label class="fl">Role *</label><select class="fs" id="mf-role"><option>Team Captain</option><option>Team Vice Captain</option><option>Team Manager</option><option>Team Strategist</option><option>Team Member 1</option><option>Team Member 2</option><option>Team Member 3</option><option>Team Member 4</option><option>Team Member 5</option><option>Team Member 6</option><option>Team Member 7</option><option>Team Member</option></select></div>
+<div class="frow"><div class="fg"><label class="fl">Email</label><input class="fi" id="mf-email" placeholder="name.it25@bitsathy.ac.in"></div><div class="fg"><label class="fl">Phone</label><input class="fi" id="mf-phone" placeholder="9XXXXXXXXX"></div></div>
+<div class="fg"><label class="fl">Joined Date</label><input class="fi" id="mf-joined" type="date"></div>
+<div class="modal-footer"><button class="btn btn-o" onclick="closeMo('mo-member')">Cancel</button><button class="btn btn-p" onclick="addMember()">Add Member</button></div>
+</div>
 </div></div>
 
 <!-- Add Task -->
 
 <div class="modal-ov" id="mo-task"><div class="modal-box">
-  <div class="modal-h"><div class="modal-ht">📊 New Task</div><button class="modal-xbtn" onclick="closeMo('mo-task')">✕</button></div>
-  <div class="modal-b">
-    <div class="fg"><label class="fl">Task Title *</label><input class="fi" id="tf-title" placeholder="e.g. Design landing page"></div>
-    <div class="fg"><label class="fl">Description</label><textarea class="fta" id="tf-desc" placeholder="Task details…"></textarea></div>
-    <div class="frow"><div class="fg"><label class="fl">Assign To *</label><select class="fs" id="tf-assign"></select></div><div class="fg"><label class="fl">Deadline</label><input class="fi" id="tf-deadline" type="date"></div></div>
-    <div class="fg"><label class="fl">Priority</label><div class="pri-group"><button class="pb ph" id="tp-h" onclick="setTP('h')">🔴 High</button><button class="pb" id="tp-m" onclick="setTP('m')">🟡 Medium</button><button class="pb" id="tp-l" onclick="setTP('l')">🟢 Low</button></div></div>
-    <div class="modal-footer"><button class="btn btn-o" onclick="closeMo('mo-task')">Cancel</button><button class="btn btn-p" onclick="addTask()">Create Task</button></div>
-  </div>
+<div class="modal-h"><div class="modal-ht">📊 New Task</div><button class="modal-xbtn" onclick="closeMo('mo-task')">✕</button></div>
+<div class="modal-b">
+<div class="fg"><label class="fl">Task Title *</label><input class="fi" id="tf-title" placeholder="e.g. Design landing page"></div>
+<div class="fg"><label class="fl">Description</label><textarea class="fta" id="tf-desc" placeholder="Task details…"></textarea></div>
+<div class="frow"><div class="fg"><label class="fl">Assign To *</label><select class="fs" id="tf-assign"></select></div><div class="fg"><label class="fl">Deadline</label><input class="fi" id="tf-deadline" type="date"></div></div>
+<div class="fg"><label class="fl">Priority</label><div class="pri-group"><button class="pb ph" id="tp-h" onclick="setTP('h')">🔴 High</button><button class="pb" id="tp-m" onclick="setTP('m')">🟡 Medium</button><button class="pb" id="tp-l" onclick="setTP('l')">🟢 Low</button></div></div>
+<div class="modal-footer"><button class="btn btn-o" onclick="closeMo('mo-task')">Cancel</button><button class="btn btn-p" onclick="addTask()">Create Task</button></div>
+</div>
 </div></div>
 
 <!-- Add Announcement -->
 
 <div class="modal-ov" id="mo-ann"><div class="modal-box">
-  <div class="modal-h"><div class="modal-ht">📢 New Announcement</div><button class="modal-xbtn" onclick="closeMo('mo-ann')">✕</button></div>
-  <div class="modal-b">
-    <div class="fg"><label class="fl">Title *</label><input class="fi" id="af-title" placeholder="Announcement title…"></div>
-    <div class="fg"><label class="fl">Message *</label><textarea class="fta" id="af-body" rows="4" placeholder="Your message…"></textarea></div>
-    <div class="fg"><label class="fl">Priority</label><div class="pri-group"><button class="pb ph" id="ap-h" onclick="setAP('h')">🔴 High</button><button class="pb" id="ap-m" onclick="setAP('m')">🟡 Medium</button><button class="pb" id="ap-l" onclick="setAP('l')">🟢 Low</button></div></div>
-    <div class="fg"><label class="fl">Posted By</label><input class="fi" id="af-by" placeholder="Your name / role"></div>
-    <div class="modal-footer"><button class="btn btn-o" onclick="closeMo('mo-ann')">Cancel</button><button class="btn btn-p" onclick="addAnn()">Post</button></div>
-  </div>
+<div class="modal-h"><div class="modal-ht">📢 New Announcement</div><button class="modal-xbtn" onclick="closeMo('mo-ann')">✕</button></div>
+<div class="modal-b">
+<div class="fg"><label class="fl">Title *</label><input class="fi" id="af-title" placeholder="Announcement title…"></div>
+<div class="fg"><label class="fl">Message *</label><textarea class="fta" id="af-body" rows="4" placeholder="Your message…"></textarea></div>
+<div class="fg"><label class="fl">Priority</label><div class="pri-group"><button class="pb ph" id="ap-h" onclick="setAP('h')">🔴 High</button><button class="pb" id="ap-m" onclick="setAP('m')">🟡 Medium</button><button class="pb" id="ap-l" onclick="setAP('l')">🟢 Low</button></div></div>
+<div class="fg"><label class="fl">Posted By</label><input class="fi" id="af-by" placeholder="Your name / role"></div>
+<div class="modal-footer"><button class="btn btn-o" onclick="closeMo('mo-ann')">Cancel</button><button class="btn btn-p" onclick="addAnn()">Post</button></div>
+</div>
 </div></div>
 
 <!-- Schedule Meeting -->
 
 <div class="modal-ov" id="mo-meet"><div class="modal-box">
-  <div class="modal-h"><div class="modal-ht">📅 Schedule Meeting</div><button class="modal-xbtn" onclick="closeMo('mo-meet')">✕</button></div>
-  <div class="modal-b">
-    <div class="fg"><label class="fl">Title *</label><input class="fi" id="mef-title" placeholder="Meeting title"></div>
-    <div class="frow"><div class="fg"><label class="fl">Date *</label><input class="fi" id="mef-date" type="date"></div><div class="fg"><label class="fl">Time</label><input class="fi" id="mef-time" type="time"></div></div>
-    <div class="frow"><div class="fg"><label class="fl">Duration</label><input class="fi" id="mef-dur" placeholder="e.g. 1 hour"></div><div class="fg"><label class="fl">Location</label><input class="fi" id="mef-loc" placeholder="Lab 3 / Google Meet"></div></div>
-    <div class="fg"><label class="fl">Agenda</label><textarea class="fta" id="mef-desc" placeholder="Topics to discuss…"></textarea></div>
-    <div class="modal-footer"><button class="btn btn-o" onclick="closeMo('mo-meet')">Cancel</button><button class="btn btn-p" onclick="addMeeting()">Schedule</button></div>
-  </div>
+<div class="modal-h"><div class="modal-ht">📅 Schedule Meeting</div><button class="modal-xbtn" onclick="closeMo('mo-meet')">✕</button></div>
+<div class="modal-b">
+<div class="fg"><label class="fl">Title *</label><input class="fi" id="mef-title" placeholder="Meeting title"></div>
+<div class="frow"><div class="fg"><label class="fl">Date *</label><input class="fi" id="mef-date" type="date"></div><div class="fg"><label class="fl">Time</label><input class="fi" id="mef-time" type="time"></div></div>
+<div class="frow"><div class="fg"><label class="fl">Duration</label><input class="fi" id="mef-dur" placeholder="e.g. 1 hour"></div><div class="fg"><label class="fl">Location</label><input class="fi" id="mef-loc" placeholder="Lab 3 / Google Meet"></div></div>
+<div class="fg"><label class="fl">Agenda</label><textarea class="fta" id="mef-desc" placeholder="Topics to discuss…"></textarea></div>
+<div class="modal-footer"><button class="btn btn-o" onclick="closeMo('mo-meet')">Cancel</button><button class="btn btn-p" onclick="addMeeting()">Schedule</button></div>
+</div>
 </div></div>
 
 <div class="toast" id="toast"></div>
@@ -662,25 +662,25 @@ transition:transform 0.3s cubic-bezier(0.4,0,0.2,1);
 // STORAGE HELPERS
 // ══════════════════════════════════════════════════════
 const LS = {
-  get:(k,d)=>{try{const v=localStorage.getItem('squad_'+k);return v?JSON.parse(v):d;}catch{return d;}},
-  set:(k,v)=>{try{localStorage.setItem('squad_'+k,JSON.stringify(v));}catch{}}
+get:(k,d)=>{try{const v=localStorage.getItem('squad_'+k);return v?JSON.parse(v):d;}catch{return d;}},
+set:(k,v)=>{try{localStorage.setItem('squad_'+k,JSON.stringify(v));}catch{}}
 };
 
 // ══════════════════════════════════════════════════════
 // INITIAL DATA
 // ══════════════════════════════════════════════════════
 const DEFAULT_MEMBERS = [
-  {id:'m1',name:'Hemavarshini V',rollNo:'7376252IT182',role:'Team Captain',email:'hemavarshiniv.it25@bitsathy.ac.in',phone:'9965889998',joined:'2026-02-20',notes:'',pts:50},
-  {id:'m2',name:'Nitharshan V',rollNo:'7376252IT263',role:'Team Vice Captain',email:'nitharshanv.it25@bitsathy.ac.in',phone:'9363797018',joined:'2026-02-21',notes:'',pts:40},
-  {id:'m3',name:'Shobika S',rollNo:'7376252IT342',role:'Team Manager',email:'shobikas.it25@bitsathy.ac.in',phone:'6374954830',joined:'2026-02-21',notes:'',pts:35},
-  {id:'m4',name:'Aravindhan G',rollNo:'7376252IT115',role:'Team Member 1',email:'aravindhang.it25@bitsathy.ac.in',phone:'9500201960',joined:'2026-02-21',notes:'',pts:20},
-  {id:'m5',name:'Harish S',rollNo:'7376252IT176',role:'Team Strategist',email:'harishs.it25@bitsathy.ac.in',phone:'9500928654',joined:'2026-02-21',notes:'',pts:30},
-  {id:'m6',name:'Ranjith Kumar P',rollNo:'7376252IT297',role:'Team Member 2',email:'ranjithkumarp.it25@bitsathy.ac.in',phone:'7373864314',joined:'2026-02-21',notes:'',pts:20},
-  {id:'m7',name:'Tharaneshkumar M',rollNo:'7376252IT369',role:'Team Member 3',email:'tharaneshkumarm.it25@bitsathy.ac.in',phone:'6382046080',joined:'2026-02-21',notes:'',pts:20},
-  {id:'m8',name:'Sudharshini S',rollNo:'7376252IT359',role:'Team Member 4',email:'sudharshinis.it25@bitsathy.ac.in',phone:'7397138478',joined:'2026-02-21',notes:'',pts:20},
-  {id:'m9',name:'Shruti D K',rollNo:'7376252IT343',role:'Team Member 5',email:'shrutidk.it25@bitsathy.ac.in',phone:'9994328332',joined:'2026-02-21',notes:'',pts:20},
-  {id:'m10',name:'Rakhavi C',rollNo:'7376252IT294',role:'Team Member 6',email:'rakhavic.it25@bitsathy.ac.in',phone:'9789416539',joined:'2026-02-21',notes:'',pts:15},
-  {id:'m11',name:'Rithik Prathaap N J',rollNo:'7376252IT307',role:'Team Member 7',email:'rithikprathaapnj.it25@bitsathy.ac.in',phone:'9345703754',joined:'2026-02-21',notes:'',pts:15},
+{id:'m1',name:'Hemavarshini V',rollNo:'7376252IT182',role:'Team Captain',email:'hemavarshiniv.it25@bitsathy.ac.in',phone:'9965889998',joined:'2026-02-20',notes:'',pts:50},
+{id:'m2',name:'Nitharshan V',rollNo:'7376252IT263',role:'Team Vice Captain',email:'nitharshanv.it25@bitsathy.ac.in',phone:'9363797018',joined:'2026-02-21',notes:'',pts:40},
+{id:'m3',name:'Shobika S',rollNo:'7376252IT342',role:'Team Manager',email:'shobikas.it25@bitsathy.ac.in',phone:'6374954830',joined:'2026-02-21',notes:'',pts:35},
+{id:'m4',name:'Aravindhan G',rollNo:'7376252IT115',role:'Team Member 1',email:'aravindhang.it25@bitsathy.ac.in',phone:'9500201960',joined:'2026-02-21',notes:'',pts:20},
+{id:'m5',name:'Harish S',rollNo:'7376252IT176',role:'Team Strategist',email:'harishs.it25@bitsathy.ac.in',phone:'9500928654',joined:'2026-02-21',notes:'',pts:30},
+{id:'m6',name:'Ranjith Kumar P',rollNo:'7376252IT297',role:'Team Member 2',email:'ranjithkumarp.it25@bitsathy.ac.in',phone:'7373864314',joined:'2026-02-21',notes:'',pts:20},
+{id:'m7',name:'Tharaneshkumar M',rollNo:'7376252IT369',role:'Team Member 3',email:'tharaneshkumarm.it25@bitsathy.ac.in',phone:'6382046080',joined:'2026-02-21',notes:'',pts:20},
+{id:'m8',name:'Sudharshini S',rollNo:'7376252IT359',role:'Team Member 4',email:'sudharshinis.it25@bitsathy.ac.in',phone:'7397138478',joined:'2026-02-21',notes:'',pts:20},
+{id:'m9',name:'Shruti D K',rollNo:'7376252IT343',role:'Team Member 5',email:'shrutidk.it25@bitsathy.ac.in',phone:'9994328332',joined:'2026-02-21',notes:'',pts:20},
+{id:'m10',name:'Rakhavi C',rollNo:'7376252IT294',role:'Team Member 6',email:'rakhavic.it25@bitsathy.ac.in',phone:'9789416539',joined:'2026-02-21',notes:'',pts:15},
+{id:'m11',name:'Rithik Prathaap N J',rollNo:'7376252IT307',role:'Team Member 7',email:'rithikprathaapnj.it25@bitsathy.ac.in',phone:'9345703754',joined:'2026-02-21',notes:'',pts:15},
 ];
 
 // Load / init from localStorage
@@ -695,40 +695,40 @@ let annP = 'h', taskP = 'h';
 let idC = LS.get('idC', 12);
 
 function save(){
-  LS.set('members',members);LS.set('tasks',tasks);LS.set('messages',messages);
-  LS.set('announcements',announcements);LS.set('meetings',meetings);
-  LS.set('attendance',attendance);LS.set('idC',idC);
+LS.set('members',members);LS.set('tasks',tasks);LS.set('messages',messages);
+LS.set('announcements',announcements);LS.set('meetings',meetings);
+LS.set('attendance',attendance);LS.set('idC',idC);
 }
 
 // ══════════════════════════════════════════════════════
 // ROLE STYLE HELPER
 // ══════════════════════════════════════════════════════
 function rs(role){
-  if(role==='Team Captain')return{ch:'ch-cap',av:'av-cap',acc:'acc-cap'};
-  if(role==='Team Vice Captain')return{ch:'ch-vic',av:'av-vic',acc:'acc-vic'};
-  if(role==='Team Manager')return{ch:'ch-mgr',av:'av-mgr',acc:'acc-mgr'};
-  if(role==='Team Strategist')return{ch:'ch-str',av:'av-str',acc:'acc-str'};
-  return{ch:'ch-mem',av:'av-mem',acc:'acc-mem'};
+if(role==='Team Captain')return{ch:'ch-cap',av:'av-cap',acc:'acc-cap'};
+if(role==='Team Vice Captain')return{ch:'ch-vic',av:'av-vic',acc:'acc-vic'};
+if(role==='Team Manager')return{ch:'ch-mgr',av:'av-mgr',acc:'acc-mgr'};
+if(role==='Team Strategist')return{ch:'ch-str',av:'av-str',acc:'acc-str'};
+return{ch:'ch-mem',av:'av-mem',acc:'acc-mem'};
 }
 function avColor(name){
-  const colors=['#6366f1','#22d3ee','#f472b6','#4ade80','#fbbf24','#f87171','#a78bfa','#fb923c','#34d399','#60a5fa','#e879f9'];
-  let h=0;for(let c of name)h=(h*31+c.charCodeAt(0))%colors.length;
-  return colors[Math.abs(h)];
+const colors=['#6366f1','#22d3ee','#f472b6','#4ade80','#fbbf24','#f87171','#a78bfa','#fb923c','#34d399','#60a5fa','#e879f9'];
+let h=0;for(let c of name)h=(h*31+c.charCodeAt(0))%colors.length;
+return colors[Math.abs(h)];
 }
 
 // ══════════════════════════════════════════════════════
 // PARTICLES
 // ══════════════════════════════════════════════════════
 function initParticles(){
-  const c=document.getElementById('particles');
-  for(let i=0;i<18;i++){
-    const d=document.createElement('div');
-    const size=Math.random()*4+2;
-    const colors=['#6366f1','#818cf8','#22d3ee','#f472b6','#4ade80'];
-    d.className='particle';
-    d.style.cssText=width:${size}px;height:${size}px;left:${Math.random()*100}%;background:${colors[Math.floor(Math.random()*colors.length)]};animation-duration:${Math.random()*20+15}s;animation-delay:${Math.random()*15}s;;
-    c.appendChild(d);
-  }
+const c=document.getElementById('particles');
+for(let i=0;i<18;i++){
+const d=document.createElement('div');
+const size=Math.random()*4+2;
+const colors=['#6366f1','#818cf8','#22d3ee','#f472b6','#4ade80'];
+d.className='particle';
+d.style.cssText=`width:${size}px;height:${size}px;left:${Math.random()*100}%;background:${colors[Math.floor(Math.random()*colors.length)]};animation-duration:${Math.random()*20+15}s;animation-delay:${Math.random()*15}s;`;
+c.appendChild(d);
+}
 }
 initParticles();
 
@@ -736,47 +736,47 @@ initParticles();
 // LOGIN
 // ══════════════════════════════════════════════════════
 function doLogin(){
-  const roll=document.getElementById('loginRoll').value.trim();
-  const name=document.getElementById('loginName').value.trim().toLowerCase();
-  const m=members.find(x=>x.rollNo.toLowerCase()===roll.toLowerCase()&&x.name.toLowerCase().startsWith(name));
-  if(!m){document.getElementById('loginErr').style.display='block';return;}
-  currentUser=m;
-  document.getElementById('loginScreen').style.animation='fadeOut 0.4s ease forwards';
-  setTimeout(()=>{
-    document.getElementById('loginScreen').style.display='none';
-    document.getElementById('app').style.display='block';
-    initApp();
-  },400);
-  LS.set('currentUser',m.id);
+const roll=document.getElementById('loginRoll').value.trim();
+const name=document.getElementById('loginName').value.trim().toLowerCase();
+const m=members.find(x=>x.rollNo.toLowerCase()===roll.toLowerCase()&&x.name.toLowerCase().startsWith(name));
+if(!m){document.getElementById('loginErr').style.display='block';return;}
+currentUser=m;
+document.getElementById('loginScreen').style.animation='fadeOut 0.4s ease forwards';
+setTimeout(()=>{
+document.getElementById('loginScreen').style.display='none';
+document.getElementById('app').style.display='block';
+initApp();
+},400);
+LS.set('currentUser',m.id);
 }
 function doLogout(){
-  currentUser=null;LS.set('currentUser',null);
-  location.reload();
+currentUser=null;LS.set('currentUser',null);
+location.reload();
 }
 // Auto-login if session
 window.addEventListener('load',()=>{
-  const uid=LS.get('currentUser',null);
-  if(uid){
-    const m=members.find(x=>x.id===uid);
-    if(m){currentUser=m;document.getElementById('loginScreen').style.display='none';document.getElementById('app').style.display='block';initApp();}
-  }
+const uid=LS.get('currentUser',null);
+if(uid){
+const m=members.find(x=>x.id===uid);
+if(m){currentUser=m;document.getElementById('loginScreen').style.display='none';document.getElementById('app').style.display='block';initApp();}
+}
 });
 
 // ══════════════════════════════════════════════════════
 // INIT APP
 // ══════════════════════════════════════════════════════
 function initApp(){
-  const s=rs(currentUser.role);
-  document.getElementById('sbUser').innerHTML=<div class="sb-av ${s.av}" style="background:${avColor(currentUser.name)};">${currentUser.name[0]}</div><div><div class="sb-uname">${currentUser.name.split(' ')[0]}</div><div class="sb-urole">${currentUser.role}</div></div>;
-  populateAssigneeDropdowns();
-  renderAll();
-  goPage('dashboard',document.querySelector('.nav-item.active'));
+const s=rs(currentUser.role);
+document.getElementById('sbUser').innerHTML=`<div class="sb-av ${s.av}" style="background:${avColor(currentUser.name)};">${currentUser.name[0]}</div><div><div class="sb-uname">${currentUser.name.split(' ')[0]}</div><div class="sb-urole">${currentUser.role}</div></div>`;
+populateAssigneeDropdowns();
+renderAll();
+goPage('dashboard',document.querySelector('.nav-item.active'));
 }
 
 function renderAll(){
-  renderDash();renderMembers();renderTasks();renderChat();
-  renderAnns();renderMeetings();renderAttendance();renderLeaderboard();
-  updateBadges();
+renderDash();renderMembers();renderTasks();renderChat();
+renderAnns();renderMeetings();renderAttendance();renderLeaderboard();
+updateBadges();
 }
 
 // ══════════════════════════════════════════════════════
@@ -784,121 +784,121 @@ function renderAll(){
 // ══════════════════════════════════════════════════════
 const pageTitles={dashboard:'Dashboard',members:'Members',profile:'Profile',tasks:'Tasks',chat:'Team Chat',announcements:'Announcements',meetings:'Meetings',attendance:'Attendance',leaderboard:'Leaderboard'};
 const pageActions={
-  members:<button class="btn btn-p" onclick="openMo('mo-member')">➕ Add Member</button>,
-  tasks:<button class="btn btn-p" onclick="openMo('mo-task')">➕ New Task</button>,
-  announcements:<button class="btn btn-p" onclick="openMo('mo-ann')">📢 Post</button>,
-  meetings:<button class="btn btn-p" onclick="openMo('mo-meet')">📅 Schedule</button>,
-  leaderboard:<button class="btn btn-o" onclick="openMo('mo-pts')">➕ Add Points</button>,
+members:`<button class="btn btn-p" onclick="openMo('mo-member')">➕ Add Member</button>`,
+tasks:`<button class="btn btn-p" onclick="openMo('mo-task')">➕ New Task</button>`,
+announcements:`<button class="btn btn-p" onclick="openMo('mo-ann')">📢 Post</button>`,
+meetings:`<button class="btn btn-p" onclick="openMo('mo-meet')">📅 Schedule</button>`,
+leaderboard:`<button class="btn btn-o" onclick="openMo('mo-pts')">➕ Add Points</button>`,
 };
 
 function goPage(page,btn){
-  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
-  document.getElementById('page-'+page).classList.add('active');
-  document.getElementById('tbTitle').textContent=pageTitles[page]||page;
-  document.getElementById('tbActions').innerHTML=pageActions[page]||'';
-  document.querySelectorAll('.nav-item').forEach(n=>n.classList.remove('active'));
-  if(btn) btn.classList.add('active');
-  else{document.querySelectorAll('.nav-item').forEach(n=>{if(n.textContent.trim().startsWith(pageTitles[page]?.slice(0,5)))n.classList.add('active');});}
-  if(page==='dashboard')renderDash();
-  if(page==='members')renderMembers();
-  if(page==='tasks'){renderTasks();populateAssigneeDropdowns();}
-  if(page==='chat'){renderChat();setTimeout(()=>scrollChat(),100);}
-  if(page==='announcements')renderAnns();
-  if(page==='meetings')renderMeetings();
-  if(page==='attendance')renderAttendance();
-  if(page==='leaderboard')renderLeaderboard();
-  closeSb();
+document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+document.getElementById('page-'+page).classList.add('active');
+document.getElementById('tbTitle').textContent=pageTitles[page]||page;
+document.getElementById('tbActions').innerHTML=pageActions[page]||'';
+document.querySelectorAll('.nav-item').forEach(n=>n.classList.remove('active'));
+if(btn) btn.classList.add('active');
+else{document.querySelectorAll('.nav-item').forEach(n=>{if(n.textContent.trim().startsWith(pageTitles[page]?.slice(0,5)))n.classList.add('active');});}
+if(page==='dashboard')renderDash();
+if(page==='members')renderMembers();
+if(page==='tasks'){renderTasks();populateAssigneeDropdowns();}
+if(page==='chat'){renderChat();setTimeout(()=>scrollChat(),100);}
+if(page==='announcements')renderAnns();
+if(page==='meetings')renderMeetings();
+if(page==='attendance')renderAttendance();
+if(page==='leaderboard')renderLeaderboard();
+closeSb();
 }
 
 // ══════════════════════════════════════════════════════
 // MEMBERS
 // ══════════════════════════════════════════════════════
 function renderMembers(){
-  const q=(document.getElementById('mem-srch').value||'').toLowerCase();
-  const rf=document.getElementById('mem-role').value;
-  const grid=document.getElementById('membersGrid');
-  let filtered=members.filter(m=>{
-    const mq=!q||m.name.toLowerCase().includes(q)||m.rollNo.toLowerCase().includes(q)||m.role.toLowerCase().includes(q);
-    const mr=!rf||m.role.toLowerCase().includes(rf.toLowerCase());
-    return mq&&mr;
-  });
-  if(!filtered.length){grid.innerHTML=<div class="empty-state" style="grid-column:1/-1"><div class="ei">🔍</div><p>No members found</p></div>;return;}
-  grid.innerHTML=filtered.map(m=>{
-    const s=rs(m.role);const ac=avColor(m.name);
-    return `<div class="card mc" onclick="openProfile('${m.id}')">
-      <div class="mc-top" style="background:${ac};"></div>
-      <div class="mc-body">
-        <div class="mc-head">
-          <div class="mc-av ${s.av}" style="background:${ac};">${m.name[0]}</div>
-          <div><div class="mc-name">${m.name}</div><div class="mc-id">${m.rollNo}</div></div>
-        </div>
-        <span class="chip ${s.ch}">${m.role}</span>
-        <div class="mc-info" style="margin-top:10px;">
-          ${m.email?<span>✉️ <span style="color:var(--txt)">${m.email}</span></span>:''}
-          ${m.phone?<span>📞 <span style="color:var(--txt)">${m.phone}</span></span>:''}
-        </div>
-        <div class="mc-acts">
-          <button class="btn btn-o btn-sm" onclick="event.stopPropagation();openProfile('${m.id}')">👤 Profile</button>
-          <button class="btn btn-d btn-sm" onclick="event.stopPropagation();delMember('${m.id}')">🗑</button>
-        </div>
-      </div>
-    </div>`;
-  }).join('');
-  updateBadges();
+const q=(document.getElementById('mem-srch').value||'').toLowerCase();
+const rf=document.getElementById('mem-role').value;
+const grid=document.getElementById('membersGrid');
+let filtered=members.filter(m=>{
+const mq=!q||m.name.toLowerCase().includes(q)||m.rollNo.toLowerCase().includes(q)||m.role.toLowerCase().includes(q);
+const mr=!rf||m.role.toLowerCase().includes(rf.toLowerCase());
+return mq&&mr;
+});
+if(!filtered.length){grid.innerHTML=`<div class="empty-state" style="grid-column:1/-1"><div class="ei">🔍</div><p>No members found</p></div>`;return;}
+grid.innerHTML=filtered.map(m=>{
+const s=rs(m.role);const ac=avColor(m.name);
+return `<div class="card mc" onclick="openProfile('${m.id}')">
+<div class="mc-top" style="background:${ac};"></div>
+<div class="mc-body">
+<div class="mc-head">
+<div class="mc-av ${s.av}" style="background:${ac};">${m.name[0]}</div>
+<div><div class="mc-name">${m.name}</div><div class="mc-id">${m.rollNo}</div></div>
+</div>
+<span class="chip ${s.ch}">${m.role}</span>
+<div class="mc-info" style="margin-top:10px;">
+${m.email?`<span>✉️ <span style="color:var(--txt)">${m.email}</span></span>`:''}
+${m.phone?`<span>📞 <span style="color:var(--txt)">${m.phone}</span></span>`:''}
+</div>
+<div class="mc-acts">
+<button class="btn btn-o btn-sm" onclick="event.stopPropagation();openProfile('${m.id}')">👤 Profile</button>
+<button class="btn btn-d btn-sm" onclick="event.stopPropagation();delMember('${m.id}')">🗑</button>
+</div>
+</div>
+</div>`;
+}).join('');
+updateBadges();
 }
 
 function addMember(){
-  const name=v('mf-name'),roll=v('mf-roll'),role=v('mf-role'),email=v('mf-email'),phone=v('mf-phone'),joined=v('mf-joined');
-  if(!name||!roll){toast('Name & Roll Number required','err');return;}
-  members.push({id:'m'+idC++,name,rollNo:roll,role,email,phone,joined,notes:'',pts:10});
-  save();closeMo('mo-member');clearFs(['mf-name','mf-roll','mf-email','mf-phone','mf-joined']);
-  populateAssigneeDropdowns();renderMembers();updateBadges();
-  toast('Member added! 🎉','ok');
+const name=v('mf-name'),roll=v('mf-roll'),role=v('mf-role'),email=v('mf-email'),phone=v('mf-phone'),joined=v('mf-joined');
+if(!name||!roll){toast('Name & Roll Number required','err');return;}
+members.push({id:'m'+idC++,name,rollNo:roll,role,email,phone,joined,notes:'',pts:10});
+save();closeMo('mo-member');clearFs(['mf-name','mf-roll','mf-email','mf-phone','mf-joined']);
+populateAssigneeDropdowns();renderMembers();updateBadges();
+toast('Member added! 🎉','ok');
 }
 
 function delMember(id){
-  if(!confirm('Remove this member?'))return;
-  members=members.filter(m=>m.id!==id);save();
-  renderMembers();updateBadges();toast('Member removed','ok');
+if(!confirm('Remove this member?'))return;
+members=members.filter(m=>m.id!==id);save();
+renderMembers();updateBadges();toast('Member removed','ok');
 }
 
 // ── PROFILE ──
 function openProfile(id){
-  const m=members.find(x=>x.id===id);if(!m)return;
-  const s=rs(m.role);const ac=avColor(m.name);
-  const joined=m.joined?new Date(m.joined).toLocaleDateString('en-IN',{day:'2-digit',month:'long',year:'numeric'}):'—';
-  const myTasks=tasks.filter(t=>t.assigneeId===id);
-  const att=Object.values(attendance).reduce((acc,meet)=>{if(meet[id]==='p')acc.p++;else if(meet[id]==='a')acc.a++;else if(meet[id]==='e')acc.e++;return acc;},{p:0,a:0,e:0});
-  const total=att.p+att.a+att.e;const pct=total?Math.round(att.p/total*100):100;
-  document.getElementById('profileContent').innerHTML=`
-    <div class="profile-hero">
-      <div class="profile-av ${s.av}" style="background:${ac};">${m.name[0]}</div>
-      <div>
-        <div class="profile-name">${m.name}</div>
-        <div class="profile-id">${m.rollNo}</div>
-        <span class="chip ${s.ch}">${m.role}</span>
-      </div>
-    </div>
-    <div class="profile-dgrid">
-      <div class="card dbox"><div class="dbl">Email</div><div class="dbv">${m.email||'—'}</div></div>
-      <div class="card dbox"><div class="dbl">Phone</div><div class="dbv">${m.phone||'—'}</div></div>
-      <div class="card dbox"><div class="dbl">Joined</div><div class="dbv">${joined}</div></div>
-      <div class="card dbox"><div class="dbl">Department</div><div class="dbv">Information Technology</div></div>
-      <div class="card dbox"><div class="dbl">🏆 Points</div><div class="dbv" style="color:var(--amber);font-family:'Bebas Neue';font-size:24px;">${m.pts}</div></div>
-      <div class="card dbox"><div class="dbl">📈 Attendance</div><div class="dbv" style="color:${pct>=75?'var(--green)':pct>=50?'var(--amber)':'var(--red)'};font-family:'Bebas Neue';font-size:24px;">${pct}%</div></div>
-    </div>
-    <div class="sec-title">Tasks (${myTasks.length})</div>
-    <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px;">
-      ${myTasks.length?myTasks.map(t=><span style="background:var(--card);border:1px solid var(--b2);border-radius:7px;padding:5px 11px;font-size:12px;">${t.title} <span style="color:${t.status==='done'?'var(--green)':t.status==='prog'?'var(--amber)':'var(--muted)'};font-size:10px;">● ${t.status}</span></span>).join(''):'<span style="color:var(--muted);font-size:13px;">No tasks assigned</span>'}
-    </div>
-    <div class="sec-title">Notes</div>
-    <div class="card notes-wrap"><textarea class="notes-ta" id="profNotes" placeholder="Add personal notes…" onblur="saveNote('${id}')">${m.notes||''}</textarea></div>
+const m=members.find(x=>x.id===id);if(!m)return;
+const s=rs(m.role);const ac=avColor(m.name);
+const joined=m.joined?new Date(m.joined).toLocaleDateString('en-IN',{day:'2-digit',month:'long',year:'numeric'}):'—';
+const myTasks=tasks.filter(t=>t.assigneeId===id);
+const att=Object.values(attendance).reduce((acc,meet)=>{if(meet[id]==='p')acc.p++;else if(meet[id]==='a')acc.a++;else if(meet[id]==='e')acc.e++;return acc;},{p:0,a:0,e:0});
+const total=att.p+att.a+att.e;const pct=total?Math.round(att.p/total*100):100;
+document.getElementById('profileContent').innerHTML=`
+<div class="profile-hero">
+<div class="profile-av ${s.av}" style="background:${ac};">${m.name[0]}</div>
+<div>
+<div class="profile-name">${m.name}</div>
+<div class="profile-id">${m.rollNo}</div>
+<span class="chip ${s.ch}">${m.role}</span>
+</div>
+</div>
+<div class="profile-dgrid">
+<div class="card dbox"><div class="dbl">Email</div><div class="dbv">${m.email||'—'}</div></div>
+<div class="card dbox"><div class="dbl">Phone</div><div class="dbv">${m.phone||'—'}</div></div>
+<div class="card dbox"><div class="dbl">Joined</div><div class="dbv">${joined}</div></div>
+<div class="card dbox"><div class="dbl">Department</div><div class="dbv">Information Technology</div></div>
+<div class="card dbox"><div class="dbl">🏆 Points</div><div class="dbv" style="color:var(--amber);font-family:'Bebas Neue';font-size:24px;">${m.pts}</div></div>
+<div class="card dbox"><div class="dbl">📈 Attendance</div><div class="dbv" style="color:${pct>=75?'var(--green)':pct>=50?'var(--amber)':'var(--red)'};font-family:'Bebas Neue';font-size:24px;">${pct}%</div></div>
+</div>
+<div class="sec-title">Tasks (${myTasks.length})</div>
+<div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px;">
+${myTasks.length?myTasks.map(t=>`<span style="background:var(--card);border:1px solid var(--b2);border-radius:7px;padding:5px 11px;font-size:12px;">${t.title} <span style="color:${t.status==='done'?'var(--green)':t.status==='prog'?'var(--amber)':'var(--muted)'};font-size:10px;">● ${t.status}</span></span>`).join(''):'<span style="color:var(--muted);font-size:13px;">No tasks assigned</span>'}
+</div>
+<div class="sec-title">Notes</div>
+<div class="card notes-wrap"><textarea class="notes-ta" id="profNotes" placeholder="Add personal notes…" onblur="saveNote('${id}')">${m.notes||''}</textarea></div>
 
-
+```
 <button class="btn btn-d" onclick="delMember('${id}');goPage('members',null)">🗑 Remove Member</button>
+```
 
-
-; document.querySelectorAll('.nav-item').forEach(n=>n.classList.remove('active')); document.getElementById('page-profile').classList.add('active'); document.querySelectorAll('.page').forEach(p=>{if(p.id!=='page-profile')p.classList.remove('active');}); document.getElementById('tbTitle').textContent=m.name; document.getElementById('tbActions').innerHTML=<button class="btn btn-o btn-sm" onclick="goPage('members',null)">← Back</button>`;
+`; document.querySelectorAll('.nav-item').forEach(n=>n.classList.remove('active')); document.getElementById('page-profile').classList.add('active'); document.querySelectorAll('.page').forEach(p=>{if(p.id!=='page-profile')p.classList.remove('active');}); document.getElementById('tbTitle').textContent=m.name; document.getElementById('tbActions').innerHTML=`<button class="btn btn-o btn-sm" onclick="goPage('members',null)">← Back</button>`;
 }
 function saveNote(id){const m=members.find(x=>x.id===id);if(m){m.notes=document.getElementById(‘profNotes’).value;save();toast(‘Notes saved ✓’,‘ok’);}}
 
@@ -912,7 +912,7 @@ function populateAssigneeDropdowns(){
 [‘tf-assign’,‘task-assignee’].forEach(id=>{
 const el=document.getElementById(id);if(!el)return;
 const isFilter=id===‘task-assignee’;
-el.innerHTML=(isFilter?’<option value="">All Members</option>’:’’)+members.map(m=><option value="${m.id}">${m.name}</option>).join(’’);
+el.innerHTML=(isFilter?’<option value="">All Members</option>’:’’)+members.map(m=>`<option value="${m.id}">${m.name}</option>`).join(’’);
 });
 }
 
@@ -943,9 +943,9 @@ const dl=t.deadline?new Date(t.deadline):null;
 const overdue=dl&&dl<new Date()&&t.status!==‘done’;
 const pmap={h:‘tp-h High’,m:‘tp-m Medium’,l:‘tp-l Low’};
 counts[t.status]=(counts[t.status]||0)+1;
-cols[t.status].innerHTML+=<div class="task-card"> <span class="task-priority ${pmap[t.priority]?.split(' ')[0]}">${pmap[t.priority]?.split(' ')[1]||''}</span> <div class="task-title">${t.title}</div> ${t.desc?<div style="font-size:11px;color:var(--muted);margin-bottom:8px;line-height:1.4;">${t.desc}</div>:''} <div class="task-assignee"><div class="task-av" style="background:${ac};">${m.name[0]}</div><div class="task-aname">${m.name.split(' ')[0]}</div></div> ${dl?<div class="task-deadline ${overdue?'overdue':''}">📅 ${dl.toLocaleDateString(‘en-IN’,{day:‘2-digit’,month:‘short’})}${overdue?’ ⚠ Overdue’:’’}</div>:''} <div class="task-actions"> ${t.status!=='todo'?<button class="btn btn-o btn-xs" onclick="moveTask('${t.id}','prev')">←</button>:''} ${t.status!=='done'?<button class="btn btn-g btn-xs" onclick="moveTask('${t.id}','next')">→ ${t.status===‘todo’?‘Start’:‘Done’}</button>:''} <button class="btn btn-d btn-xs" onclick="delTask('${t.id}')">🗑</button> </div> </div>;
+cols[t.status].innerHTML+=`<div class="task-card"> <span class="task-priority ${pmap[t.priority]?.split(' ')[0]}">${pmap[t.priority]?.split(' ')[1]||''}</span> <div class="task-title">${t.title}</div> ${t.desc?`<div style="font-size:11px;color:var(--muted);margin-bottom:8px;line-height:1.4;">${t.desc}</div>`:''} <div class="task-assignee"><div class="task-av" style="background:${ac};">${m.name[0]}</div><div class="task-aname">${m.name.split(' ')[0]}</div></div> ${dl?`<div class="task-deadline ${overdue?'overdue':''}">📅 ${dl.toLocaleDateString(‘en-IN’,{day:‘2-digit’,month:‘short’})}${overdue?’ ⚠ Overdue’:’’}</div>`:''} <div class="task-actions"> ${t.status!=='todo'?`<button class="btn btn-o btn-xs" onclick="moveTask('${t.id}','prev')">←</button>`:''} ${t.status!=='done'?`<button class="btn btn-g btn-xs" onclick="moveTask('${t.id}','next')">→ ${t.status===‘todo’?‘Start’:‘Done’}</button>`:''} <button class="btn btn-d btn-xs" onclick="delTask('${t.id}')">🗑</button> </div> </div>`;
 });
-statuses.forEach(st=>{if(!counts[st])cols[st].innerHTML=<div style="color:var(--muted);font-size:12px;text-align:center;padding:20px;">No tasks</div>;});
+statuses.forEach(st=>{if(!counts[st])cols[st].innerHTML=`<div style="color:var(--muted);font-size:12px;text-align:center;padding:20px;">No tasks</div>`;});
 document.getElementById(‘cnt-todo’).textContent=counts.todo||0;
 document.getElementById(‘cnt-prog’).textContent=counts.prog||0;
 document.getElementById(‘cnt-done’).textContent=counts.done||0;
@@ -979,17 +979,17 @@ function delMsg(id){messages=messages.filter(m=>m.id!==id);save();renderChat();}
 
 function renderChat(){
 const box=document.getElementById(‘chatMessages’);
-if(!messages.length){box.innerHTML=<div class="empty-state"><div class="ei">💬</div><p>No messages yet. Say hi!</p></div>;return;}
+if(!messages.length){box.innerHTML=`<div class="empty-state"><div class="ei">💬</div><p>No messages yet. Say hi!</p></div>`;return;}
 box.innerHTML=messages.map(m=>{
 const mine=m.userId===currentUser.id;
 const ac=avColor(m.name);
-return <div class="msg ${mine?'mine':''}"> <div class="msg-av" style="background:${ac};">${m.name[0]}</div> <div class="msg-bubble ${m.pinned?'msg-pinned':''}"> <div class="msg-name">${m.name}</div> <div class="msg-text">${escHtml(m.text)}</div> <div class="msg-time">${m.time} ${m.pinned?'📌':''} <span style="cursor:pointer;margin-left:6px;" onclick="pinMsg('${m.id}')">📌</span>${mine? <span style="cursor:pointer;" onclick="delMsg('${m.id}')">🗑</span>:''}</div> </div> </div>;
+return `<div class="msg ${mine?'mine':''}"> <div class="msg-av" style="background:${ac};">${m.name[0]}</div> <div class="msg-bubble ${m.pinned?'msg-pinned':''}"> <div class="msg-name">${m.name}</div> <div class="msg-text">${escHtml(m.text)}</div> <div class="msg-time">${m.time} ${m.pinned?'📌':''} <span style="cursor:pointer;margin-left:6px;" onclick="pinMsg('${m.id}')">📌</span>${mine?` <span style="cursor:pointer;" onclick="delMsg('${m.id}')">🗑</span>`:''}</div> </div> </div>`;
 }).join(’’);
 // Pinned
 const pinned=messages.filter(m=>m.pinned);
-document.getElementById(‘pinnedList’).innerHTML=pinned.length?pinned.map(m=><div style="font-size:11px;padding:6px 0;border-bottom:1px solid var(--b2);color:var(--muted);">📌 ${m.name}: ${m.text.slice(0,40)}…</div>).join(’’):’<p style="font-size:12px;color:var(--muted);">No pinned messages</p>’;
+document.getElementById(‘pinnedList’).innerHTML=pinned.length?pinned.map(m=>`<div style="font-size:11px;padding:6px 0;border-bottom:1px solid var(--b2);color:var(--muted);">📌 ${m.name}: ${m.text.slice(0,40)}…</div>`).join(’’):’<p style="font-size:12px;color:var(--muted);">No pinned messages</p>’;
 // Online
-document.getElementById(‘onlineList’).innerHTML=members.slice(0,5).map(m=><div class="online-item"><div class="online-dot"></div><div style="font-size:12px;">${m.name.split(' ')[0]}</div></div>).join(’’);
+document.getElementById(‘onlineList’).innerHTML=members.slice(0,5).map(m=>`<div class="online-item"><div class="online-dot"></div><div style="font-size:12px;">${m.name.split(' ')[0]}</div></div>`).join(’’);
 }
 function scrollChat(){const b=document.getElementById(‘chatMessages’);b.scrollTop=b.scrollHeight;}
 function escHtml(t){return t.replace(/&/g,’&’).replace(/</g,’<’).replace(/>/g,’>’);}
@@ -1011,7 +1011,7 @@ function delAnn(id){announcements=announcements.filter(a=>a.id!==id);save();rend
 
 function renderAnns(){
 const el=document.getElementById(‘annsList’);
-if(!announcements.length){el.innerHTML=<div class="empty-state"><div class="ei">📢</div><p>No announcements. Post one!</p></div>;return;}
+if(!announcements.length){el.innerHTML=`<div class="empty-state"><div class="ei">📢</div><p>No announcements. Post one!</p></div>`;return;}
 const pmap={h:‘hi’,m:‘md’,l:‘lo’};
 el.innerHTML=announcements.map(a=>`<div class="card ann-full ${pmap[a.priority]}">
 <button class="ann-close" onclick="delAnn('${a.id}')">✕</button>
@@ -1019,7 +1019,7 @@ el.innerHTML=announcements.map(a=>`<div class="card ann-full ${pmap[a.priority]}
 <div class="ann-body">${a.body}</div>
 <div class="ann-meta"><span>👤 ${a.by}</span><span>🕐 ${a.time}</span><span style="color:${a.priority==='h'?'var(--red)':a.priority==='m'?'var(--amber)':'var(--green)'}">● ${a.priority===‘h’?‘HIGH’:a.priority===‘m’?‘MEDIUM’:‘LOW’}</span></div>
 
-  </div>`).join('');
+</div>`).join('');
 }
 
 // ══════════════════════════════════════════════════════
@@ -1044,11 +1044,11 @@ save();renderMeetings();renderDash();updateBadges();
 
 function renderMeetings(){
 const el=document.getElementById(‘meetsList’);
-if(!meetings.length){el.innerHTML=<div class="empty-state"><div class="ei">📅</div><p>No meetings. Schedule one!</p></div>;return;}
+if(!meetings.length){el.innerHTML=`<div class="empty-state"><div class="ei">📅</div><p>No meetings. Schedule one!</p></div>`;return;}
 el.innerHTML=meetings.map(m=>{
 const d=new Date(m.date);
 const stcls={upcoming:‘st-up’,done:‘st-dn’,cancelled:‘st-ca’}[m.status]||‘st-up’;
-return <div class="card mt-card"> <div class="mt-date"><div class="mt-day">${d.getDate()}</div><div class="mt-mon">${d.toLocaleString('en',{month:'short'}).toUpperCase()}</div></div> <div class="mt-info"> <div class="mt-title">${m.title}</div> <div class="mt-time">🕐 ${m.time||'TBD'}${m.dur?' · '+m.dur:''}${m.loc?' · 📍'+m.loc:''}</div> ${m.desc?<div class="mt-desc">${m.desc}</div>:''} <span class="mt-status ${stcls}">${m.status}</span> <div class="mt-acts"> <button class="btn btn-o btn-sm" onclick="toggleMeetStatus('${m.id}')">🔄 Status</button> <button class="btn btn-d btn-sm" onclick="delMeeting('${m.id}')">🗑</button> </div> </div> </div>;
+return `<div class="card mt-card"> <div class="mt-date"><div class="mt-day">${d.getDate()}</div><div class="mt-mon">${d.toLocaleString('en',{month:'short'}).toUpperCase()}</div></div> <div class="mt-info"> <div class="mt-title">${m.title}</div> <div class="mt-time">🕐 ${m.time||'TBD'}${m.dur?' · '+m.dur:''}${m.loc?' · 📍'+m.loc:''}</div> ${m.desc?`<div class="mt-desc">${m.desc}</div>`:''} <span class="mt-status ${stcls}">${m.status}</span> <div class="mt-acts"> <button class="btn btn-o btn-sm" onclick="toggleMeetStatus('${m.id}')">🔄 Status</button> <button class="btn btn-d btn-sm" onclick="delMeeting('${m.id}')">🗑</button> </div> </div> </div>`;
 }).join(’’);
 }
 
@@ -1070,7 +1070,118 @@ save();renderAttendance();renderLeaderboard();
 function renderAttendance(){
 // Meetings tracker
 const mt=document.getElementById(‘attMeetings’);
-if(!meetings.length){mt.innerHTML=<div class="empty-state"><div class="ei">📅</div><p>No meetings yet.</p></div>;return;}
+if(!meetings.length){mt.innerHTML=`<div class="empty-state"><div class="ei">📅</div><p>No meetings yet.</p></div>`;return;}
 mt.innerHTML=meetings.map(meet=>{
 const d=new Date(meet.date);
-return `<div class="card meet-row"> <div class="mt-date" style="min-width:50px;padding:8px 10px;"><div class="mt-day" style="font-size:22px;">${d.getDate()}</div><div class="mt-mon">${d.toLocaleString('en',{month:'short'}).toUpperCase()}</div></div> <div class="meet-title-t" style="flex:1;">${meet.title}</div> <div class="att-mark-row"> ${members.map(m=>{ const st=(attendance[meet.id]||{})[m.id]; return `<div style="display:flex;flex-direction:column;align-items:center;gap:3px;font-size:9px;
+return `<div class="card meet-row"> <div class="mt-date" style="min-width:50px;padding:8px 10px;"><div class="mt-day" style="font-size:22px;">${d.getDate()}</div><div class="mt-mon">${d.toLocaleString('en',{month:'short'}).toUpperCase()}</div></div> <div class="meet-title-t" style="flex:1;">${meet.title}</div> <div class="att-mark-row"> ${members.map(m=>{ const st=(attendance[meet.id]||{})[m.id]; return `<div style="display:flex;flex-direction:column;align-items:center;gap:3px;font-size:9px;color:var(--muted);">
+<span>${m.name.split(’ ‘)[0]}</span>
+<div style="display:flex;gap:3px;">
+<button class="att-btn att-present ${st==='p'?'sel-p':''}" onclick="markAtt('${meet.id}','${m.id}','p')">P</button>
+<button class="att-btn att-absent ${st==='a'?'sel-a':''}" onclick="markAtt('${meet.id}','${m.id}','a')">A</button>
+<button class="att-btn att-excuse ${st==='e'?'sel-e':''}" onclick="markAtt('${meet.id}','${m.id}','e')">E</button>
+</div>
+</div>`; }).join('')} </div> </div>`;
+}).join(’’);
+
+// Summary cards
+const grid=document.getElementById(‘attGrid’);
+grid.innerHTML=members.map(m=>{
+const rec=Object.values(attendance).reduce((acc,meet)=>{if(meet[m.id]===‘p’)acc.p++;else if(meet[m.id]===‘a’)acc.a++;else if(meet[m.id]===‘e’)acc.e++;return acc;},{p:0,a:0,e:0});
+const total=rec.p+rec.a+rec.e||1;const pct=Math.round(rec.p/total*100);
+const cls=pct>=75?‘pct-hi’:pct>=50?‘pct-md’:‘pct-lo’;
+const fcls=pct>=75?‘pf-hi’:pct>=50?‘pf-md’:‘pf-lo’;
+return `<div class="card att-card"> <div class="att-header"> <div> <div class="att-name">${m.name.split(' ')[0]}</div> <div style="font-size:10px;color:var(--muted);">${m.role}</div> </div> <div class="att-pct ${cls}">${pct}%</div> </div> <div class="progress-bar"><div class="progress-fill ${fcls}" style="width:${pct}%"></div></div> <div style="display:flex;gap:10px;font-size:11px;color:var(--muted);"> <span>✅ ${rec.p} Present</span><span>❌ ${rec.a} Absent</span><span>⚠️ ${rec.e} Excuse</span> </div> </div>`;
+}).join(’’);
+}
+
+// ══════════════════════════════════════════════════════
+// LEADERBOARD
+// ══════════════════════════════════════════════════════
+function addPoints(id,pts){
+const m=members.find(x=>x.id===id);if(m){m.pts=Math.max(0,(m.pts||0)+pts);save();renderLeaderboard();toast(`${pts>0?'+':''}${pts} pts!`,‘ok’);}
+}
+
+function renderLeaderboard(){
+const sorted=[…members].sort((a,b)=>(b.pts||0)-(a.pts||0));
+const maxPts=sorted[0]?.pts||1;
+
+// PODIUM
+const top3=sorted.slice(0,3);
+const pod=[null,null,null];
+if(top3[0])pod[1]=top3[0];
+if(top3[1])pod[0]=top3[1];
+if(top3[2])pod[2]=top3[2];
+const podCls=[‘podium-2’,‘podium-1’,‘podium-3’];
+const podRank=[‘2nd’,‘1st’,‘3rd’];
+document.getElementById(‘lbPodium’).innerHTML=pod.filter(Boolean).map((m,i)=>` <div class="podium-item ${podCls[i]}"> <div class="podium-av ${rs(m.role).av}" style="background:${avColor(m.name)};"> ${podCls[i]==='podium-1'?'<div class="podium-crown">👑</div>':''} ${m.name[0]} </div> <div class="podium-name">${m.name.split(' ')[0]}</div> <div class="podium-pts">${m.pts||0}</div> <div style="font-size:9px;color:var(--muted);">${podRank[i]}</div> <div class="podium-base"></div> </div>`).join(’’);
+
+// LIST
+document.getElementById(‘lbList’).innerHTML=sorted.map((m,i)=>{
+const pct=Math.round((m.pts||0)/maxPts*100);
+return `<div class="card lb-item"> <div class="lb-rank">${i+1}</div> <div class="lb-av ${rs(m.role).av}" style="background:${avColor(m.name)};">${m.name[0]}</div> <div class="lb-info"> <div class="lb-name">${m.name}${m.id===currentUser?.id?' <span style="color:var(--p2);font-size:10px;">(You)</span>':''}</div> <div class="lb-role">${m.role}</div> <div class="lb-bar-wrap"><div class="lb-bar" style="width:${pct}%"></div></div> </div> <div> <div class="lb-pts">${m.pts||0}</div> <div class="lb-pts-lbl">POINTS</div> <div class="pts-actions"> <button class="btn btn-g btn-xs" onclick="addPoints('${m.id}',5)" title="+5 pts">+5</button> <button class="btn btn-d btn-xs" onclick="addPoints('${m.id}',-5)" title="-5 pts">-5</button> </div> </div> </div>`;
+}).join(’’);
+}
+
+// ══════════════════════════════════════════════════════
+// DASHBOARD
+// ══════════════════════════════════════════════════════
+function renderDash(){
+document.getElementById(‘d-mem’).textContent=members.length;
+document.getElementById(‘d-tasks’).textContent=tasks.length;
+document.getElementById(‘d-msgs’).textContent=messages.length;
+document.getElementById(‘d-meets’).textContent=meetings.length;
+document.getElementById(‘d-anns’).textContent=announcements.length;
+
+const da=document.getElementById(‘dash-anns-list’);
+if(!announcements.length)da.innerHTML=`<div class="empty-state"><div class="ei">📢</div><p>No announcements</p></div>`;
+else da.innerHTML=announcements.slice(0,3).map(a=>`<div class="cardb ann-item ${a.priority==='h'?'hi':a.priority==='m'?'md':'lo'}"><div class="ann-item-title">${a.title}</div><div class="ann-item-body">${a.body.slice(0,80)}${a.body.length>80?'…':''}</div></div>`).join(’’);
+
+const dm=document.getElementById(‘dash-meets-list’);
+const up=meetings.filter(m=>m.status===‘upcoming’);
+if(!up.length)dm.innerHTML=`<div class="empty-state"><div class="ei">📅</div><p>No upcoming meetings</p></div>`;
+else dm.innerHTML=up.slice(0,3).map(m=>{const d=new Date(m.date);return`<div class="cardb" style="display:flex;gap:12px;padding:12px;margin-bottom:10px;border-radius:var(--r);"><div style="background:rgba(99,102,241,0.1);border:1px solid rgba(99,102,241,0.2);border-radius:8px;padding:8px 12px;text-align:center;min-width:48px;"><div style="font-family:'Bebas Neue';font-size:24px;color:var(--p2);line-height:1;">${d.getDate()}</div><div style="font-size:8px;letter-spacing:1px;text-transform:uppercase;color:var(--muted);">${d.toLocaleString('en',{month:'short'}).toUpperCase()}</div></div><div><div style="font-size:13px;font-weight:600;">${m.title}</div><div style="font-size:11px;color:var(--cyan);margin-top:3px;">🕐 ${m.time||'TBD'}${m.loc?' · 📍'+m.loc:''}</div></div></div>`;}).join(’’);
+}
+
+// ══════════════════════════════════════════════════════
+// BADGES
+// ══════════════════════════════════════════════════════
+function updateBadges(){
+document.getElementById(‘nb-members’).textContent=members.length;
+document.getElementById(‘nb-tasks’).textContent=tasks.filter(t=>t.status!==‘done’).length;
+document.getElementById(‘nb-chat’).textContent=messages.length;
+document.getElementById(‘nb-anns’).textContent=announcements.length;
+document.getElementById(‘nb-meets’).textContent=meetings.filter(m=>m.status===‘upcoming’).length;
+}
+
+// ══════════════════════════════════════════════════════
+// MODAL / TOAST / HELPERS
+// ══════════════════════════════════════════════════════
+function openMo(id){document.getElementById(id).classList.add(‘open’);}
+function closeMo(id){document.getElementById(id).classList.remove(‘open’);}
+document.querySelectorAll(’.modal-ov’).forEach(o=>o.addEventListener(‘click’,e=>{if(e.target===o)o.classList.remove(‘open’);}));
+
+let toastT;
+function toast(msg,type=‘ok’){
+const t=document.getElementById(‘toast’);
+t.textContent=(type===‘ok’?’✓ ’:type===‘err’?‘⚠ ‘:‘ℹ ‘)+msg;
+t.className=‘toast ‘+type+’ show’;clearTimeout(toastT);
+toastT=setTimeout(()=>t.classList.remove(‘show’),3200);
+}
+function v(id){return(document.getElementById(id)?.value||’’).trim();}
+function clearFs(ids){ids.forEach(id=>{const e=document.getElementById(id);if(e)e.value=’’;});}
+function toggleSb(){document.getElementById(‘sidebar’).classList.toggle(‘open’);document.getElementById(‘sbOv’).classList.toggle(‘open’);}
+function closeSb(){document.getElementById(‘sidebar’).classList.remove(‘open’);document.getElementById(‘sbOv’).classList.remove(‘open’);}
+
+// set today defaults
+const today=new Date().toISOString().split(‘T’)[0];
+document.getElementById(‘mf-joined’).value=today;
+document.getElementById(‘mef-date’).value=today;
+
+// fadeOut anim
+const style=document.createElement(‘style’);
+style.textContent=’@keyframes fadeOut{to{opacity:0;transform:scale(0.95);}}’;
+document.head.appendChild(style);
+</script>
+
+</body>
+</html>
