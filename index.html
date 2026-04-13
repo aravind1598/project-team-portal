@@ -620,12 +620,12 @@ function setDbStatus(state, text) {
 //  STATE
 // ══════════════════════════════════════
 const DEFAULT_MEMBERS = [
-  {id:'m1',name:'Hemavarshini V',rollNo:'7376252IT182',role:'Team Captain',email:'hemavarshiniv.it25@bitsathy.ac.in',phone:'9965889998',joined:'2026-02-20',notes:'',pts:60,pin:'0182'},
-  {id:'m2',name:'Nitharshan V',rollNo:'7376252IT263',role:'Team Vice Captain',email:'nitharshanv.it25@bitsathy.ac.in',phone:'9363797018',joined:'2026-02-21',notes:'',pts:70,pin:'0263'},
-  {id:'m3',name:'Shobika S',rollNo:'7376252IT342',role:'Team Manager',email:'shobikas.it25@bitsathy.ac.in',phone:'6374954830',joined:'2026-02-21',notes:'',pts:35,pin:'0342'},
-  {id:'m4',name:'Aravindhan G',rollNo:'7376252IT115',role:'Team Member 1',email:'aravindhang.it25@bitsathy.ac.in',phone:'9500201960',joined:'2026-02-21',notes:'',pts:100,pin:'0115'},
+  {id:'m1',name:'Hemavarshini V',rollNo:'7376252IT182',role:'Team Captain',email:'hemavarshiniv.it25@bitsathy.ac.in',phone:'9965889998',joined:'2026-02-20',notes:'',pts:100,pin:'0182'},
+  {id:'m2',name:'Nitharshan V',rollNo:'7376252IT263',role:'Team Vice Captain',email:'nitharshanv.it25@bitsathy.ac.in',phone:'9363797018',joined:'2026-02-21',notes:'',pts:90,pin:'0263'},
+  {id:'m3',name:'Shobika S',rollNo:'7376252IT342',role:'Team Manager',email:'shobikas.it25@bitsathy.ac.in',phone:'6374954830',joined:'2026-02-21',notes:'',pts:100,pin:'0342'},
+  {id:'m4',name:'Aravindhan G',rollNo:'7376252IT115',role:'Team Member 1',email:'aravindhang.it25@bitsathy.ac.in',phone:'9500201960',joined:'2026-02-21',notes:'',pts:1000,pin:'0115'},
   {id:'m5',name:'Harish S',rollNo:'7376252IT176',role:'Team Strategist',email:'harishs.it25@bitsathy.ac.in',phone:'9500928654',joined:'2026-02-21',notes:'',pts:300,pin:'0176'},
-  {id:'m6',name:'Ranjith Kumar P',rollNo:'7376252IT297',role:'Team Member 2',email:'ranjithkumarp.it25@bitsathy.ac.in',phone:'7373864314',joined:'2026-02-21',notes:'',pts:70,pin:'0297'},
+  {id:'m6',name:'Ranjith Kumar P',rollNo:'7376252IT297',role:'Team Member 2',email:'ranjithkumarp.it25@bitsathy.ac.in',phone:'7373864314',joined:'2026-02-21',notes:'',pts:100,pin:'0297'},
   {id:'m7',name:'Tharaneshkumar M',rollNo:'7376252IT369',role:'Team Member 3',email:'tharaneshkumarm.it25@bitsathy.ac.in',phone:'6382046080',joined:'2026-02-21',notes:'',pts:200,pin:'0369'},
   {id:'m8',name:'Sudharshini S',rollNo:'7376252IT359',role:'Team Member 4',email:'sudharshinis.it25@bitsathy.ac.in',phone:'7397138478',joined:'2026-02-21',notes:'',pts:78,pin:'0359'},
   {id:'m9',name:'Shruti D K',rollNo:'7376252IT343',role:'Team Member 5',email:'shrutidk.it25@bitsathy.ac.in',phone:'9994328332',joined:'2026-02-21',notes:'',pts:90,pin:'0343'},
@@ -1166,7 +1166,7 @@ function renderLeaderboard() {
   const podRank=['2nd','1st','3rd'];
   document.getElementById('lbPodium').innerHTML=pod.filter(Boolean).map((m,i)=>`<div class="podium-item ${podCls[i]}"><div class="podium-av ${rs(m.role).av}" style="background:${avColor(m.name)};">${podCls[i]==='podium-1'?'<div class="podium-crown">👑</div>':''}${m.name[0]}</div><div class="podium-name">${m.name.split(' ')[0]}</div><div class="podium-pts">${m.pts||0}</div><div style="font-size:9px;color:var(--muted);">${podRank[i]}</div><div class="podium-base"></div></div>`).join('');
   document.getElementById('lbList').innerHTML=sorted.map((m,i)=>{
-    const pct=Math.round((m.pts||0)/maxPts*100);
+    const pct=Math.round((m.pts||0)/maxPts*10000);
     return `<div class="card lb-item"><div class="lb-rank">${i+1}</div><div class="lb-av ${rs(m.role).av}" style="background:${avColor(m.name)};">${m.name[0]}</div><div class="lb-info"><div class="lb-name">${m.name}${currentUser&&m.id===currentUser.id?' <span style="color:var(--p2);font-size:10px;">(You)</span>':''}</div><div class="lb-role">${m.role}</div><div class="lb-bar-wrap"><div class="lb-bar" style="width:${pct}%"></div></div></div><div><div class="lb-pts">${m.pts||0}</div><div class="lb-pts-lbl">PTS</div><div class="pts-actions"><button class="btn btn-g btn-xs" onclick="addPoints('${m.id}',5)">+5</button><button class="btn btn-d btn-xs" onclick="addPoints('${m.id}',-5)">-5</button></div></div></div>`;
   }).join('');
 }
