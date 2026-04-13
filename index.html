@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Squad Hub – A#100192</title>
+<title>Squad Hub · A#100192 · BIT Sathy IT</title>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
 :root{
@@ -18,21 +18,52 @@
 *{margin:0;padding:0;box-sizing:border-box;}
 html{scroll-behavior:smooth;}
 body{background:var(--bg);color:var(--txt);font-family:'Outfit',sans-serif;min-height:100vh;overflow-x:hidden;}
-
 #particles{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden;}
 .particle{position:absolute;border-radius:50%;animation:float linear infinite;opacity:0.15;}
 @keyframes float{0%{transform:translateY(100vh) scale(0);}100%{transform:translateY(-100px) scale(1);}}
 
-#app{min-height:100vh;}
-.layout{display:flex;min-height:100vh;}
+/* ── LOGIN PAGE ── */
+#loginPage{position:fixed;inset:0;z-index:500;display:flex;align-items:center;justify-content:center;background:var(--bg);}
+#loginPage.hide{display:none;}
+.login-box{background:var(--s2);border:1px solid rgba(99,102,241,0.25);border-radius:24px;padding:40px;width:100%;max-width:420px;animation:loginIn 0.5s cubic-bezier(0.34,1.56,0.64,1);}
+@keyframes loginIn{from{opacity:0;transform:scale(0.85) translateY(30px);}to{opacity:1;transform:scale(1) translateY(0);}}
+.login-logo{font-family:'Bebas Neue',sans-serif;font-size:42px;background:linear-gradient(135deg,var(--p3),var(--p2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;text-align:center;margin-bottom:4px;}
+.login-sub{text-align:center;font-size:12px;color:var(--muted);letter-spacing:2px;text-transform:uppercase;margin-bottom:30px;font-family:'JetBrains Mono',monospace;}
+.login-hint{text-align:center;font-size:11px;color:var(--dim);margin-top:14px;line-height:1.6;}
+.login-hint b{color:var(--muted);}
+.fl{font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin-bottom:6px;display:block;}
+.fi,.fs{width:100%;background:var(--card);border:1px solid var(--b2);border-radius:var(--r2);padding:13px 15px;color:var(--txt);font-family:'Outfit',sans-serif;font-size:14px;outline:none;transition:border-color 0.2s;margin-bottom:16px;}
+.fi:focus,.fs:focus{border-color:var(--p);}
+.fi::placeholder{color:var(--muted);}
+.fs option{background:var(--s1);}
+.login-btn{width:100%;padding:15px;background:linear-gradient(135deg,var(--p),#4f46e5);color:#fff;border:none;border-radius:var(--r2);font-family:'Outfit',sans-serif;font-size:15px;font-weight:700;cursor:pointer;transition:all 0.2s;margin-top:4px;}
+.login-btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(99,102,241,0.4);}
+.login-err{background:rgba(248,113,113,0.1);border:1px solid rgba(248,113,113,0.3);border-radius:var(--r2);padding:10px 14px;font-size:13px;color:var(--red);margin-top:12px;display:none;}
+.pin-dots{display:flex;justify-content:center;gap:10px;margin:10px 0 20px;}
+.pin-dot{width:14px;height:14px;border-radius:50%;border:2px solid var(--muted);transition:all 0.2s;}
+.pin-dot.filled{background:var(--p2);border-color:var(--p2);}
+.keypad{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:4px;}
+.kbtn{padding:16px;background:var(--card);border:1px solid var(--b2);border-radius:var(--r2);color:var(--txt);font-family:'Outfit',sans-serif;font-size:18px;font-weight:600;cursor:pointer;transition:all 0.15s;text-align:center;}
+.kbtn:hover{background:rgba(99,102,241,0.12);border-color:var(--p);}
+.kbtn:active{transform:scale(0.94);}
+.kbtn.del{color:var(--red);font-size:14px;}
+.kbtn.ok{background:linear-gradient(135deg,var(--p),#4f46e5);color:#fff;border:none;}
+.kbtn.ok:hover{box-shadow:0 4px 16px rgba(99,102,241,0.35);}
+.step-indicator{display:flex;gap:8px;justify-content:center;margin-bottom:24px;}
+.step{width:8px;height:8px;border-radius:50%;background:var(--dim);}
+.step.active{background:var(--p2);}
 
-.sidebar{
-width:250px;flex-shrink:0;background:var(--s1);
-border-right:1px solid var(--b1);
-display:flex;flex-direction:column;
-position:fixed;top:0;left:0;height:100vh;z-index:50;
-transition:transform 0.3s cubic-bezier(0.4,0,0.2,1);
-}
+/* ── LOADING ── */
+.loading-screen{position:fixed;inset:0;background:var(--bg);z-index:1000;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;}
+.loading-screen.hide{display:none;}
+.load-title{font-family:'Bebas Neue',sans-serif;font-size:40px;background:linear-gradient(135deg,var(--p3),var(--p2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.load-sub{font-size:13px;color:var(--muted);}
+.spinner{width:36px;height:36px;border:3px solid var(--b1);border-top-color:var(--p2);border-radius:50%;animation:spin 0.8s linear infinite;}
+@keyframes spin{to{transform:rotate(360deg);}}
+
+/* ── LAYOUT ── */
+.layout{display:flex;min-height:100vh;}
+.sidebar{width:250px;flex-shrink:0;background:var(--s1);border-right:1px solid var(--b1);display:flex;flex-direction:column;position:fixed;top:0;left:0;height:100vh;z-index:50;transition:transform 0.3s cubic-bezier(0.4,0,0.2,1);}
 .sb-logo{padding:24px 20px;border-bottom:1px solid var(--b1);}
 .sb-badge{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:2px;color:var(--p2);margin-bottom:5px;}
 .sb-title{font-family:'Bebas Neue',sans-serif;font-size:30px;background:linear-gradient(135deg,var(--p3),var(--p2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
@@ -40,7 +71,6 @@ transition:transform 0.3s cubic-bezier(0.4,0,0.2,1);
 .sb-av{width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:14px;color:#fff;flex-shrink:0;}
 .sb-uname{font-size:12px;font-weight:600;line-height:1.3;}
 .sb-urole{font-size:10px;color:var(--muted);}
-
 .nav{flex:1;padding:14px 10px;display:flex;flex-direction:column;gap:3px;overflow-y:auto;}
 .nav-item{display:flex;align-items:center;gap:11px;padding:10px 13px;border-radius:var(--r2);cursor:pointer;font-size:13px;font-weight:500;color:var(--muted);transition:all 0.2s;border:none;background:none;width:100%;text-align:left;font-family:'Outfit',sans-serif;}
 .nav-item:hover{background:rgba(99,102,241,0.08);color:var(--p3);}
@@ -48,9 +78,7 @@ transition:transform 0.3s cubic-bezier(0.4,0,0.2,1);
 .nav-item .ni{font-size:16px;width:20px;text-align:center;flex-shrink:0;}
 .nav-badge{margin-left:auto;background:var(--p);color:#fff;font-size:9px;padding:2px 6px;border-radius:20px;font-family:'JetBrains Mono',monospace;font-weight:700;}
 .nav-sep{height:1px;background:var(--b1);margin:8px 0;}
-
 .sb-bottom{padding:14px 10px;border-top:1px solid var(--b1);}
-
 .main{margin-left:250px;flex:1;min-height:100vh;display:flex;flex-direction:column;}
 .topbar{background:rgba(10,10,18,0.85);backdrop-filter:blur(16px);border-bottom:1px solid var(--b1);padding:14px 24px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:40;}
 .tb-left{display:flex;align-items:center;gap:12px;}
@@ -58,23 +86,19 @@ transition:transform 0.3s cubic-bezier(0.4,0,0.2,1);
 .tb-right{display:flex;align-items:center;gap:10px;}
 .hamburger{display:none;background:none;border:none;color:var(--txt);font-size:22px;cursor:pointer;}
 
-/* User switcher dropdown */
-.user-switcher{position:relative;}
-.us-btn{display:flex;align-items:center;gap:8px;padding:7px 12px;background:rgba(99,102,241,0.1);border:1px solid rgba(99,102,241,0.25);border-radius:var(--r2);cursor:pointer;font-family:'Outfit',sans-serif;font-size:13px;font-weight:600;color:var(--p3);transition:all 0.2s;}
-.us-btn:hover{background:rgba(99,102,241,0.18);}
-.us-av{width:24px;height:24px;border-radius:6px;display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:11px;color:#fff;flex-shrink:0;}
-.us-dropdown{display:none;position:absolute;top:calc(100% + 8px);right:0;background:var(--s2);border:1px solid var(--b1);border-radius:var(--r);width:260px;z-index:100;padding:8px;box-shadow:0 12px 40px rgba(0,0,0,0.6);max-height:420px;overflow-y:auto;}
-.us-dropdown.open{display:block;animation:fadeIn 0.2s ease;}
-.us-dropdown::-webkit-scrollbar{width:4px;}
-.us-dropdown::-webkit-scrollbar-thumb{background:var(--dim);border-radius:4px;}
-.us-item{display:flex;align-items:center;gap:10px;padding:9px 10px;border-radius:var(--r2);cursor:pointer;transition:background 0.15s;}
-.us-item:hover{background:rgba(99,102,241,0.1);}
-.us-item.selected{background:rgba(99,102,241,0.15);border:1px solid rgba(99,102,241,0.25);}
-.us-item-av{width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:14px;color:#fff;flex-shrink:0;}
-.us-item-name{font-size:13px;font-weight:600;line-height:1.3;}
-.us-item-role{font-size:10px;color:var(--muted);}
-.us-head{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);padding:6px 10px 4px;font-weight:700;}
-.us-check{margin-left:auto;color:var(--green);font-size:14px;}
+/* DB Status */
+.db-status{display:flex;align-items:center;gap:5px;font-size:10px;font-family:'JetBrains Mono',monospace;color:var(--muted);padding:4px 9px;border-radius:5px;background:var(--b3);border:1px solid var(--b1);}
+.db-dot{width:6px;height:6px;border-radius:50%;background:var(--muted);}
+.db-dot.ok{background:var(--green);animation:pulse 2s infinite;}
+.db-dot.err{background:var(--red);}
+.db-dot.loading{background:var(--amber);animation:pulse 0.6s infinite;}
+@keyframes pulse{0%,100%{opacity:1;}50%{opacity:0.4;}}
+
+/* Logged-in user chip */
+.user-chip{display:flex;align-items:center;gap:8px;padding:7px 12px;background:rgba(99,102,241,0.1);border:1px solid rgba(99,102,241,0.25);border-radius:var(--r2);font-size:13px;font-weight:600;color:var(--p3);}
+.uc-av{width:24px;height:24px;border-radius:6px;font-family:'Bebas Neue',sans-serif;font-size:11px;display:flex;align-items:center;justify-content:center;color:#fff;flex-shrink:0;}
+.logout-btn{background:rgba(248,113,113,0.1);border:1px solid rgba(248,113,113,0.2);color:var(--red);padding:5px 10px;border-radius:6px;font-size:11px;cursor:pointer;font-family:'Outfit',sans-serif;font-weight:600;}
+.logout-btn:hover{background:rgba(248,113,113,0.2);}
 
 .btn{display:inline-flex;align-items:center;gap:6px;padding:9px 16px;border-radius:var(--r2);font-size:13px;font-weight:600;cursor:pointer;border:none;font-family:'Outfit',sans-serif;transition:all 0.2s;white-space:nowrap;}
 .btn-p{background:linear-gradient(135deg,var(--p),#4f46e5);color:#fff;}
@@ -91,7 +115,6 @@ transition:transform 0.3s cubic-bezier(0.4,0,0.2,1);
 .page{display:none;padding:24px;flex:1;animation:fadeIn 0.3s ease;}
 .page.active{display:block;}
 @keyframes fadeIn{from{opacity:0;transform:translateY(12px);}to{opacity:1;transform:translateY(0);}}
-
 .card{background:var(--card);border:1px solid var(--b2);border-radius:var(--r);}
 .cardb{background:var(--cardb);border:1px solid var(--b2);border-radius:var(--r);}
 .sec-title{font-size:11px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--muted);margin-bottom:14px;display:flex;align-items:center;gap:8px;}
@@ -103,19 +126,10 @@ transition:transform 0.3s cubic-bezier(0.4,0,0.2,1);
 .stats-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;margin-bottom:24px;}
 .stat-card{padding:20px;position:relative;overflow:hidden;}
 .stat-card::before{content:'';position:absolute;top:-20px;right:-20px;width:70px;height:70px;border-radius:50%;filter:blur(20px);}
-.s-p::before{background:var(--p);}
-.s-c::before{background:var(--cyan);}
-.s-g::before{background:var(--green);}
-.s-a::before{background:var(--amber);}
-.s-pk::before{background:var(--pink);}
+.s-p::before{background:var(--p);} .s-c::before{background:var(--cyan);} .s-g::before{background:var(--green);} .s-a::before{background:var(--amber);} .s-pk::before{background:var(--pink);}
 .stat-v{font-family:'Bebas Neue',sans-serif;font-size:42px;line-height:1;}
-.s-p .stat-v{color:var(--p2);}
-.s-c .stat-v{color:var(--cyan);}
-.s-g .stat-v{color:var(--green);}
-.s-a .stat-v{color:var(--amber);}
-.s-pk .stat-v{color:var(--pink);}
+.s-p .stat-v{color:var(--p2);} .s-c .stat-v{color:var(--cyan);} .s-g .stat-v{color:var(--green);} .s-a .stat-v{color:var(--amber);} .s-pk .stat-v{color:var(--pink);}
 .stat-l{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-top:4px;}
-
 .chip{display:inline-block;font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:4px 10px;border-radius:5px;border:1px solid;}
 .ch-cap{color:var(--amber);border-color:rgba(251,191,36,0.3);background:rgba(251,191,36,0.08);}
 .ch-vic{color:var(--cyan);border-color:rgba(34,211,238,0.3);background:rgba(34,211,238,0.08);}
@@ -135,18 +149,13 @@ transition:transform 0.3s cubic-bezier(0.4,0,0.2,1);
 .ann-item.lo{border-left-color:var(--green);}
 .ann-item-title{font-size:13px;font-weight:600;margin-bottom:4px;}
 .ann-item-body{font-size:12px;color:var(--muted);line-height:1.5;}
-
 .task-board{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
 .task-col{background:var(--s1);border:1px solid var(--b1);border-radius:var(--r);padding:16px;}
 .task-col-title{font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:14px;display:flex;align-items:center;gap:8px;}
 .task-col-title .dot{width:8px;height:8px;border-radius:50%;}
-.tc-todo .dot{background:var(--muted);}
-.tc-prog .dot{background:var(--amber);}
-.tc-done .dot{background:var(--green);}
-.tc-todo .task-col-title{color:var(--muted);}
-.tc-prog .task-col-title{color:var(--amber);}
-.tc-done .task-col-title{color:var(--green);}
-.task-card{background:var(--card);border:1px solid var(--b2);border-radius:var(--r2);padding:14px;margin-bottom:10px;transition:all 0.2s;cursor:pointer;}
+.tc-todo .dot{background:var(--muted);} .tc-prog .dot{background:var(--amber);} .tc-done .dot{background:var(--green);}
+.tc-todo .task-col-title{color:var(--muted);} .tc-prog .task-col-title{color:var(--amber);} .tc-done .task-col-title{color:var(--green);}
+.task-card{background:var(--card);border:1px solid var(--b2);border-radius:var(--r2);padding:14px;margin-bottom:10px;transition:all 0.2s;}
 .task-card:hover{border-color:rgba(99,102,241,0.4);transform:translateY(-2px);}
 .task-title{font-size:13px;font-weight:600;margin-bottom:6px;line-height:1.4;}
 .task-assignee{display:flex;align-items:center;gap:7px;margin-bottom:8px;}
@@ -182,28 +191,22 @@ transition:transform 0.3s cubic-bezier(0.4,0,0.2,1);
 .chat-inp:focus{border-color:var(--p);}
 .chat-inp::placeholder{color:var(--muted);}
 .chat-sidebar{display:flex;flex-direction:column;gap:12px;}
-.online-list{display:flex;flex-direction:column;gap:8px;}
-.online-item{display:flex;align-items:center;gap:8px;font-size:12px;}
 .online-dot{width:7px;height:7px;border-radius:50%;background:var(--green);flex-shrink:0;animation:pulse 2s infinite;}
-@keyframes pulse{0%,100%{opacity:1;}50%{opacity:0.4;}}
 
 .att-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px;}
 .att-card{padding:18px;}
 .att-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;}
-.att-name{font-size:13px;font-weight:700;}
 .att-pct{font-family:'Bebas Neue',sans-serif;font-size:28px;}
-.pct-hi{color:var(--green);}
-.pct-md{color:var(--amber);}
-.pct-lo{color:var(--red);}
+.pct-hi{color:var(--green);} .pct-md{color:var(--amber);} .pct-lo{color:var(--red);}
 .progress-bar{height:6px;background:var(--dim);border-radius:3px;overflow:hidden;margin-bottom:10px;}
-.progress-fill{height:100%;border-radius:3px;transition:width 0.6s cubic-bezier(0.4,0,0.2,1);}
+.progress-fill{height:100%;border-radius:3px;transition:width 0.6s;}
 .pf-hi{background:linear-gradient(90deg,var(--green),#16a34a);}
 .pf-md{background:linear-gradient(90deg,var(--amber),#d97706);}
 .pf-lo{background:linear-gradient(90deg,var(--red),#b91c1c);}
 .meet-row{display:flex;align-items:center;gap:12px;padding:14px;margin-bottom:10px;}
 .meet-title-t{font-size:13px;font-weight:600;flex:1;}
 .att-mark-row{display:flex;gap:6px;flex-wrap:wrap;}
-.att-btn{padding:4px 9px;border-radius:5px;font-size:10px;font-weight:700;letter-spacing:0.5px;cursor:pointer;border:none;font-family:'Outfit',sans-serif;transition:all 0.15s;}
+.att-btn{padding:4px 9px;border-radius:5px;font-size:10px;font-weight:700;cursor:pointer;border:none;font-family:'Outfit',sans-serif;transition:all 0.15s;}
 .att-present{background:rgba(74,222,128,0.15);color:var(--green);}
 .att-absent{background:rgba(248,113,113,0.15);color:var(--red);}
 .att-excuse{background:rgba(251,191,36,0.15);color:var(--amber);}
@@ -235,7 +238,7 @@ transition:transform 0.3s cubic-bezier(0.4,0,0.2,1);
 .lb-name{font-size:13px;font-weight:700;}
 .lb-role{font-size:10px;color:var(--muted);}
 .lb-pts{font-family:'Bebas Neue',sans-serif;font-size:28px;color:var(--p2);}
-.lb-pts-lbl{font-size:9px;color:var(--muted);text-align:right;}
+.lb-pts-lbl{font-size:9px;color:var(--muted);}
 .lb-bar-wrap{width:120px;height:4px;background:var(--dim);border-radius:2px;overflow:hidden;margin-top:4px;}
 .lb-bar{height:100%;background:linear-gradient(90deg,var(--p),var(--cyan));border-radius:2px;}
 .pts-actions{display:flex;gap:6px;margin-left:8px;}
@@ -250,18 +253,15 @@ transition:transform 0.3s cubic-bezier(0.4,0,0.2,1);
 .mc-name{font-size:14px;font-weight:700;}
 .mc-id{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--muted);margin-top:2px;}
 .mc-info{font-size:11px;color:var(--muted);display:flex;flex-direction:column;gap:4px;margin-bottom:12px;}
-.mc-info span{display:flex;align-items:center;gap:6px;}
 .mc-acts{display:flex;gap:7px;padding-top:12px;border-top:1px solid var(--b2);}
 
 .ann-full{padding:18px;border-left:3px solid var(--p);margin-bottom:12px;position:relative;}
-.ann-full.hi{border-left-color:var(--red);}
-.ann-full.md{border-left-color:var(--amber);}
-.ann-full.lo{border-left-color:var(--green);}
+.ann-full.hi{border-left-color:var(--red);} .ann-full.md{border-left-color:var(--amber);} .ann-full.lo{border-left-color:var(--green);}
 .ann-title{font-size:15px;font-weight:700;margin-bottom:6px;}
 .ann-body{font-size:13px;color:var(--muted);line-height:1.65;}
 .ann-meta{display:flex;align-items:center;gap:8px;margin-top:10px;font-size:11px;color:var(--dim);flex-wrap:wrap;}
 .ann-meta span{background:var(--b3);padding:2px 8px;border-radius:4px;}
-.ann-close{position:absolute;top:14px;right:14px;background:none;border:none;color:var(--muted);cursor:pointer;font-size:15px;padding:3px;border-radius:5px;transition:color 0.2s;}
+.ann-close{position:absolute;top:14px;right:14px;background:none;border:none;color:var(--muted);cursor:pointer;font-size:15px;padding:3px;border-radius:5px;}
 .ann-close:hover{color:var(--red);}
 
 .meetings-list{display:flex;flex-direction:column;gap:12px;}
@@ -291,12 +291,6 @@ transition:transform 0.3s cubic-bezier(0.4,0,0.2,1);
 .modal-xbtn:hover{background:rgba(255,255,255,0.12);color:var(--txt);}
 .modal-b{padding:0 22px 22px;}
 .fg{margin-bottom:14px;}
-.fl{font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin-bottom:6px;display:block;}
-.fi,.fs,.fta{width:100%;background:var(--card);border:1px solid var(--b2);border-radius:var(--r2);padding:11px 13px;color:var(--txt);font-family:'Outfit',sans-serif;font-size:13px;outline:none;transition:border-color 0.2s;}
-.fi:focus,.fs:focus,.fta:focus{border-color:var(--p);}
-.fi::placeholder,.fta::placeholder{color:var(--muted);}
-.fs option{background:var(--s1);}
-.fta{resize:vertical;min-height:75px;}
 .frow{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
 .modal-footer{display:flex;gap:8px;justify-content:flex-end;margin-top:6px;}
 .pri-group{display:flex;gap:7px;}
@@ -325,52 +319,104 @@ transition:transform 0.3s cubic-bezier(0.4,0,0.2,1);
 
 .sb-ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.65);z-index:49;}
 .sb-ov.open{display:block;}
-
 .toolbar{display:flex;gap:10px;align-items:center;margin-bottom:18px;flex-wrap:wrap;}
 .srch{background:var(--card);border:1px solid var(--b2);border-radius:var(--r2);padding:9px 14px 9px 36px;color:var(--txt);font-family:'Outfit',sans-serif;font-size:13px;outline:none;transition:border-color 0.2s;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%236060a0' stroke-width='2'%3E%3Ccircle cx='11' cy='11' r='8'/%3E%3Cpath d='m21 21-4.35-4.35'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:11px center;background-size:15px;flex:1;min-width:180px;}
 .srch:focus{border-color:var(--p);}
 .srch::placeholder{color:var(--muted);}
 .fsel{background:var(--card);border:1px solid var(--b2);border-radius:var(--r2);padding:9px 13px;color:var(--txt);font-family:'Outfit',sans-serif;font-size:13px;outline:none;}
 .fsel option{background:var(--s1);}
-
-@media(max-width:900px){
-.task-board{grid-template-columns:1fr;}
-.dash-grid{grid-template-columns:1fr;}
-.chat-layout{grid-template-columns:1fr;height:auto;}
-.chat-sidebar{display:none;}
-}
-@media(max-width:768px){
-.sidebar{transform:translateX(-100%);}
-.sidebar.open{transform:translateX(0);}
-.main{margin-left:0;}
-.hamburger{display:block;}
-.frow{grid-template-columns:1fr;}
-.profile-dgrid{grid-template-columns:1fr;}
-.lb-bar-wrap{display:none;}
-}
-.hidden{display:none!important;}
+.fi,.fs,.fta{width:100%;background:var(--card);border:1px solid var(--b2);border-radius:var(--r2);padding:11px 13px;color:var(--txt);font-family:'Outfit',sans-serif;font-size:13px;outline:none;transition:border-color 0.2s;}
+.fi:focus,.fs:focus,.fta:focus{border-color:var(--p);}
+.fi::placeholder,.fta::placeholder{color:var(--muted);}
+.fs option{background:var(--s1);}
+.fta{resize:vertical;min-height:75px;}
+@media(max-width:900px){.task-board{grid-template-columns:1fr;}.dash-grid{grid-template-columns:1fr;}.chat-layout{grid-template-columns:1fr;height:auto;}.chat-sidebar{display:none;}}
+@media(max-width:768px){.sidebar{transform:translateX(-100%);}.sidebar.open{transform:translateX(0);}.main{margin-left:0;}.hamburger{display:block;}.frow{grid-template-columns:1fr;}.profile-dgrid{grid-template-columns:1fr;}.lb-bar-wrap{display:none;}}
 </style>
 </head>
 <body>
 
 <div id="particles"></div>
 
-<div id="app">
-<div class="layout">
+<!-- ══════════════ LOADING ══════════════ -->
+<div class="loading-screen" id="loadingScreen">
+  <div class="load-title">SQUAD HUB</div>
+  <div class="spinner"></div>
+  <div class="load-sub" id="loadMsg">Connecting to Firebase…</div>
+</div>
 
-<!-- SIDEBAR -->
+<!-- ══════════════ LOGIN PAGE ══════════════ -->
+<div id="loginPage" class="hide">
+  <div id="particles2"></div>
+  <div class="login-box">
+    <div class="login-logo">SQUAD HUB</div>
+    <div class="login-sub">BIT Sathy · IT Dept · A#100192</div>
+
+    <!-- Step 1: Select member -->
+    <div id="step1">
+      <div class="step-indicator">
+        <div class="step active"></div>
+        <div class="step"></div>
+      </div>
+      <div class="fg">
+        <label class="fl">Select Your Name</label>
+        <select class="fs" id="loginMember" style="margin-bottom:0;">
+          <option value="">— Choose your name —</option>
+        </select>
+      </div>
+      <button class="login-btn" onclick="goStep2()" style="margin-top:16px;">Continue →</button>
+    </div>
+
+    <!-- Step 2: PIN -->
+    <div id="step2" style="display:none;">
+      <div class="step-indicator">
+        <div class="step"></div>
+        <div class="step active"></div>
+      </div>
+      <div style="text-align:center;margin-bottom:16px;">
+        <div style="font-size:14px;font-weight:600;" id="loginGreet">Hey!</div>
+        <div style="font-size:12px;color:var(--muted);margin-top:4px;">Enter your 4-digit PIN</div>
+      </div>
+      <div class="pin-dots" id="pinDots">
+        <div class="pin-dot" id="pd0"></div>
+        <div class="pin-dot" id="pd1"></div>
+        <div class="pin-dot" id="pd2"></div>
+        <div class="pin-dot" id="pd3"></div>
+      </div>
+      <div class="keypad">
+        <button class="kbtn" onclick="kp('1')">1</button>
+        <button class="kbtn" onclick="kp('2')">2</button>
+        <button class="kbtn" onclick="kp('3')">3</button>
+        <button class="kbtn" onclick="kp('4')">4</button>
+        <button class="kbtn" onclick="kp('5')">5</button>
+        <button class="kbtn" onclick="kp('6')">6</button>
+        <button class="kbtn" onclick="kp('7')">7</button>
+        <button class="kbtn" onclick="kp('8')">8</button>
+        <button class="kbtn" onclick="kp('9')">9</button>
+        <button class="kbtn" onclick="goStep1()">← Back</button>
+        <button class="kbtn" onclick="kp('0')">0</button>
+        <button class="kbtn del" onclick="kpDel()">⌫ Del</button>
+      </div>
+      <div class="login-err" id="loginErr">Incorrect PIN. Try again.</div>
+      <div class="login-hint">Default PIN = last 4 digits of roll number<br><b>e.g. IT182 → PIN: 0182</b></div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════ MAIN APP ══════════════ -->
+<div class="layout" id="mainApp" style="display:none;">
 <aside class="sidebar" id="sidebar">
 <div class="sb-logo">
-<div class="sb-badge">▸ SQUAD HUB · A#100192</div>
+<div class="sb-badge">▸ SQUAD HUB · FIREBASE</div>
 <div class="sb-title">SQUAD HUB</div>
 <div class="sb-user" id="sbUser">
 <div class="sb-av av-mem" style="background:#6366f1;">?</div>
-<div><div class="sb-uname">Select User</div><div class="sb-urole">Click 👤 in topbar</div></div>
+<div><div class="sb-uname">Loading…</div><div class="sb-urole"></div></div>
 </div>
 </div>
 <nav class="nav">
 <button class="nav-item active" onclick="goPage('dashboard',this)"><span class="ni">🏠</span>Dashboard</button>
-<button class="nav-item" onclick="goPage('members',this)"><span class="ni">👥</span>Members<span class="nav-badge" id="nb-members">11</span></button>
+<button class="nav-item" onclick="goPage('members',this)"><span class="ni">👥</span>Members<span class="nav-badge" id="nb-members">0</span></button>
 <div class="nav-sep"></div>
 <button class="nav-item" onclick="goPage('tasks',this)"><span class="ni">📊</span>Tasks<span class="nav-badge" id="nb-tasks">0</span></button>
 <button class="nav-item" onclick="goPage('chat',this)"><span class="ni">💬</span>Team Chat<span class="nav-badge" id="nb-chat">0</span></button>
@@ -385,8 +431,6 @@ transition:transform 0.3s cubic-bezier(0.4,0,0.2,1);
 </div>
 </aside>
 <div class="sb-ov" id="sbOv" onclick="closeSb()"></div>
-
-<!-- MAIN -->
 <main class="main">
 <div class="topbar">
 <div class="tb-left">
@@ -394,153 +438,101 @@ transition:transform 0.3s cubic-bezier(0.4,0,0.2,1);
 <div class="tb-title" id="tbTitle">Dashboard</div>
 </div>
 <div class="tb-right" id="tbActions">
-<!-- user switcher always visible in topbar -->
-<div class="user-switcher" id="userSwitcher">
-<button class="us-btn" onclick="toggleUserDropdown()" id="usBtn">
-<div class="us-av" id="usAvatar" style="background:#6366f1;">?</div>
-<span id="usName">Select User</span>
-<span style="font-size:10px;opacity:0.6;">▾</span>
-</button>
-<div class="us-dropdown" id="usDropdown">
-<div class="us-head">Select Your Profile</div>
-<div id="usItemsList"></div>
+<div class="db-status" id="dbStatus"><div class="db-dot loading" id="dbDot"></div><span id="dbTxt">Firebase…</span></div>
+<div class="user-chip" id="userChip">
+  <div class="uc-av" id="ucAv" style="background:#6366f1;">?</div>
+  <span id="ucName">Loading</span>
 </div>
-</div>
+<button class="logout-btn" onclick="doLogout()">Logout</button>
 </div>
 </div>
 
-<!-- DASHBOARD -->
 <div class="page active" id="page-dashboard">
 <div class="stats-row">
-<div class="card stat-card s-p"><div class="stat-v" id="d-mem">11</div><div class="stat-l">Members</div></div>
+<div class="card stat-card s-p"><div class="stat-v" id="d-mem">0</div><div class="stat-l">Members</div></div>
 <div class="card stat-card s-c"><div class="stat-v" id="d-tasks">0</div><div class="stat-l">Tasks</div></div>
 <div class="card stat-card s-g"><div class="stat-v" id="d-msgs">0</div><div class="stat-l">Messages</div></div>
 <div class="card stat-card s-a"><div class="stat-v" id="d-meets">0</div><div class="stat-l">Meetings</div></div>
 <div class="card stat-card s-pk"><div class="stat-v" id="d-anns">0</div><div class="stat-l">Announcements</div></div>
 </div>
 <div class="dash-grid">
-<div>
-<div class="sec-title">Recent Announcements</div>
-<div id="dash-anns-list"></div>
-<button class="btn btn-o btn-sm" onclick="goPage('announcements',null)">View All →</button>
-</div>
-<div>
-<div class="sec-title">Upcoming Meetings</div>
-<div id="dash-meets-list"></div>
-<button class="btn btn-o btn-sm" onclick="goPage('meetings',null)">View All →</button>
-</div>
+<div><div class="sec-title">Recent Announcements</div><div id="dash-anns-list"></div><button class="btn btn-o btn-sm" onclick="goPage('announcements',null)">View All →</button></div>
+<div><div class="sec-title">Upcoming Meetings</div><div id="dash-meets-list"></div><button class="btn btn-o btn-sm" onclick="goPage('meetings',null)">View All →</button></div>
 </div>
 </div>
 
-<!-- MEMBERS -->
 <div class="page" id="page-members">
 <div class="toolbar">
 <input class="srch" id="mem-srch" placeholder="Search members…" oninput="renderMembers()">
 <select class="fsel" id="mem-role" onchange="renderMembers()">
 <option value="">All Roles</option>
-<option value="Team Captain">Captain</option>
-<option value="Team Vice Captain">Vice Captain</option>
-<option value="Team Manager">Manager</option>
-<option value="Team Strategist">Strategist</option>
-<option value="Team Member">Members</option>
+<option>Team Captain</option><option>Team Vice Captain</option><option>Team Manager</option><option>Team Strategist</option><option>Team Member</option>
 </select>
 </div>
 <div class="members-grid" id="membersGrid"></div>
 </div>
 
-<!-- PROFILE -->
 <div class="page" id="page-profile">
 <button class="btn btn-o btn-sm" style="margin-bottom:18px;" onclick="goPage('members',null)">← Back</button>
 <div id="profileContent"></div>
 </div>
 
-<!-- TASKS -->
 <div class="page" id="page-tasks">
 <div class="toolbar">
 <input class="srch" id="task-srch" placeholder="Search tasks…" oninput="renderTasks()">
 <select class="fsel" id="task-assignee" onchange="renderTasks()"><option value="">All Members</option></select>
 </div>
 <div class="task-board">
-<div class="task-col tc-todo">
-<div class="task-col-title"><span class="dot"></span>To Do <span id="cnt-todo" style="margin-left:auto;font-size:11px;"></span></div>
-<div id="tasks-todo"></div>
-</div>
-<div class="task-col tc-prog">
-<div class="task-col-title"><span class="dot"></span>In Progress <span id="cnt-prog" style="margin-left:auto;font-size:11px;"></span></div>
-<div id="tasks-prog"></div>
-</div>
-<div class="task-col tc-done">
-<div class="task-col-title"><span class="dot"></span>Done <span id="cnt-done" style="margin-left:auto;font-size:11px;"></span></div>
-<div id="tasks-done"></div>
-</div>
+<div class="task-col tc-todo"><div class="task-col-title"><span class="dot"></span>To Do<span id="cnt-todo" style="margin-left:auto;font-size:11px;"></span></div><div id="tasks-todo"></div></div>
+<div class="task-col tc-prog"><div class="task-col-title"><span class="dot"></span>In Progress<span id="cnt-prog" style="margin-left:auto;font-size:11px;"></span></div><div id="tasks-prog"></div></div>
+<div class="task-col tc-done"><div class="task-col-title"><span class="dot"></span>Done<span id="cnt-done" style="margin-left:auto;font-size:11px;"></span></div><div id="tasks-done"></div></div>
 </div>
 </div>
 
-<!-- CHAT -->
 <div class="page" id="page-chat">
 <div class="chat-layout">
 <div class="chat-main">
-<div class="chat-messages" id="chatMessages"><div class="empty-state"><div class="ei">💬</div><p>No messages yet. Say hi!</p></div></div>
+<div class="chat-messages" id="chatMessages"><div class="empty-state"><div class="ei">💬</div><p>No messages yet.</p></div></div>
 <div class="chat-input-row">
 <input class="chat-inp" id="chatInp" placeholder="Type a message… (Enter to send)" onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();sendMsg();}">
 <button class="btn btn-p" onclick="sendMsg()">Send ↗</button>
 </div>
 </div>
 <div class="chat-sidebar">
-<div class="card" style="padding:14px;">
-<div class="sec-title" style="margin-bottom:10px;">📌 Pinned</div>
-<div class="pinned-list" id="pinnedList"><p style="font-size:12px;color:var(--muted);">No pinned messages</p></div>
-</div>
-<div class="card" style="padding:14px;">
-<div class="sec-title" style="margin-bottom:10px;">🟢 Online</div>
-<div class="online-list" id="onlineList"></div>
-</div>
+<div class="card" style="padding:14px;"><div class="sec-title" style="margin-bottom:10px;">📌 Pinned</div><div id="pinnedList"><p style="font-size:12px;color:var(--muted);">No pinned messages</p></div></div>
+<div class="card" style="padding:14px;"><div class="sec-title" style="margin-bottom:10px;">🟢 Online</div><div id="onlineList"></div></div>
 </div>
 </div>
 </div>
 
-<!-- ANNOUNCEMENTS -->
-<div class="page" id="page-announcements">
-<div id="annsList"></div>
-</div>
-
-<!-- MEETINGS -->
-<div class="page" id="page-meetings">
-<div class="meetings-list" id="meetsList"></div>
-</div>
-
-<!-- ATTENDANCE -->
+<div class="page" id="page-announcements"><div id="annsList"></div></div>
+<div class="page" id="page-meetings"><div class="meetings-list" id="meetsList"></div></div>
 <div class="page" id="page-attendance">
 <div class="meetings-tracker card" style="padding:18px;margin-bottom:20px;">
 <div class="sec-title">Meetings – Mark Attendance</div>
 <div id="attMeetings"><div class="empty-state"><div class="ei">📅</div><p>No meetings yet.</p></div></div>
 </div>
-<div class="sec-title">Member Attendance Summary</div>
+<div class="sec-title">Member Summary</div>
 <div class="att-grid" id="attGrid"></div>
 </div>
-
-<!-- LEADERBOARD -->
 <div class="page" id="page-leaderboard">
 <div class="lb-podium" id="lbPodium"></div>
 <div class="sec-title">All Members</div>
 <div class="lb-list" id="lbList"></div>
 </div>
-
 </main>
-</div>
 </div>
 
 <!-- MODALS -->
 <div class="modal-ov" id="mo-member"><div class="modal-box">
-<div class="modal-h"><div class="modal-ht">➕ Add New Member</div><button class="modal-xbtn" onclick="closeMo('mo-member')">✕</button></div>
+<div class="modal-h"><div class="modal-ht">➕ Add Member</div><button class="modal-xbtn" onclick="closeMo('mo-member')">✕</button></div>
 <div class="modal-b">
 <div class="frow"><div class="fg"><label class="fl">Full Name *</label><input class="fi" id="mf-name" placeholder="Full name"></div><div class="fg"><label class="fl">Roll Number *</label><input class="fi" id="mf-roll" placeholder="7376252IT___"></div></div>
 <div class="fg"><label class="fl">Role *</label><select class="fs" id="mf-role"><option>Team Captain</option><option>Team Vice Captain</option><option>Team Manager</option><option>Team Strategist</option><option>Team Member 1</option><option>Team Member 2</option><option>Team Member 3</option><option>Team Member 4</option><option>Team Member 5</option><option>Team Member 6</option><option>Team Member 7</option><option>Team Member</option></select></div>
 <div class="frow"><div class="fg"><label class="fl">Email</label><input class="fi" id="mf-email" placeholder="name.it25@bitsathy.ac.in"></div><div class="fg"><label class="fl">Phone</label><input class="fi" id="mf-phone" placeholder="9XXXXXXXXX"></div></div>
-<div class="fg"><label class="fl">Joined Date</label><input class="fi" id="mf-joined" type="date"></div>
+<div class="frow"><div class="fg"><label class="fl">Joined Date</label><input class="fi" id="mf-joined" type="date"></div><div class="fg"><label class="fl">PIN (4 digits)</label><input class="fi" id="mf-pin" placeholder="Last 4 of roll" maxlength="4" type="password"></div></div>
 <div class="modal-footer"><button class="btn btn-o" onclick="closeMo('mo-member')">Cancel</button><button class="btn btn-p" onclick="addMember()">Add Member</button></div>
-</div>
-</div></div>
+</div></div></div>
 
 <div class="modal-ov" id="mo-task"><div class="modal-box">
 <div class="modal-h"><div class="modal-ht">📊 New Task</div><button class="modal-xbtn" onclick="closeMo('mo-task')">✕</button></div>
@@ -550,19 +542,16 @@ transition:transform 0.3s cubic-bezier(0.4,0,0.2,1);
 <div class="frow"><div class="fg"><label class="fl">Assign To *</label><select class="fs" id="tf-assign"></select></div><div class="fg"><label class="fl">Deadline</label><input class="fi" id="tf-deadline" type="date"></div></div>
 <div class="fg"><label class="fl">Priority</label><div class="pri-group"><button class="pb ph" id="tp-h" onclick="setTP('h')">🔴 High</button><button class="pb" id="tp-m" onclick="setTP('m')">🟡 Medium</button><button class="pb" id="tp-l" onclick="setTP('l')">🟢 Low</button></div></div>
 <div class="modal-footer"><button class="btn btn-o" onclick="closeMo('mo-task')">Cancel</button><button class="btn btn-p" onclick="addTask()">Create Task</button></div>
-</div>
-</div></div>
+</div></div></div>
 
 <div class="modal-ov" id="mo-ann"><div class="modal-box">
-<div class="modal-h"><div class="modal-ht">📢 New Announcement</div><button class="modal-xbtn" onclick="closeMo('mo-ann')">✕</button></div>
+<div class="modal-h"><div class="modal-ht">📢 Announcement</div><button class="modal-xbtn" onclick="closeMo('mo-ann')">✕</button></div>
 <div class="modal-b">
 <div class="fg"><label class="fl">Title *</label><input class="fi" id="af-title" placeholder="Announcement title…"></div>
 <div class="fg"><label class="fl">Message *</label><textarea class="fta" id="af-body" rows="4" placeholder="Your message…"></textarea></div>
 <div class="fg"><label class="fl">Priority</label><div class="pri-group"><button class="pb ph" id="ap-h" onclick="setAP('h')">🔴 High</button><button class="pb" id="ap-m" onclick="setAP('m')">🟡 Medium</button><button class="pb" id="ap-l" onclick="setAP('l')">🟢 Low</button></div></div>
-<div class="fg"><label class="fl">Posted By</label><input class="fi" id="af-by" placeholder="Your name / role"></div>
 <div class="modal-footer"><button class="btn btn-o" onclick="closeMo('mo-ann')">Cancel</button><button class="btn btn-p" onclick="addAnn()">Post</button></div>
-</div>
-</div></div>
+</div></div></div>
 
 <div class="modal-ov" id="mo-meet"><div class="modal-box">
 <div class="modal-h"><div class="modal-ht">📅 Schedule Meeting</div><button class="modal-xbtn" onclick="closeMo('mo-meet')">✕</button></div>
@@ -572,510 +561,690 @@ transition:transform 0.3s cubic-bezier(0.4,0,0.2,1);
 <div class="frow"><div class="fg"><label class="fl">Duration</label><input class="fi" id="mef-dur" placeholder="e.g. 1 hour"></div><div class="fg"><label class="fl">Location</label><input class="fi" id="mef-loc" placeholder="Lab 3 / Google Meet"></div></div>
 <div class="fg"><label class="fl">Agenda</label><textarea class="fta" id="mef-desc" placeholder="Topics to discuss…"></textarea></div>
 <div class="modal-footer"><button class="btn btn-o" onclick="closeMo('mo-meet')">Cancel</button><button class="btn btn-p" onclick="addMeeting()">Schedule</button></div>
-</div>
-</div></div>
+</div></div></div>
+
+<!-- Change PIN modal -->
+<div class="modal-ov" id="mo-pin"><div class="modal-box">
+<div class="modal-h"><div class="modal-ht">🔑 Change PIN</div><button class="modal-xbtn" onclick="closeMo('mo-pin')">✕</button></div>
+<div class="modal-b">
+<div class="fg"><label class="fl">New PIN (4 digits)</label><input class="fi" id="newpin" placeholder="Enter new 4-digit PIN" maxlength="4" type="password"></div>
+<div class="fg"><label class="fl">Confirm PIN</label><input class="fi" id="newpin2" placeholder="Repeat PIN" maxlength="4" type="password"></div>
+<div class="modal-footer"><button class="btn btn-o" onclick="closeMo('mo-pin')">Cancel</button><button class="btn btn-p" onclick="changePIN()">Save PIN</button></div>
+</div></div></div>
 
 <div class="toast" id="toast"></div>
 
 <script>
-const LS={
-get:(k,d)=>{try{const v=localStorage.getItem('squad_'+k);return v?JSON.parse(v):d;}catch{return d;}},
-set:(k,v)=>{try{localStorage.setItem('squad_'+k,JSON.stringify(v));}catch{}}
-};
+// ══════════════════════════════════════
+//  FIREBASE CONFIG
+// ══════════════════════════════════════
+const FB_URL  = 'https://team-information-default-rtdb.firebaseio.com';
+const FB_AUTH = 'j4ch8qg31bwvcR8ixJ1hAssN9fY1hwZc41MkKK1C';
 
-const DEFAULT_MEMBERS=[
-{id:'m1',name:'Hemavarshini V',rollNo:'7376252IT182',role:'Team Captain',email:'hemavarshiniv.it25@bitsathy.ac.in',phone:'9965889998',joined:'2026-02-20',notes:'',pts:50},
-{id:'m2',name:'Nitharshan V',rollNo:'7376252IT263',role:'Team Vice Captain',email:'nitharshanv.it25@bitsathy.ac.in',phone:'9363797018',joined:'2026-02-21',notes:'',pts:40},
-{id:'m3',name:'Shobika S',rollNo:'7376252IT342',role:'Team Manager',email:'shobikas.it25@bitsathy.ac.in',phone:'6374954830',joined:'2026-02-21',notes:'',pts:35},
-{id:'m4',name:'Aravindhan G',rollNo:'7376252IT115',role:'Team Member 1',email:'aravindhang.it25@bitsathy.ac.in',phone:'9500201960',joined:'2026-02-21',notes:'',pts:20},
-{id:'m5',name:'Harish S',rollNo:'7376252IT176',role:'Team Strategist',email:'harishs.it25@bitsathy.ac.in',phone:'9500928654',joined:'2026-02-21',notes:'',pts:30},
-{id:'m6',name:'Ranjith Kumar P',rollNo:'7376252IT297',role:'Team Member 2',email:'ranjithkumarp.it25@bitsathy.ac.in',phone:'7373864314',joined:'2026-02-21',notes:'',pts:20},
-{id:'m7',name:'Tharaneshkumar M',rollNo:'7376252IT369',role:'Team Member 3',email:'tharaneshkumarm.it25@bitsathy.ac.in',phone:'6382046080',joined:'2026-02-21',notes:'',pts:20},
-{id:'m8',name:'Sudharshini S',rollNo:'7376252IT359',role:'Team Member 4',email:'sudharshinis.it25@bitsathy.ac.in',phone:'7397138478',joined:'2026-02-21',notes:'',pts:20},
-{id:'m9',name:'Shruti D K',rollNo:'7376252IT343',role:'Team Member 5',email:'shrutidk.it25@bitsathy.ac.in',phone:'9994328332',joined:'2026-02-21',notes:'',pts:20},
-{id:'m10',name:'Rakhavi C',rollNo:'7376252IT294',role:'Team Member 6',email:'rakhavic.it25@bitsathy.ac.in',phone:'9789416539',joined:'2026-02-21',notes:'',pts:15},
-{id:'m11',name:'Rithik Prathaap N J',rollNo:'7376252IT307',role:'Team Member 7',email:'rithikprathaapnj.it25@bitsathy.ac.in',phone:'9345703754',joined:'2026-02-21',notes:'',pts:15},
+async function fbGet(path) {
+  const r = await fetch(`${FB_URL}/${path}.json?auth=${FB_AUTH}`);
+  if(!r.ok) throw new Error(r.status);
+  return r.json();
+}
+async function fbSet(path, data) {
+  const r = await fetch(`${FB_URL}/${path}.json?auth=${FB_AUTH}`, {
+    method: 'PUT', headers:{'Content-Type':'application/json'}, body: JSON.stringify(data)
+  });
+  if(!r.ok) throw new Error(r.status);
+  return r.json();
+}
+async function fbPush(path, data) {
+  const r = await fetch(`${FB_URL}/${path}.json?auth=${FB_AUTH}`, {
+    method: 'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(data)
+  });
+  if(!r.ok) throw new Error(r.status);
+  return r.json();
+}
+async function fbDelete(path) {
+  await fetch(`${FB_URL}/${path}.json?auth=${FB_AUTH}`, { method: 'DELETE' });
+}
+async function fbPatch(path, data) {
+  const r = await fetch(`${FB_URL}/${path}.json?auth=${FB_AUTH}`, {
+    method: 'PATCH', headers:{'Content-Type':'application/json'}, body: JSON.stringify(data)
+  });
+  if(!r.ok) throw new Error(r.status);
+  return r.json();
+}
+
+function setDbStatus(state, text) {
+  document.getElementById('dbDot').className = 'db-dot ' + state;
+  document.getElementById('dbTxt').textContent = text;
+}
+
+// ══════════════════════════════════════
+//  STATE
+// ══════════════════════════════════════
+const DEFAULT_MEMBERS = [
+  {id:'m1',name:'Hemavarshini V',rollNo:'7376252IT182',role:'Team Captain',email:'hemavarshiniv.it25@bitsathy.ac.in',phone:'9965889998',joined:'2026-02-20',notes:'',pts:50,pin:'0182'},
+  {id:'m2',name:'Nitharshan V',rollNo:'7376252IT263',role:'Team Vice Captain',email:'nitharshanv.it25@bitsathy.ac.in',phone:'9363797018',joined:'2026-02-21',notes:'',pts:40,pin:'0263'},
+  {id:'m3',name:'Shobika S',rollNo:'7376252IT342',role:'Team Manager',email:'shobikas.it25@bitsathy.ac.in',phone:'6374954830',joined:'2026-02-21',notes:'',pts:35,pin:'0342'},
+  {id:'m4',name:'Aravindhan G',rollNo:'7376252IT115',role:'Team Member 1',email:'aravindhang.it25@bitsathy.ac.in',phone:'9500201960',joined:'2026-02-21',notes:'',pts:20,pin:'0115'},
+  {id:'m5',name:'Harish S',rollNo:'7376252IT176',role:'Team Strategist',email:'harishs.it25@bitsathy.ac.in',phone:'9500928654',joined:'2026-02-21',notes:'',pts:30,pin:'0176'},
+  {id:'m6',name:'Ranjith Kumar P',rollNo:'7376252IT297',role:'Team Member 2',email:'ranjithkumarp.it25@bitsathy.ac.in',phone:'7373864314',joined:'2026-02-21',notes:'',pts:20,pin:'0297'},
+  {id:'m7',name:'Tharaneshkumar M',rollNo:'7376252IT369',role:'Team Member 3',email:'tharaneshkumarm.it25@bitsathy.ac.in',phone:'6382046080',joined:'2026-02-21',notes:'',pts:20,pin:'0369'},
+  {id:'m8',name:'Sudharshini S',rollNo:'7376252IT359',role:'Team Member 4',email:'sudharshinis.it25@bitsathy.ac.in',phone:'7397138478',joined:'2026-02-21',notes:'',pts:20,pin:'0359'},
+  {id:'m9',name:'Shruti D K',rollNo:'7376252IT343',role:'Team Member 5',email:'shrutidk.it25@bitsathy.ac.in',phone:'9994328332',joined:'2026-02-21',notes:'',pts:20,pin:'0343'},
+  {id:'m10',name:'Rakhavi C',rollNo:'7376252IT294',role:'Team Member 6',email:'rakhavic.it25@bitsathy.ac.in',phone:'9789416539',joined:'2026-02-21',notes:'',pts:15,pin:'0294'},
+  {id:'m11',name:'Rithik Prathaap N J',rollNo:'7376252IT307',role:'Team Member 7',email:'rithikprathaapnj.it25@bitsathy.ac.in',phone:'9345703754',joined:'2026-02-21',notes:'',pts:15,pin:'0307'},
 ];
 
-let members=LS.get('members',DEFAULT_MEMBERS);
-let tasks=LS.get('tasks',[]);
-let messages=LS.get('messages',[]);
-let announcements=LS.get('announcements',[]);
-let meetings=LS.get('meetings',[]);
-let attendance=LS.get('attendance',{});
-let currentUser=null;
-let annP='h',taskP='h';
-let idC=LS.get('idC',12);
+let state = { members:[], tasks:[], messages:[], announcements:[], meetings:[], attendance:{} };
+let currentUser = null;
+let annP='h', taskP='h';
+let chatInterval = null;
+let lastMsgCount = 0;
 
-function save(){
-LS.set('members',members);LS.set('tasks',tasks);LS.set('messages',messages);
-LS.set('announcements',announcements);LS.set('meetings',meetings);
-LS.set('attendance',attendance);LS.set('idC',idC);
-}
-
-function rs(role){
-if(role==='Team Captain')return{ch:'ch-cap',av:'av-cap'};
-if(role==='Team Vice Captain')return{ch:'ch-vic',av:'av-vic'};
-if(role==='Team Manager')return{ch:'ch-mgr',av:'av-mgr'};
-if(role==='Team Strategist')return{ch:'ch-str',av:'av-str'};
-return{ch:'ch-mem',av:'av-mem'};
-}
-function avColor(name){
-const colors=['#6366f1','#22d3ee','#f472b6','#4ade80','#fbbf24','#f87171','#a78bfa','#fb923c','#34d399','#60a5fa','#e879f9'];
-let h=0;for(let c of name)h=(h*31+c.charCodeAt(0))%colors.length;
-return colors[Math.abs(h)];
-}
-
-// ── PARTICLES ──
-function initParticles(){
-const c=document.getElementById('particles');
-for(let i=0;i<18;i++){
-const d=document.createElement('div');
-const size=Math.random()*4+2;
-const colors=['#6366f1','#818cf8','#22d3ee','#f472b6','#4ade80'];
-d.className='particle';
-d.style.cssText=`width:${size}px;height:${size}px;left:${Math.random()*100}%;background:${colors[Math.floor(Math.random()*colors.length)]};animation-duration:${Math.random()*20+15}s;animation-delay:${Math.random()*15}s;`;
-c.appendChild(d);
-}
-}
-initParticles();
-
-// ── USER SWITCHER ──
-function buildUserDropdown(){
-const list=document.getElementById('usItemsList');
-list.innerHTML=members.map(m=>{
-const ac=avColor(m.name);
-const sel=currentUser&&currentUser.id===m.id;
-return `<div class="us-item ${sel?'selected':''}" onclick="selectUser('${m.id}')">
-<div class="us-item-av ${rs(m.role).av}" style="background:${ac};">${m.name[0]}</div>
-<div>
-<div class="us-item-name">${m.name}</div>
-<div class="us-item-role">${m.role}</div>
-</div>
-${sel?'<span class="us-check">✓</span>':''}
-</div>`;
-}).join('');
+// ══════════════════════════════════════
+//  FIREBASE LOAD / SAVE
+// ══════════════════════════════════════
+async function loadFromFirebase() {
+  setDbStatus('loading','Loading…');
+  try {
+    const data = await fbGet('squadhub');
+    if(data && data.members) {
+      state.members     = objToArr(data.members);
+      state.tasks       = objToArr(data.tasks);
+      state.messages    = objToArr(data.messages);
+      state.announcements = objToArr(data.announcements);
+      state.meetings    = objToArr(data.meetings);
+      state.attendance  = data.attendance || {};
+      setDbStatus('ok','Firebase ✓');
+    } else {
+      // First time - seed defaults
+      state.members = JSON.parse(JSON.stringify(DEFAULT_MEMBERS));
+      await fbSet('squadhub/members', arrToObj(state.members));
+      setDbStatus('ok','Seeded ✓');
+    }
+  } catch(e) {
+    console.error('Firebase error:', e);
+    state.members = JSON.parse(JSON.stringify(DEFAULT_MEMBERS));
+    setDbStatus('err','Offline');
+    toast('Firebase offline - using local data','err');
+  }
 }
 
-function toggleUserDropdown(){
-const dd=document.getElementById('usDropdown');
-buildUserDropdown();
-dd.classList.toggle('open');
+function objToArr(obj) {
+  if(!obj) return [];
+  if(Array.isArray(obj)) return obj;
+  return Object.values(obj);
+}
+function arrToObj(arr) {
+  const o={};
+  arr.forEach(item=>{ if(item && item.id) o[item.id]=item; });
+  return o;
 }
 
-function selectUser(id){
-const m=members.find(x=>x.id===id);
-if(!m)return;
-currentUser=m;
-LS.set('currentUser',m.id);
-// update topbar button
-const ac=avColor(m.name);
-document.getElementById('usAvatar').style.background=ac;
-document.getElementById('usAvatar').textContent=m.name[0];
-document.getElementById('usName').textContent=m.name.split(' ')[0];
-// update sidebar
-const s=rs(m.role);
-document.getElementById('sbUser').innerHTML=`<div class="sb-av ${s.av}" style="background:${ac};">${m.name[0]}</div><div><div class="sb-uname">${m.name.split(' ')[0]}</div><div class="sb-urole">${m.role}</div></div>`;
-document.getElementById('usDropdown').classList.remove('open');
-toast(`Switched to ${m.name.split(' ')[0]} 👋`,'ok');
-renderAll();
+async function saveMember(m) {
+  try { await fbSet(`squadhub/members/${m.id}`, m); setDbStatus('ok','Saved ✓'); }
+  catch(e){ setDbStatus('err','Save err'); }
+}
+async function saveTask(t) {
+  try { await fbSet(`squadhub/tasks/${t.id}`, t); setDbStatus('ok','Saved ✓'); }
+  catch(e){ setDbStatus('err','Save err'); }
+}
+async function delTask_fb(id) {
+  try { await fbDelete(`squadhub/tasks/${id}`); }
+  catch(e){}
+}
+async function saveMsg(m) {
+  try { await fbSet(`squadhub/messages/${m.id}`, m); setDbStatus('ok','Live ✓'); }
+  catch(e){ setDbStatus('err','Save err'); }
+}
+async function delMsg_fb(id) {
+  try { await fbDelete(`squadhub/messages/${id}`); }
+  catch(e){}
+}
+async function saveAnn(a) {
+  try { await fbSet(`squadhub/announcements/${a.id}`, a); setDbStatus('ok','Saved ✓'); }
+  catch(e){ setDbStatus('err','Save err'); }
+}
+async function delAnn_fb(id) {
+  try { await fbDelete(`squadhub/announcements/${id}`); }
+  catch(e){}
+}
+async function saveMeeting(mt) {
+  try { await fbSet(`squadhub/meetings/${mt.id}`, mt); setDbStatus('ok','Saved ✓'); }
+  catch(e){ setDbStatus('err','Save err'); }
+}
+async function delMeeting_fb(id) {
+  try { await fbDelete(`squadhub/meetings/${id}`); }
+  catch(e){}
+}
+async function saveAttendance(meetId, memberId, val) {
+  try {
+    if(val==null) await fbDelete(`squadhub/attendance/${meetId}/${memberId}`);
+    else await fbSet(`squadhub/attendance/${meetId}/${memberId}`, val);
+    setDbStatus('ok','Saved ✓');
+  } catch(e){ setDbStatus('err','Save err'); }
 }
 
-// Close dropdown when clicking outside
-document.addEventListener('click',e=>{
-const sw=document.getElementById('userSwitcher');
-if(!sw.contains(e.target))document.getElementById('usDropdown').classList.remove('open');
-});
-
-// ── INIT ──
-window.addEventListener('load',()=>{
-// Try restore last user
-const uid=LS.get('currentUser',null);
-if(uid){
-const m=members.find(x=>x.id===uid);
-if(m){
-currentUser=m;
-const ac=avColor(m.name);
-document.getElementById('usAvatar').style.background=ac;
-document.getElementById('usAvatar').textContent=m.name[0];
-document.getElementById('usName').textContent=m.name.split(' ')[0];
-const s=rs(m.role);
-document.getElementById('sbUser').innerHTML=`<div class="sb-av ${s.av}" style="background:${ac};">${m.name[0]}</div><div><div class="sb-uname">${m.name.split(' ')[0]}</div><div class="sb-urole">${m.role}</div></div>`;
+// ══════════════════════════════════════
+//  REAL-TIME CHAT POLLING
+// ══════════════════════════════════════
+async function pollMessages() {
+  try {
+    const data = await fbGet('squadhub/messages');
+    const msgs = objToArr(data);
+    if(msgs.length !== lastMsgCount) {
+      state.messages = msgs;
+      lastMsgCount = msgs.length;
+      if(document.getElementById('page-chat').classList.contains('active')) {
+        renderChat(); scrollChat();
+      }
+      updateBadges();
+    }
+  } catch(e){}
 }
-}
-populateAssigneeDropdowns();
-renderAll();
-});
 
-// ── NAVIGATION ──
+// ══════════════════════════════════════
+//  LOGIN SYSTEM
+// ══════════════════════════════════════
+let pinBuffer = '';
+let loginMemberId = '';
+
+function populateLoginDropdown() {
+  const sel = document.getElementById('loginMember');
+  sel.innerHTML = '<option value="">— Choose your name —</option>' +
+    state.members.map(m=>`<option value="${m.id}">${m.name} · ${m.role}</option>`).join('');
+}
+
+function goStep2() {
+  const id = document.getElementById('loginMember').value;
+  if(!id){ alert('Please select your name'); return; }
+  loginMemberId = id;
+  const m = state.members.find(x=>x.id===id);
+  document.getElementById('loginGreet').textContent = `Hey ${m.name.split(' ')[0]}! 👋`;
+  document.getElementById('step1').style.display = 'none';
+  document.getElementById('step2').style.display = 'block';
+  document.getElementById('loginErr').style.display = 'none';
+  pinBuffer = '';
+  updatePinDots();
+}
+function goStep1() {
+  document.getElementById('step2').style.display = 'none';
+  document.getElementById('step1').style.display = 'block';
+  pinBuffer = '';
+  updatePinDots();
+}
+function kp(d) {
+  if(pinBuffer.length >= 4) return;
+  pinBuffer += d;
+  updatePinDots();
+  if(pinBuffer.length === 4) setTimeout(tryLogin, 200);
+}
+function kpDel() {
+  pinBuffer = pinBuffer.slice(0,-1);
+  updatePinDots();
+  document.getElementById('loginErr').style.display = 'none';
+}
+function updatePinDots() {
+  for(let i=0;i<4;i++) {
+    const d = document.getElementById('pd'+i);
+    d.classList.toggle('filled', i < pinBuffer.length);
+  }
+}
+function tryLogin() {
+  const m = state.members.find(x=>x.id===loginMemberId);
+  const correctPin = m.pin || m.rollNo.slice(-4).padStart(4,'0');
+  if(pinBuffer === correctPin) {
+    currentUser = m;
+    // Save session
+    try{ localStorage.setItem('sh_user', m.id); }catch(e){}
+    document.getElementById('loginPage').classList.add('hide');
+    document.getElementById('mainApp').style.display = 'flex';
+    updateUserDisplay();
+    renderAll();
+    startChatPoll();
+    toast(`Welcome back, ${m.name.split(' ')[0]}! 🚀`,'ok');
+  } else {
+    document.getElementById('loginErr').style.display = 'block';
+    pinBuffer=''; updatePinDots();
+    // Shake animation
+    document.querySelector('.login-box').style.animation='none';
+    setTimeout(()=>document.querySelector('.login-box').style.animation='',10);
+  }
+}
+function doLogout() {
+  if(!confirm('Logout?')) return;
+  currentUser = null;
+  try{ localStorage.removeItem('sh_user'); }catch(e){}
+  document.getElementById('mainApp').style.display = 'none';
+  document.getElementById('loginPage').classList.remove('hide');
+  clearInterval(chatInterval);
+  pinBuffer=''; updatePinDots();
+  document.getElementById('step2').style.display = 'none';
+  document.getElementById('step1').style.display = 'block';
+  document.getElementById('loginMember').value = '';
+}
+function updateUserDisplay() {
+  if(!currentUser) return;
+  const ac = avColor(currentUser.name);
+  const s = rs(currentUser.role);
+  document.getElementById('ucAv').style.background = ac;
+  document.getElementById('ucAv').textContent = currentUser.name[0];
+  document.getElementById('ucName').textContent = currentUser.name.split(' ')[0];
+  document.getElementById('sbUser').innerHTML = `<div class="sb-av ${s.av}" style="background:${ac};">${currentUser.name[0]}</div><div><div class="sb-uname">${currentUser.name.split(' ')[0]}</div><div class="sb-urole">${currentUser.role}</div></div>`;
+}
+function startChatPoll() {
+  clearInterval(chatInterval);
+  chatInterval = setInterval(pollMessages, 5000);
+}
+
+// ══════════════════════════════════════
+//  HELPERS
+// ══════════════════════════════════════
+function rs(role) {
+  if(role==='Team Captain')return{ch:'ch-cap',av:'av-cap'};
+  if(role==='Team Vice Captain')return{ch:'ch-vic',av:'av-vic'};
+  if(role==='Team Manager')return{ch:'ch-mgr',av:'av-mgr'};
+  if(role==='Team Strategist')return{ch:'ch-str',av:'av-str'};
+  return{ch:'ch-mem',av:'av-mem'};
+}
+function avColor(name) {
+  const colors=['#6366f1','#22d3ee','#f472b6','#4ade80','#fbbf24','#f87171','#a78bfa','#fb923c','#34d399','#60a5fa','#e879f9'];
+  let h=0; for(let c of name) h=(h*31+c.charCodeAt(0))%colors.length;
+  return colors[Math.abs(h)];
+}
+function v(id){ return (document.getElementById(id)?.value||'').trim(); }
+function clearFs(ids){ ids.forEach(id=>{ const e=document.getElementById(id); if(e)e.value=''; }); }
+function escHtml(t){ return t.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+function genId(){ return Date.now().toString(36)+Math.random().toString(36).slice(2,6); }
+
+function initParticles(cid='particles') {
+  const c=document.getElementById(cid);
+  if(!c)return;
+  for(let i=0;i<18;i++){
+    const d=document.createElement('div'); const sz=Math.random()*4+2;
+    const cols=['#6366f1','#818cf8','#22d3ee','#f472b6','#4ade80'];
+    d.className='particle';
+    d.style.cssText=`width:${sz}px;height:${sz}px;left:${Math.random()*100}%;background:${cols[Math.floor(Math.random()*cols.length)]};animation-duration:${Math.random()*20+15}s;animation-delay:${Math.random()*15}s;`;
+    c.appendChild(d);
+  }
+}
+
+// ══════════════════════════════════════
+//  NAVIGATION
+// ══════════════════════════════════════
 const pageTitles={dashboard:'Dashboard',members:'Members',profile:'Profile',tasks:'Tasks',chat:'Team Chat',announcements:'Announcements',meetings:'Meetings',attendance:'Attendance',leaderboard:'Leaderboard'};
 const pageActions={
-members:`<button class="btn btn-p" onclick="openMo('mo-member')">➕ Add Member</button>`,
-tasks:`<button class="btn btn-p" onclick="openMo('mo-task')">➕ New Task</button>`,
-announcements:`<button class="btn btn-p" onclick="openMo('mo-ann')">📢 Post</button>`,
-meetings:`<button class="btn btn-p" onclick="openMo('mo-meet')">📅 Schedule</button>`,
+  members:`<button class="btn btn-p" onclick="openMo('mo-member')">➕ Add Member</button>`,
+  tasks:`<button class="btn btn-p" onclick="openMo('mo-task')">➕ New Task</button>`,
+  announcements:`<button class="btn btn-p" onclick="openMo('mo-ann')">📢 Post</button>`,
+  meetings:`<button class="btn btn-p" onclick="openMo('mo-meet')">📅 Schedule</button>`,
 };
-
-function goPage(page,btn){
-document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
-document.getElementById('page-'+page).classList.add('active');
-document.getElementById('tbTitle').textContent=pageTitles[page]||page;
-// Rebuild tb-right keeping user switcher
-const tbR=document.getElementById('tbActions');
-const sw=document.getElementById('userSwitcher');
-tbR.innerHTML='';
-if(pageActions[page]){const tmp=document.createElement('div');tmp.innerHTML=pageActions[page];tbR.appendChild(tmp.firstChild);}
-tbR.appendChild(sw);
-document.querySelectorAll('.nav-item').forEach(n=>n.classList.remove('active'));
-if(btn)btn.classList.add('active');
-if(page==='dashboard')renderDash();
-if(page==='members')renderMembers();
-if(page==='tasks'){renderTasks();populateAssigneeDropdowns();}
-if(page==='chat'){renderChat();setTimeout(()=>scrollChat(),100);}
-if(page==='announcements')renderAnns();
-if(page==='meetings')renderMeetings();
-if(page==='attendance')renderAttendance();
-if(page==='leaderboard')renderLeaderboard();
-closeSb();
+function goPage(page,btn) {
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.getElementById('page-'+page).classList.add('active');
+  document.getElementById('tbTitle').textContent=pageTitles[page]||page;
+  const tbR=document.getElementById('tbActions');
+  const db=document.getElementById('dbStatus');
+  const uc=document.getElementById('userChip');
+  const lb=document.querySelector('.logout-btn');
+  tbR.innerHTML='';
+  if(pageActions[page]){ const tmp=document.createElement('div'); tmp.innerHTML=pageActions[page]; tbR.appendChild(tmp.firstChild); }
+  tbR.appendChild(db); tbR.appendChild(uc); tbR.appendChild(lb);
+  document.querySelectorAll('.nav-item').forEach(n=>n.classList.remove('active'));
+  if(btn)btn.classList.add('active');
+  if(page==='dashboard')renderDash();
+  if(page==='members')renderMembers();
+  if(page==='tasks'){renderTasks();populateAssigneeDropdowns();}
+  if(page==='chat'){renderChat();setTimeout(()=>scrollChat(),100);}
+  if(page==='announcements')renderAnns();
+  if(page==='meetings')renderMeetings();
+  if(page==='attendance')renderAttendance();
+  if(page==='leaderboard')renderLeaderboard();
+  closeSb();
+}
+function renderAll() {
+  renderDash(); renderMembers(); renderTasks(); renderChat();
+  renderAnns(); renderMeetings(); renderAttendance(); renderLeaderboard();
+  updateBadges();
 }
 
-function renderAll(){
-renderDash();renderMembers();renderTasks();renderChat();
-renderAnns();renderMeetings();renderAttendance();renderLeaderboard();
-updateBadges();
+// ══════════════════════════════════════
+//  MEMBERS
+// ══════════════════════════════════════
+function renderMembers() {
+  const q=(document.getElementById('mem-srch').value||'').toLowerCase();
+  const rf=document.getElementById('mem-role').value;
+  const grid=document.getElementById('membersGrid');
+  const filtered=state.members.filter(m=>{ const mq=!q||m.name.toLowerCase().includes(q)||m.rollNo.toLowerCase().includes(q)||m.role.toLowerCase().includes(q); const mr=!rf||m.role.toLowerCase().includes(rf.toLowerCase()); return mq&&mr; });
+  if(!filtered.length){ grid.innerHTML=`<div class="empty-state" style="grid-column:1/-1"><div class="ei">🔍</div><p>No members found</p></div>`; return; }
+  grid.innerHTML=filtered.map(m=>{
+    const s=rs(m.role); const ac=avColor(m.name);
+    return `<div class="card mc"><div class="mc-top" style="background:${ac};"></div><div class="mc-body"><div class="mc-head"><div class="mc-av ${s.av}" style="background:${ac};">${m.name[0]}</div><div><div class="mc-name">${m.name}</div><div class="mc-id">${m.rollNo}</div></div></div><span class="chip ${s.ch}">${m.role}</span><div class="mc-info" style="margin-top:10px;">${m.email?`<span>✉️ <span style="color:var(--txt)">${m.email}</span></span>`:''} ${m.phone?`<span>📞 <span style="color:var(--txt)">${m.phone}</span></span>`:''}</div><div class="mc-acts"><button class="btn btn-o btn-sm" onclick="openProfile('${m.id}')">👤 Profile</button><button class="btn btn-d btn-sm" onclick="delMember('${m.id}')">🗑</button></div></div></div>`;
+  }).join('');
+  updateBadges();
+}
+async function addMember() {
+  const name=v('mf-name'),roll=v('mf-roll'),role=v('mf-role'),email=v('mf-email'),phone=v('mf-phone'),joined=v('mf-joined'),pin=v('mf-pin')||roll.slice(-4).padStart(4,'0');
+  if(!name||!roll){ toast('Name & Roll required','err'); return; }
+  const m={id:genId(),name,rollNo:roll,role,email,phone,joined,notes:'',pts:10,pin};
+  state.members.push(m);
+  await saveMember(m);
+  closeMo('mo-member'); clearFs(['mf-name','mf-roll','mf-email','mf-phone','mf-joined','mf-pin']);
+  populateAssigneeDropdowns(); populateLoginDropdown(); renderMembers(); updateBadges();
+  toast('Member added! 🎉','ok');
+}
+async function delMember(id) {
+  if(!confirm('Remove this member?')) return;
+  state.members=state.members.filter(m=>m.id!==id);
+  try{ await fbDelete(`squadhub/members/${id}`); }catch(e){}
+  renderMembers(); updateBadges(); toast('Member removed','ok');
+}
+function openProfile(id) {
+  const m=state.members.find(x=>x.id===id); if(!m)return;
+  const s=rs(m.role); const ac=avColor(m.name);
+  const joined=m.joined?new Date(m.joined).toLocaleDateString('en-IN',{day:'2-digit',month:'long',year:'numeric'}):'—';
+  const myTasks=state.tasks.filter(t=>t.assigneeId===id);
+  const att=Object.values(state.attendance).reduce((acc,meet)=>{ if(meet[id]==='p')acc.p++; else if(meet[id]==='a')acc.a++; else if(meet[id]==='e')acc.e++; return acc;},{p:0,a:0,e:0});
+  const total=att.p+att.a+att.e; const pct=total?Math.round(att.p/total*100):100;
+  const isMe = currentUser&&currentUser.id===id;
+  document.getElementById('profileContent').innerHTML=`<div class="profile-hero"><div class="profile-av ${s.av}" style="background:${ac};">${m.name[0]}</div><div><div class="profile-name">${m.name}</div><div class="profile-id">${m.rollNo}</div><span class="chip ${s.ch}">${m.role}</span>${isMe?'<span style="margin-left:8px;font-size:11px;color:var(--green);background:rgba(74,222,128,0.1);padding:3px 8px;border-radius:5px;">● You</span>':''}</div></div><div class="profile-dgrid"><div class="card dbox"><div class="dbl">Email</div><div class="dbv">${m.email||'—'}</div></div><div class="card dbox"><div class="dbl">Phone</div><div class="dbv">${m.phone||'—'}</div></div><div class="card dbox"><div class="dbl">Joined</div><div class="dbv">${joined}</div></div><div class="card dbox"><div class="dbl">Department</div><div class="dbv">Information Technology</div></div><div class="card dbox"><div class="dbl">🏆 Points</div><div class="dbv" style="color:var(--amber);font-family:'Bebas Neue';font-size:24px;">${m.pts}</div></div><div class="card dbox"><div class="dbl">📈 Attendance</div><div class="dbv" style="color:${pct>=75?'var(--green)':pct>=50?'var(--amber)':'var(--red)'};font-family:'Bebas Neue';font-size:24px;">${pct}%</div></div></div><div class="sec-title">Tasks (${myTasks.length})</div><div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px;">${myTasks.length?myTasks.map(t=>`<span style="background:var(--card);border:1px solid var(--b2);border-radius:7px;padding:5px 11px;font-size:12px;">${t.title} <span style="color:${t.status==='done'?'var(--green)':t.status==='prog'?'var(--amber)':'var(--muted)'};font-size:10px;">● ${t.status}</span></span>`).join(''):'<span style="color:var(--muted);font-size:13px;">No tasks assigned</span>'}</div>${isMe?`<button class="btn btn-o btn-sm" style="margin-bottom:20px;" onclick="openMo('mo-pin')">🔑 Change PIN</button>`:''}<div class="sec-title">Notes</div><div class="card notes-wrap"><textarea class="notes-ta" id="profNotes" placeholder="Add notes…" onblur="saveNoteProfile('${id}')">${m.notes||''}</textarea></div>`;
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.getElementById('page-profile').classList.add('active');
+  document.getElementById('tbTitle').textContent=m.name;
+}
+async function saveNoteProfile(id) {
+  const m=state.members.find(x=>x.id===id);
+  if(m){ m.notes=document.getElementById('profNotes').value; await saveMember(m); toast('Notes saved ✓','ok'); }
+}
+async function changePIN() {
+  const p1=v('newpin'),p2=v('newpin2');
+  if(p1.length!==4||!/^\d{4}$/.test(p1)){ toast('PIN must be 4 digits','err'); return; }
+  if(p1!==p2){ toast('PINs do not match','err'); return; }
+  currentUser.pin=p1;
+  const m=state.members.find(x=>x.id===currentUser.id);
+  if(m){ m.pin=p1; await saveMember(m); }
+  closeMo('mo-pin'); clearFs(['newpin','newpin2']);
+  toast('PIN changed! 🔑','ok');
 }
 
-// ── MEMBERS ──
-function renderMembers(){
-const q=(document.getElementById('mem-srch').value||'').toLowerCase();
-const rf=document.getElementById('mem-role').value;
-const grid=document.getElementById('membersGrid');
-let filtered=members.filter(m=>{
-const mq=!q||m.name.toLowerCase().includes(q)||m.rollNo.toLowerCase().includes(q)||m.role.toLowerCase().includes(q);
-const mr=!rf||m.role.toLowerCase().includes(rf.toLowerCase());
-return mq&&mr;
-});
-if(!filtered.length){grid.innerHTML=`<div class="empty-state" style="grid-column:1/-1"><div class="ei">🔍</div><p>No members found</p></div>`;return;}
-grid.innerHTML=filtered.map(m=>{
-const s=rs(m.role);const ac=avColor(m.name);
-return `<div class="card mc" onclick="openProfile('${m.id}')">
-<div class="mc-top" style="background:${ac};"></div>
-<div class="mc-body">
-<div class="mc-head">
-<div class="mc-av ${s.av}" style="background:${ac};">${m.name[0]}</div>
-<div><div class="mc-name">${m.name}</div><div class="mc-id">${m.rollNo}</div></div>
-</div>
-<span class="chip ${s.ch}">${m.role}</span>
-<div class="mc-info" style="margin-top:10px;">
-${m.email?`<span>✉️ <span style="color:var(--txt)">${m.email}</span></span>`:''}
-${m.phone?`<span>📞 <span style="color:var(--txt)">${m.phone}</span></span>`:''}
-</div>
-<div class="mc-acts">
-<button class="btn btn-o btn-sm" onclick="event.stopPropagation();openProfile('${m.id}')">👤 Profile</button>
-<button class="btn btn-d btn-sm" onclick="event.stopPropagation();delMember('${m.id}')">🗑</button>
-</div>
-</div>
-</div>`;
-}).join('');
-updateBadges();
-}
-
-function addMember(){
-const name=v('mf-name'),roll=v('mf-roll'),role=v('mf-role'),email=v('mf-email'),phone=v('mf-phone'),joined=v('mf-joined');
-if(!name||!roll){toast('Name & Roll Number required','err');return;}
-const newM={id:'m'+idC++,name,rollNo:roll,role,email,phone,joined,notes:'',pts:10};
-members.push(newM);
-save();closeMo('mo-member');clearFs(['mf-name','mf-roll','mf-email','mf-phone','mf-joined']);
-populateAssigneeDropdowns();renderMembers();updateBadges();
-toast('Member added! 🎉','ok');
-}
-
-function delMember(id){
-if(!confirm('Remove this member?'))return;
-members=members.filter(m=>m.id!==id);save();
-if(currentUser&&currentUser.id===id){currentUser=null;LS.set('currentUser',null);document.getElementById('usName').textContent='Select User';document.getElementById('usAvatar').textContent='?';}
-renderMembers();updateBadges();toast('Member removed','ok');
-}
-
-// ── PROFILE ──
-function openProfile(id){
-const m=members.find(x=>x.id===id);if(!m)return;
-const s=rs(m.role);const ac=avColor(m.name);
-const joined=m.joined?new Date(m.joined).toLocaleDateString('en-IN',{day:'2-digit',month:'long',year:'numeric'}):'—';
-const myTasks=tasks.filter(t=>t.assigneeId===id);
-const att=Object.values(attendance).reduce((acc,meet)=>{if(meet[id]==='p')acc.p++;else if(meet[id]==='a')acc.a++;else if(meet[id]==='e')acc.e++;return acc;},{p:0,a:0,e:0});
-const total=att.p+att.a+att.e;const pct=total?Math.round(att.p/total*100):100;
-document.getElementById('profileContent').innerHTML=`
-<div class="profile-hero">
-<div class="profile-av ${s.av}" style="background:${ac};">${m.name[0]}</div>
-<div>
-<div class="profile-name">${m.name}</div>
-<div class="profile-id">${m.rollNo}</div>
-<span class="chip ${s.ch}">${m.role}</span>
-${currentUser&&currentUser.id===id?'<span style="margin-left:8px;font-size:11px;color:var(--green);background:rgba(74,222,128,0.1);padding:3px 8px;border-radius:5px;">● You</span>':''}
-</div>
-</div>
-<div class="profile-dgrid">
-<div class="card dbox"><div class="dbl">Email</div><div class="dbv">${m.email||'—'}</div></div>
-<div class="card dbox"><div class="dbl">Phone</div><div class="dbv">${m.phone||'—'}</div></div>
-<div class="card dbox"><div class="dbl">Joined</div><div class="dbv">${joined}</div></div>
-<div class="card dbox"><div class="dbl">Department</div><div class="dbv">Information Technology</div></div>
-<div class="card dbox"><div class="dbl">🏆 Points</div><div class="dbv" style="color:var(--amber);font-family:'Bebas Neue';font-size:24px;">${m.pts}</div></div>
-<div class="card dbox"><div class="dbl">📈 Attendance</div><div class="dbv" style="color:${pct>=75?'var(--green)':pct>=50?'var(--amber)':'var(--red)'};font-family:'Bebas Neue';font-size:24px;">${pct}%</div></div>
-</div>
-<div class="sec-title">Tasks (${myTasks.length})</div>
-<div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px;">
-${myTasks.length?myTasks.map(t=>`<span style="background:var(--card);border:1px solid var(--b2);border-radius:7px;padding:5px 11px;font-size:12px;">${t.title} <span style="color:${t.status==='done'?'var(--green)':t.status==='prog'?'var(--amber)':'var(--muted)'};font-size:10px;">● ${t.status}</span></span>`).join(''):'<span style="color:var(--muted);font-size:13px;">No tasks assigned</span>'}
-</div>
-<div style="display:flex;gap:10px;margin-bottom:20px;">
-<button class="btn btn-g btn-sm" onclick="selectUser('${id}')">👤 Login as ${m.name.split(' ')[0]}</button>
-<button class="btn btn-d btn-sm" onclick="delMember('${id}');goPage('members',null)">🗑 Remove</button>
-</div>
-<div class="sec-title">Notes</div>
-<div class="card notes-wrap"><textarea class="notes-ta" id="profNotes" placeholder="Add personal notes…" onblur="saveNote('${id}')">${m.notes||''}</textarea></div>
-`;
-document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
-document.getElementById('page-profile').classList.add('active');
-document.getElementById('tbTitle').textContent=m.name;
-const tbR=document.getElementById('tbActions');
-const sw=document.getElementById('userSwitcher');
-tbR.innerHTML='';
-const backBtn=document.createElement('button');
-backBtn.className='btn btn-o btn-sm';
-backBtn.textContent='← Back';
-backBtn.onclick=()=>goPage('members',null);
-tbR.appendChild(backBtn);
-tbR.appendChild(sw);
-}
-function saveNote(id){const m=members.find(x=>x.id===id);if(m){m.notes=document.getElementById('profNotes').value;save();toast('Notes saved ✓','ok');}}
-
-// ── TASKS ──
-function setTP(p){taskP=p;['h','m','l'].forEach(x=>{const b=document.getElementById('tp-'+x);b.className='pb'+(x===p?{h:' ph',m:' pm',l:' pl'}[x]:'');});}
+// ══════════════════════════════════════
+//  TASKS
+// ══════════════════════════════════════
+function setTP(p){ taskP=p; ['h','m','l'].forEach(x=>{ const b=document.getElementById('tp-'+x); b.className='pb'+(x===p?{h:' ph',m:' pm',l:' pl'}[x]:''); }); }
 setTP('h');
-
-function populateAssigneeDropdowns(){
-['tf-assign','task-assignee'].forEach(id=>{
-const el=document.getElementById(id);if(!el)return;
-const isFilter=id==='task-assignee';
-el.innerHTML=(isFilter?'<option value="">All Members</option>':'')+members.map(m=>`<option value="${m.id}">${m.name}</option>`).join('');
-});
+function populateAssigneeDropdowns() {
+  ['tf-assign','task-assignee'].forEach(id=>{
+    const el=document.getElementById(id); if(!el)return;
+    const isFilter=id==='task-assignee';
+    el.innerHTML=(isFilter?'<option value="">All Members</option>':'')+state.members.map(m=>`<option value="${m.id}">${m.name}</option>`).join('');
+  });
+}
+async function addTask() {
+  const title=v('tf-title'),assigneeId=v('tf-assign'),deadline=v('tf-deadline'),desc=v('tf-desc');
+  if(!title||!assigneeId){ toast('Title & assignee required','err'); return; }
+  const t={id:genId(),title,desc,assigneeId,deadline,priority:taskP,status:'todo',created:new Date().toISOString()};
+  state.tasks.push(t);
+  await saveTask(t);
+  closeMo('mo-task'); clearFs(['tf-title','tf-desc','tf-deadline']);
+  renderTasks(); updateBadges(); toast('Task created! 📊','ok');
+}
+function renderTasks() {
+  const q=(document.getElementById('task-srch').value||'').toLowerCase();
+  const af=document.getElementById('task-assignee').value;
+  const cols={todo:document.getElementById('tasks-todo'),prog:document.getElementById('tasks-prog'),done:document.getElementById('tasks-done')};
+  ['todo','prog','done'].forEach(st=>cols[st].innerHTML='');
+  const counts={todo:0,prog:0,done:0};
+  state.tasks.filter(t=>(!q||t.title.toLowerCase().includes(q))&&(!af||t.assigneeId===af)).forEach(t=>{
+    const m=state.members.find(x=>x.id===t.assigneeId)||{name:'?'};
+    const ac=avColor(m.name);
+    const dl=t.deadline?new Date(t.deadline):null;
+    const overdue=dl&&dl<new Date()&&t.status!=='done';
+    const pmap={h:'tp-h High',m:'tp-m Medium',l:'tp-l Low'};
+    counts[t.status]=(counts[t.status]||0)+1;
+    cols[t.status].innerHTML+=`<div class="task-card"><span class="task-priority ${pmap[t.priority]?.split(' ')[0]}">${pmap[t.priority]?.split(' ')[1]||''}</span><div class="task-title">${t.title}</div>${t.desc?`<div style="font-size:11px;color:var(--muted);margin-bottom:8px;line-height:1.4;">${t.desc}</div>`:''}<div class="task-assignee"><div class="task-av" style="background:${ac};">${m.name[0]}</div><div class="task-aname">${m.name.split(' ')[0]}</div></div>${dl?`<div class="task-deadline ${overdue?'overdue':''}">📅 ${dl.toLocaleDateString('en-IN',{day:'2-digit',month:'short'})}${overdue?' ⚠':''}</div>`:''}<div class="task-actions">${t.status!=='todo'?`<button class="btn btn-o btn-xs" onclick="moveTask('${t.id}','prev')">←</button>`:''} ${t.status!=='done'?`<button class="btn btn-g btn-xs" onclick="moveTask('${t.id}','next')">→ ${t.status==='todo'?'Start':'Done'}</button>`:''}<button class="btn btn-d btn-xs" onclick="doDelTask('${t.id}')">🗑</button></div></div>`;
+  });
+  ['todo','prog','done'].forEach(st=>{ if(!counts[st])cols[st].innerHTML=`<div style="color:var(--muted);font-size:12px;text-align:center;padding:20px;">No tasks</div>`; });
+  document.getElementById('cnt-todo').textContent=counts.todo||0;
+  document.getElementById('cnt-prog').textContent=counts.prog||0;
+  document.getElementById('cnt-done').textContent=counts.done||0;
+  updateBadges();
+}
+async function moveTask(id,dir) {
+  const t=state.tasks.find(x=>x.id===id); if(!t)return;
+  const seq=['todo','prog','done']; const i=seq.indexOf(t.status);
+  if(dir==='next'&&i<2)t.status=seq[i+1];
+  else if(dir==='prev'&&i>0)t.status=seq[i-1];
+  if(t.status==='done'){ const m=state.members.find(x=>x.id===t.assigneeId); if(m){ m.pts=(m.pts||0)+10; await saveMember(m); } }
+  await saveTask(t); renderTasks(); toast('Task updated!','ok');
+}
+async function doDelTask(id) {
+  state.tasks=state.tasks.filter(t=>t.id!==id);
+  await delTask_fb(id); renderTasks(); toast('Task deleted','ok');
 }
 
-function addTask(){
-const title=v('tf-title'),assigneeId=v('tf-assign'),deadline=v('tf-deadline'),desc=v('tf-desc');
-if(!title||!assigneeId){toast('Title & assignee required','err');return;}
-tasks.push({id:'t'+Date.now(),title,desc,assigneeId,deadline,priority:taskP,status:'todo',created:new Date().toISOString()});
-save();closeMo('mo-task');clearFs(['tf-title','tf-desc','tf-deadline']);
-renderTasks();updateBadges();toast('Task created! 📊','ok');
+// ══════════════════════════════════════
+//  CHAT (Real-time Firebase)
+// ══════════════════════════════════════
+async function sendMsg() {
+  if(!currentUser){ toast('Login required','err'); return; }
+  const inp=document.getElementById('chatInp');
+  const text=inp.value.trim(); if(!text)return;
+  const m={id:genId(),userId:currentUser.id,name:currentUser.name,text,time:new Date().toLocaleTimeString('en-IN',{hour:'2-digit',minute:'2-digit'}),pinned:false};
+  state.messages.push(m);
+  lastMsgCount=state.messages.length;
+  inp.value='';
+  await saveMsg(m);
+  renderChat(); scrollChat(); updateBadges();
 }
-
-function renderTasks(){
-const q=(document.getElementById('task-srch').value||'').toLowerCase();
-const af=document.getElementById('task-assignee').value;
-const statuses=['todo','prog','done'];
-const cols={todo:document.getElementById('tasks-todo'),prog:document.getElementById('tasks-prog'),done:document.getElementById('tasks-done')};
-statuses.forEach(st=>cols[st].innerHTML='');
-const counts={todo:0,prog:0,done:0};
-const filtered=tasks.filter(t=>{const mq=!q||t.title.toLowerCase().includes(q);const ma=!af||t.assigneeId===af;return mq&&ma;});
-filtered.forEach(t=>{
-const m=members.find(x=>x.id===t.assigneeId)||{name:'?',rollNo:''};
-const ac=avColor(m.name);
-const dl=t.deadline?new Date(t.deadline):null;
-const overdue=dl&&dl<new Date()&&t.status!=='done';
-const pmap={h:'tp-h High',m:'tp-m Medium',l:'tp-l Low'};
-counts[t.status]=(counts[t.status]||0)+1;
-cols[t.status].innerHTML+=`<div class="task-card"><span class="task-priority ${pmap[t.priority]?.split(' ')[0]}">${pmap[t.priority]?.split(' ')[1]||''}</span><div class="task-title">${t.title}</div>${t.desc?`<div style="font-size:11px;color:var(--muted);margin-bottom:8px;line-height:1.4;">${t.desc}</div>`:''}<div class="task-assignee"><div class="task-av" style="background:${ac};">${m.name[0]}</div><div class="task-aname">${m.name.split(' ')[0]}</div></div>${dl?`<div class="task-deadline ${overdue?'overdue':''}">📅 ${dl.toLocaleDateString('en-IN',{day:'2-digit',month:'short'})}${overdue?' ⚠ Overdue':''}</div>`:''}<div class="task-actions">${t.status!=='todo'?`<button class="btn btn-o btn-xs" onclick="moveTask('${t.id}','prev')">←</button>`:''} ${t.status!=='done'?`<button class="btn btn-g btn-xs" onclick="moveTask('${t.id}','next')">→ ${t.status==='todo'?'Start':'Done'}</button>`:''}<button class="btn btn-d btn-xs" onclick="delTask('${t.id}')">🗑</button></div></div>`;
-});
-statuses.forEach(st=>{if(!counts[st])cols[st].innerHTML=`<div style="color:var(--muted);font-size:12px;text-align:center;padding:20px;">No tasks</div>`;});
-document.getElementById('cnt-todo').textContent=counts.todo||0;
-document.getElementById('cnt-prog').textContent=counts.prog||0;
-document.getElementById('cnt-done').textContent=counts.done||0;
-updateBadges();
+async function pinMsg(id) {
+  const m=state.messages.find(x=>x.id===id); if(m){ m.pinned=!m.pinned; await saveMsg(m); renderChat(); }
 }
-
-function moveTask(id,dir){
-const t=tasks.find(x=>x.id===id);if(!t)return;
-const seq=['todo','prog','done'];const i=seq.indexOf(t.status);
-if(dir==='next'&&i<2)t.status=seq[i+1];
-else if(dir==='prev'&&i>0)t.status=seq[i-1];
-if(t.status==='done'){const m=members.find(x=>x.id===t.assigneeId);if(m){m.pts=(m.pts||0)+10;}}
-save();renderTasks();toast('Task updated!','ok');
+async function doDelMsg(id) {
+  state.messages=state.messages.filter(m=>m.id!==id);
+  lastMsgCount=state.messages.length;
+  await delMsg_fb(id); renderChat();
 }
-function delTask(id){tasks=tasks.filter(t=>t.id!==id);save();renderTasks();toast('Task deleted','ok');}
-
-// ── CHAT ──
-function sendMsg(){
-if(!currentUser){toast('Please select your profile first (👤 top right)','err');return;}
-const inp=document.getElementById('chatInp');
-const text=inp.value.trim();if(!text)return;
-messages.push({id:'msg'+Date.now(),userId:currentUser.id,name:currentUser.name,text,time:new Date().toLocaleTimeString('en-IN',{hour:'2-digit',minute:'2-digit'}),pinned:false});
-save();inp.value='';renderChat();scrollChat();
-document.getElementById('nb-chat').textContent=messages.length;
+function renderChat() {
+  const box=document.getElementById('chatMessages');
+  if(!state.messages.length){ box.innerHTML=`<div class="empty-state"><div class="ei">💬</div><p>No messages yet. Say hi!</p></div>`; return; }
+  box.innerHTML=state.messages.map(m=>{
+    const mine=currentUser&&m.userId===currentUser.id;
+    const ac=avColor(m.name);
+    return `<div class="msg ${mine?'mine':''}"><div class="msg-av" style="background:${ac};">${m.name[0]}</div><div class="msg-bubble ${m.pinned?'msg-pinned':''}"><div class="msg-name">${m.name}</div><div class="msg-text">${escHtml(m.text)}</div><div class="msg-time">${m.time} <span style="cursor:pointer;margin-left:4px;" onclick="pinMsg('${m.id}')">📌</span>${mine?` <span style="cursor:pointer;" onclick="doDelMsg('${m.id}')">🗑</span>`:''}</div></div></div>`;
+  }).join('');
+  const pinned=state.messages.filter(m=>m.pinned);
+  document.getElementById('pinnedList').innerHTML=pinned.length?pinned.map(m=>`<div style="font-size:11px;padding:6px 0;border-bottom:1px solid var(--b2);color:var(--muted);">📌 ${m.name}: ${m.text.slice(0,40)}…</div>`).join(''):'<p style="font-size:12px;color:var(--muted);">No pinned messages</p>';
+  document.getElementById('onlineList').innerHTML=state.members.slice(0,6).map(m=>`<div style="display:flex;align-items:center;gap:8px;font-size:12px;margin-bottom:6px;"><div class="online-dot"></div>${m.name.split(' ')[0]}</div>`).join('');
 }
-function pinMsg(id){const m=messages.find(x=>x.id===id);if(m){m.pinned=!m.pinned;save();renderChat();}}
-function delMsg(id){messages=messages.filter(m=>m.id!==id);save();renderChat();}
+function scrollChat(){ const b=document.getElementById('chatMessages'); b.scrollTop=b.scrollHeight; }
 
-function renderChat(){
-const box=document.getElementById('chatMessages');
-if(!messages.length){box.innerHTML=`<div class="empty-state"><div class="ei">💬</div><p>No messages yet. Say hi!</p></div>`;return;}
-box.innerHTML=messages.map(m=>{
-const mine=currentUser&&m.userId===currentUser.id;
-const ac=avColor(m.name);
-return `<div class="msg ${mine?'mine':''}"><div class="msg-av" style="background:${ac};">${m.name[0]}</div><div class="msg-bubble ${m.pinned?'msg-pinned':''}"><div class="msg-name">${m.name}</div><div class="msg-text">${escHtml(m.text)}</div><div class="msg-time">${m.time} ${m.pinned?'📌':''}<span style="cursor:pointer;margin-left:6px;" onclick="pinMsg('${m.id}')">📌</span>${mine?` <span style="cursor:pointer;" onclick="delMsg('${m.id}')">🗑</span>`:''}</div></div></div>`;
-}).join('');
-const pinned=messages.filter(m=>m.pinned);
-document.getElementById('pinnedList').innerHTML=pinned.length?pinned.map(m=>`<div style="font-size:11px;padding:6px 0;border-bottom:1px solid var(--b2);color:var(--muted);">📌 ${m.name}: ${m.text.slice(0,40)}…</div>`).join(''):'<p style="font-size:12px;color:var(--muted);">No pinned messages</p>';
-document.getElementById('onlineList').innerHTML=members.slice(0,5).map(m=>`<div class="online-item"><div class="online-dot"></div><div style="font-size:12px;">${m.name.split(' ')[0]}</div></div>`).join('');
-}
-function scrollChat(){const b=document.getElementById('chatMessages');b.scrollTop=b.scrollHeight;}
-function escHtml(t){return t.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
-
-// ── ANNOUNCEMENTS ──
-function setAP(p){annP=p;['h','m','l'].forEach(x=>{const b=document.getElementById('ap-'+x);b.className='pb'+(x===p?{h:' ph',m:' pm',l:' pl'}[x]:'');});}
+// ══════════════════════════════════════
+//  ANNOUNCEMENTS
+// ══════════════════════════════════════
+function setAP(p){ annP=p; ['h','m','l'].forEach(x=>{ const b=document.getElementById('ap-'+x); b.className='pb'+(x===p?{h:' ph',m:' pm',l:' pl'}[x]:''); }); }
 setAP('h');
-
-function addAnn(){
-const title=v('af-title'),body=v('af-body'),by=v('af-by');
-if(!title||!body){toast('Title & message required','err');return;}
-announcements.unshift({id:'a'+Date.now(),title,body,priority:annP,by:by||(currentUser?currentUser.name:'Admin'),time:new Date().toLocaleString('en-IN',{day:'2-digit',month:'short',hour:'2-digit',minute:'2-digit'})});
-save();closeMo('mo-ann');clearFs(['af-title','af-body','af-by']);
-renderAnns();renderDash();updateBadges();toast('Announcement posted! 📢','ok');
+async function addAnn() {
+  const title=v('af-title'),body=v('af-body');
+  if(!title||!body){ toast('Title & message required','err'); return; }
+  const a={id:genId(),title,body,priority:annP,by:currentUser?currentUser.name:'Admin',time:new Date().toLocaleString('en-IN',{day:'2-digit',month:'short',hour:'2-digit',minute:'2-digit'})};
+  state.announcements.unshift(a);
+  await saveAnn(a);
+  closeMo('mo-ann'); clearFs(['af-title','af-body']);
+  renderAnns(); renderDash(); updateBadges(); toast('Announcement posted! 📢','ok');
 }
-function delAnn(id){announcements=announcements.filter(a=>a.id!==id);save();renderAnns();renderDash();updateBadges();toast('Deleted','ok');}
-
-function renderAnns(){
-const el=document.getElementById('annsList');
-if(!announcements.length){el.innerHTML=`<div class="empty-state"><div class="ei">📢</div><p>No announcements. Post one!</p></div>`;return;}
-const pmap={h:'hi',m:'md',l:'lo'};
-el.innerHTML=announcements.map(a=>`<div class="card ann-full ${pmap[a.priority]}"><button class="ann-close" onclick="delAnn('${a.id}')">✕</button><div class="ann-title">${a.title}</div><div class="ann-body">${a.body}</div><div class="ann-meta"><span>👤 ${a.by}</span><span>🕐 ${a.time}</span><span style="color:${a.priority==='h'?'var(--red)':a.priority==='m'?'var(--amber)':'var(--green)'}">● ${a.priority==='h'?'HIGH':a.priority==='m'?'MEDIUM':'LOW'}</span></div></div>`).join('');
+async function doDelAnn(id) {
+  state.announcements=state.announcements.filter(a=>a.id!==id);
+  await delAnn_fb(id); renderAnns(); renderDash(); updateBadges(); toast('Deleted','ok');
 }
-
-// ── MEETINGS ──
-function addMeeting(){
-const title=v('mef-title'),date=v('mef-date'),time=v('mef-time'),dur=v('mef-dur'),loc=v('mef-loc'),desc=v('mef-desc');
-if(!title||!date){toast('Title & date required','err');return;}
-const st=new Date(date+'T'+(time||'00:00'))<new Date()?'done':'upcoming';
-const newM={id:'mt'+Date.now(),title,date,time,dur,loc,desc,status:st};
-meetings.unshift(newM);
-meetings.sort((a,b)=>new Date(b.date+' '+b.time)-new Date(a.date+' '+a.time));
-attendance[newM.id]={};
-save();closeMo('mo-meet');clearFs(['mef-title','mef-date','mef-time','mef-dur','mef-loc','mef-desc']);
-renderMeetings();renderDash();renderAttendance();updateBadges();toast('Meeting scheduled! 📅','ok');
-}
-function delMeeting(id){meetings=meetings.filter(m=>m.id!==id);save();renderMeetings();renderDash();renderAttendance();updateBadges();}
-function toggleMeetStatus(id){
-const m=meetings.find(x=>x.id===id);if(!m)return;
-const seq=['upcoming','done','cancelled'];const i=seq.indexOf(m.status);m.status=seq[(i+1)%3];
-save();renderMeetings();renderDash();updateBadges();
+function renderAnns() {
+  const el=document.getElementById('annsList');
+  if(!state.announcements.length){ el.innerHTML=`<div class="empty-state"><div class="ei">📢</div><p>No announcements yet.</p></div>`; return; }
+  const pmap={h:'hi',m:'md',l:'lo'};
+  el.innerHTML=state.announcements.map(a=>`<div class="card ann-full ${pmap[a.priority]}"><button class="ann-close" onclick="doDelAnn('${a.id}')">✕</button><div class="ann-title">${a.title}</div><div class="ann-body">${a.body}</div><div class="ann-meta"><span>👤 ${a.by}</span><span>🕐 ${a.time}</span><span style="color:${a.priority==='h'?'var(--red)':a.priority==='m'?'var(--amber)':'var(--green)'}">● ${a.priority==='h'?'HIGH':a.priority==='m'?'MEDIUM':'LOW'}</span></div></div>`).join('');
 }
 
-function renderMeetings(){
-const el=document.getElementById('meetsList');
-if(!meetings.length){el.innerHTML=`<div class="empty-state"><div class="ei">📅</div><p>No meetings. Schedule one!</p></div>`;return;}
-el.innerHTML=meetings.map(m=>{
-const d=new Date(m.date);
-const stcls={upcoming:'st-up',done:'st-dn',cancelled:'st-ca'}[m.status]||'st-up';
-return `<div class="card mt-card"><div class="mt-date"><div class="mt-day">${d.getDate()}</div><div class="mt-mon">${d.toLocaleString('en',{month:'short'}).toUpperCase()}</div></div><div class="mt-info"><div class="mt-title">${m.title}</div><div class="mt-time">🕐 ${m.time||'TBD'}${m.dur?' · '+m.dur:''}${m.loc?' · 📍'+m.loc:''}</div>${m.desc?`<div class="mt-desc">${m.desc}</div>`:''}<span class="mt-status ${stcls}">${m.status}</span><div class="mt-acts"><button class="btn btn-o btn-sm" onclick="toggleMeetStatus('${m.id}')">🔄 Status</button><button class="btn btn-d btn-sm" onclick="delMeeting('${m.id}')">🗑</button></div></div></div>`;
-}).join('');
+// ══════════════════════════════════════
+//  MEETINGS
+// ══════════════════════════════════════
+async function addMeeting() {
+  const title=v('mef-title'),date=v('mef-date'),time=v('mef-time'),dur=v('mef-dur'),loc=v('mef-loc'),desc=v('mef-desc');
+  if(!title||!date){ toast('Title & date required','err'); return; }
+  const st=new Date(date+'T'+(time||'00:00'))<new Date()?'done':'upcoming';
+  const m={id:genId(),title,date,time,dur,loc,desc,status:st};
+  state.meetings.unshift(m);
+  state.meetings.sort((a,b)=>new Date(b.date+' '+b.time)-new Date(a.date+' '+a.time));
+  if(!state.attendance[m.id])state.attendance[m.id]={};
+  await saveMeeting(m);
+  closeMo('mo-meet'); clearFs(['mef-title','mef-date','mef-time','mef-dur','mef-loc','mef-desc']);
+  renderMeetings(); renderDash(); renderAttendance(); updateBadges(); toast('Meeting scheduled! 📅','ok');
+}
+async function doDelMeeting(id) {
+  state.meetings=state.meetings.filter(m=>m.id!==id);
+  await delMeeting_fb(id); renderMeetings(); renderDash(); renderAttendance(); updateBadges();
+}
+async function toggleMeetStatus(id) {
+  const m=state.meetings.find(x=>x.id===id); if(!m)return;
+  const seq=['upcoming','done','cancelled']; const i=seq.indexOf(m.status); m.status=seq[(i+1)%3];
+  await saveMeeting(m); renderMeetings(); renderDash(); updateBadges();
+}
+function renderMeetings() {
+  const el=document.getElementById('meetsList');
+  if(!state.meetings.length){ el.innerHTML=`<div class="empty-state"><div class="ei">📅</div><p>No meetings. Schedule one!</p></div>`; return; }
+  el.innerHTML=state.meetings.map(m=>{
+    const d=new Date(m.date);
+    const stcls={upcoming:'st-up',done:'st-dn',cancelled:'st-ca'}[m.status]||'st-up';
+    return `<div class="card mt-card"><div class="mt-date"><div class="mt-day">${d.getDate()}</div><div class="mt-mon">${d.toLocaleString('en',{month:'short'}).toUpperCase()}</div></div><div class="mt-info"><div class="mt-title">${m.title}</div><div class="mt-time">🕐 ${m.time||'TBD'}${m.dur?' · '+m.dur:''}${m.loc?' · 📍'+m.loc:''}</div>${m.desc?`<div class="mt-desc">${m.desc}</div>`:''}<span class="mt-status ${stcls}">${m.status}</span><div class="mt-acts"><button class="btn btn-o btn-sm" onclick="toggleMeetStatus('${m.id}')">🔄 Status</button><button class="btn btn-d btn-sm" onclick="doDelMeeting('${m.id}')">🗑</button></div></div></div>`;
+  }).join('');
 }
 
-// ── ATTENDANCE ──
-function markAtt(meetId,memberId,status){
-if(!attendance[meetId])attendance[meetId]={};
-const prev=attendance[meetId][memberId];
-if(prev===status){delete attendance[meetId][memberId];}
-else{
-attendance[meetId][memberId]=status;
-if(status==='p'){const m=members.find(x=>x.id===memberId);if(m)m.pts=(m.pts||0)+2;}
-else if(prev==='p'){const m=members.find(x=>x.id===memberId);if(m)m.pts=Math.max(0,(m.pts||0)-2);}
+// ══════════════════════════════════════
+//  ATTENDANCE
+// ══════════════════════════════════════
+async function markAtt(meetId,memberId,status) {
+  if(!state.attendance[meetId])state.attendance[meetId]={};
+  const prev=state.attendance[meetId][memberId];
+  if(prev===status){
+    delete state.attendance[meetId][memberId];
+    await saveAttendance(meetId,memberId,null);
+    if(prev==='p'){ const m=state.members.find(x=>x.id===memberId); if(m){ m.pts=Math.max(0,(m.pts||0)-2); await saveMember(m); } }
+  } else {
+    state.attendance[meetId][memberId]=status;
+    await saveAttendance(meetId,memberId,status);
+    if(status==='p'){ const m=state.members.find(x=>x.id===memberId); if(m){ m.pts=(m.pts||0)+2; await saveMember(m); } }
+    else if(prev==='p'){ const m=state.members.find(x=>x.id===memberId); if(m){ m.pts=Math.max(0,(m.pts||0)-2); await saveMember(m); } }
+  }
+  renderAttendance(); renderLeaderboard();
 }
-save();renderAttendance();renderLeaderboard();
-}
-
-function renderAttendance(){
-const mt=document.getElementById('attMeetings');
-if(!meetings.length){mt.innerHTML=`<div class="empty-state"><div class="ei">📅</div><p>No meetings yet.</p></div>`;return;}
-mt.innerHTML=meetings.map(meet=>{
-const d=new Date(meet.date);
-return `<div class="card meet-row"><div class="mt-date" style="min-width:50px;padding:8px 10px;"><div class="mt-day" style="font-size:22px;">${d.getDate()}</div><div class="mt-mon">${d.toLocaleString('en',{month:'short'}).toUpperCase()}</div></div><div class="meet-title-t">${meet.title}</div><div class="att-mark-row">${members.map(m=>{const st=(attendance[meet.id]||{})[m.id];return `<div style="display:flex;flex-direction:column;align-items:center;gap:3px;font-size:9px;color:var(--muted);"><span>${m.name.split(' ')[0]}</span><div style="display:flex;gap:3px;"><button class="att-btn att-present ${st==='p'?'sel-p':''}" onclick="markAtt('${meet.id}','${m.id}','p')">P</button><button class="att-btn att-absent ${st==='a'?'sel-a':''}" onclick="markAtt('${meet.id}','${m.id}','a')">A</button><button class="att-btn att-excuse ${st==='e'?'sel-e':''}" onclick="markAtt('${meet.id}','${m.id}','e')">E</button></div></div>`;}).join('')}</div></div>`;
-}).join('');
-const grid=document.getElementById('attGrid');
-grid.innerHTML=members.map(m=>{
-const rec=Object.values(attendance).reduce((acc,meet)=>{if(meet[m.id]==='p')acc.p++;else if(meet[m.id]==='a')acc.a++;else if(meet[m.id]==='e')acc.e++;return acc;},{p:0,a:0,e:0});
-const total=rec.p+rec.a+rec.e||1;const pct=Math.round(rec.p/total*100);
-const cls=pct>=75?'pct-hi':pct>=50?'pct-md':'pct-lo';
-const fcls=pct>=75?'pf-hi':pct>=50?'pf-md':'pf-lo';
-return `<div class="card att-card"><div class="att-header"><div><div class="att-name">${m.name.split(' ')[0]}</div><div style="font-size:10px;color:var(--muted);">${m.role}</div></div><div class="att-pct ${cls}">${pct}%</div></div><div class="progress-bar"><div class="progress-fill ${fcls}" style="width:${pct}%"></div></div><div style="display:flex;gap:10px;font-size:11px;color:var(--muted);"><span>✅ ${rec.p} Present</span><span>❌ ${rec.a} Absent</span><span>⚠️ ${rec.e} Excuse</span></div></div>`;
-}).join('');
-}
-
-// ── LEADERBOARD ──
-function addPoints(id,pts){
-const m=members.find(x=>x.id===id);if(m){m.pts=Math.max(0,(m.pts||0)+pts);save();renderLeaderboard();toast(`${pts>0?'+':''}${pts} pts!`,'ok');}
-}
-
-function renderLeaderboard(){
-const sorted=[...members].sort((a,b)=>(b.pts||0)-(a.pts||0));
-const maxPts=sorted[0]?.pts||1;
-const top3=sorted.slice(0,3);
-const pod=[null,null,null];
-if(top3[0])pod[1]=top3[0];
-if(top3[1])pod[0]=top3[1];
-if(top3[2])pod[2]=top3[2];
-const podCls=['podium-2','podium-1','podium-3'];
-const podRank=['2nd','1st','3rd'];
-document.getElementById('lbPodium').innerHTML=pod.filter(Boolean).map((m,i)=>`<div class="podium-item ${podCls[i]}"><div class="podium-av ${rs(m.role).av}" style="background:${avColor(m.name)};">${podCls[i]==='podium-1'?'<div class="podium-crown">👑</div>':''}${m.name[0]}</div><div class="podium-name">${m.name.split(' ')[0]}</div><div class="podium-pts">${m.pts||0}</div><div style="font-size:9px;color:var(--muted);">${podRank[i]}</div><div class="podium-base"></div></div>`).join('');
-document.getElementById('lbList').innerHTML=sorted.map((m,i)=>{
-const pct=Math.round((m.pts||0)/maxPts*100);
-return `<div class="card lb-item"><div class="lb-rank">${i+1}</div><div class="lb-av ${rs(m.role).av}" style="background:${avColor(m.name)};">${m.name[0]}</div><div class="lb-info"><div class="lb-name">${m.name}${currentUser&&m.id===currentUser.id?' <span style="color:var(--p2);font-size:10px;">(You)</span>':''}</div><div class="lb-role">${m.role}</div><div class="lb-bar-wrap"><div class="lb-bar" style="width:${pct}%"></div></div></div><div><div class="lb-pts">${m.pts||0}</div><div class="lb-pts-lbl">POINTS</div><div class="pts-actions"><button class="btn btn-g btn-xs" onclick="addPoints('${m.id}',5)">+5</button><button class="btn btn-d btn-xs" onclick="addPoints('${m.id}',-5)">-5</button></div></div></div>`;
-}).join('');
+function renderAttendance() {
+  const mt=document.getElementById('attMeetings');
+  if(!state.meetings.length){ mt.innerHTML=`<div class="empty-state"><div class="ei">📅</div><p>No meetings yet.</p></div>`; return; }
+  mt.innerHTML=state.meetings.map(meet=>{
+    const d=new Date(meet.date);
+    return `<div class="card meet-row"><div class="mt-date" style="min-width:50px;padding:8px 10px;"><div class="mt-day" style="font-size:22px;">${d.getDate()}</div><div class="mt-mon">${d.toLocaleString('en',{month:'short'}).toUpperCase()}</div></div><div class="meet-title-t">${meet.title}</div><div class="att-mark-row">${state.members.map(m=>{const st=(state.attendance[meet.id]||{})[m.id];return `<div style="display:flex;flex-direction:column;align-items:center;gap:3px;font-size:9px;color:var(--muted);"><span>${m.name.split(' ')[0]}</span><div style="display:flex;gap:3px;"><button class="att-btn att-present ${st==='p'?'sel-p':''}" onclick="markAtt('${meet.id}','${m.id}','p')">P</button><button class="att-btn att-absent ${st==='a'?'sel-a':''}" onclick="markAtt('${meet.id}','${m.id}','a')">A</button><button class="att-btn att-excuse ${st==='e'?'sel-e':''}" onclick="markAtt('${meet.id}','${m.id}','e')">E</button></div></div>`;}).join('')}</div></div>`;
+  }).join('');
+  const grid=document.getElementById('attGrid');
+  grid.innerHTML=state.members.map(m=>{
+    const rec=Object.values(state.attendance).reduce((acc,meet)=>{ if(meet[m.id]==='p')acc.p++; else if(meet[m.id]==='a')acc.a++; else if(meet[m.id]==='e')acc.e++; return acc;},{p:0,a:0,e:0});
+    const total=rec.p+rec.a+rec.e||1; const pct=Math.round(rec.p/total*100);
+    const cls=pct>=75?'pct-hi':pct>=50?'pct-md':'pct-lo';
+    return `<div class="card att-card"><div class="att-header"><div><div style="font-size:13px;font-weight:700;">${m.name.split(' ')[0]}</div><div style="font-size:10px;color:var(--muted);">${m.role}</div></div><div class="att-pct ${cls}">${pct}%</div></div><div class="progress-bar"><div class="progress-fill ${pct>=75?'pf-hi':pct>=50?'pf-md':'pf-lo'}" style="width:${pct}%"></div></div><div style="display:flex;gap:10px;font-size:11px;color:var(--muted);"><span>✅ ${rec.p}</span><span>❌ ${rec.a}</span><span>⚠️ ${rec.e}</span></div></div>`;
+  }).join('');
 }
 
-// ── DASHBOARD ──
-function renderDash(){
-document.getElementById('d-mem').textContent=members.length;
-document.getElementById('d-tasks').textContent=tasks.length;
-document.getElementById('d-msgs').textContent=messages.length;
-document.getElementById('d-meets').textContent=meetings.length;
-document.getElementById('d-anns').textContent=announcements.length;
-const da=document.getElementById('dash-anns-list');
-if(!announcements.length)da.innerHTML=`<div class="empty-state"><div class="ei">📢</div><p>No announcements</p></div>`;
-else da.innerHTML=announcements.slice(0,3).map(a=>`<div class="cardb ann-item ${a.priority==='h'?'hi':a.priority==='m'?'md':'lo'}"><div class="ann-item-title">${a.title}</div><div class="ann-item-body">${a.body.slice(0,80)}${a.body.length>80?'…':''}</div></div>`).join('');
-const dm=document.getElementById('dash-meets-list');
-const up=meetings.filter(m=>m.status==='upcoming');
-if(!up.length)dm.innerHTML=`<div class="empty-state"><div class="ei">📅</div><p>No upcoming meetings</p></div>`;
-else dm.innerHTML=up.slice(0,3).map(m=>{const d=new Date(m.date);return`<div class="cardb" style="display:flex;gap:12px;padding:12px;margin-bottom:10px;border-radius:var(--r);"><div style="background:rgba(99,102,241,0.1);border:1px solid rgba(99,102,241,0.2);border-radius:8px;padding:8px 12px;text-align:center;min-width:48px;"><div style="font-family:'Bebas Neue';font-size:24px;color:var(--p2);line-height:1;">${d.getDate()}</div><div style="font-size:8px;letter-spacing:1px;text-transform:uppercase;color:var(--muted);">${d.toLocaleString('en',{month:'short'}).toUpperCase()}</div></div><div><div style="font-size:13px;font-weight:600;">${m.title}</div><div style="font-size:11px;color:var(--cyan);margin-top:3px;">🕐 ${m.time||'TBD'}${m.loc?' · 📍'+m.loc:''}</div></div></div>`;}).join('');
+// ══════════════════════════════════════
+//  LEADERBOARD
+// ══════════════════════════════════════
+async function addPoints(id,pts) {
+  const m=state.members.find(x=>x.id===id);
+  if(m){ m.pts=Math.max(0,(m.pts||0)+pts); await saveMember(m); renderLeaderboard(); toast(`${pts>0?'+':''}${pts} pts!`,'ok'); }
+}
+function renderLeaderboard() {
+  const sorted=[...state.members].sort((a,b)=>(b.pts||0)-(a.pts||0));
+  const maxPts=sorted[0]?.pts||1;
+  const top3=sorted.slice(0,3);
+  const pod=[null,null,null];
+  if(top3[0])pod[1]=top3[0]; if(top3[1])pod[0]=top3[1]; if(top3[2])pod[2]=top3[2];
+  const podCls=['podium-2','podium-1','podium-3'];
+  const podRank=['2nd','1st','3rd'];
+  document.getElementById('lbPodium').innerHTML=pod.filter(Boolean).map((m,i)=>`<div class="podium-item ${podCls[i]}"><div class="podium-av ${rs(m.role).av}" style="background:${avColor(m.name)};">${podCls[i]==='podium-1'?'<div class="podium-crown">👑</div>':''}${m.name[0]}</div><div class="podium-name">${m.name.split(' ')[0]}</div><div class="podium-pts">${m.pts||0}</div><div style="font-size:9px;color:var(--muted);">${podRank[i]}</div><div class="podium-base"></div></div>`).join('');
+  document.getElementById('lbList').innerHTML=sorted.map((m,i)=>{
+    const pct=Math.round((m.pts||0)/maxPts*100);
+    return `<div class="card lb-item"><div class="lb-rank">${i+1}</div><div class="lb-av ${rs(m.role).av}" style="background:${avColor(m.name)};">${m.name[0]}</div><div class="lb-info"><div class="lb-name">${m.name}${currentUser&&m.id===currentUser.id?' <span style="color:var(--p2);font-size:10px;">(You)</span>':''}</div><div class="lb-role">${m.role}</div><div class="lb-bar-wrap"><div class="lb-bar" style="width:${pct}%"></div></div></div><div><div class="lb-pts">${m.pts||0}</div><div class="lb-pts-lbl">PTS</div><div class="pts-actions"><button class="btn btn-g btn-xs" onclick="addPoints('${m.id}',5)">+5</button><button class="btn btn-d btn-xs" onclick="addPoints('${m.id}',-5)">-5</button></div></div></div>`;
+  }).join('');
 }
 
-// ── BADGES ──
-function updateBadges(){
-document.getElementById('nb-members').textContent=members.length;
-document.getElementById('nb-tasks').textContent=tasks.filter(t=>t.status!=='done').length;
-document.getElementById('nb-chat').textContent=messages.length;
-document.getElementById('nb-anns').textContent=announcements.length;
-document.getElementById('nb-meets').textContent=meetings.filter(m=>m.status==='upcoming').length;
+// ══════════════════════════════════════
+//  DASHBOARD
+// ══════════════════════════════════════
+function renderDash() {
+  document.getElementById('d-mem').textContent=state.members.length;
+  document.getElementById('d-tasks').textContent=state.tasks.length;
+  document.getElementById('d-msgs').textContent=state.messages.length;
+  document.getElementById('d-meets').textContent=state.meetings.length;
+  document.getElementById('d-anns').textContent=state.announcements.length;
+  const da=document.getElementById('dash-anns-list');
+  da.innerHTML=state.announcements.length?state.announcements.slice(0,3).map(a=>`<div class="cardb ann-item ${a.priority==='h'?'hi':a.priority==='m'?'md':'lo'}"><div class="ann-item-title">${a.title}</div><div class="ann-item-body">${a.body.slice(0,80)}${a.body.length>80?'…':''}</div></div>`).join(''):`<div class="empty-state"><div class="ei">📢</div><p>No announcements</p></div>`;
+  const up=state.meetings.filter(m=>m.status==='upcoming');
+  document.getElementById('dash-meets-list').innerHTML=up.length?up.slice(0,3).map(m=>{const d=new Date(m.date);return`<div class="cardb" style="display:flex;gap:12px;padding:12px;margin-bottom:10px;border-radius:var(--r);"><div style="background:rgba(99,102,241,0.1);border:1px solid rgba(99,102,241,0.2);border-radius:8px;padding:8px 12px;text-align:center;min-width:48px;"><div style="font-family:'Bebas Neue';font-size:24px;color:var(--p2);line-height:1;">${d.getDate()}</div><div style="font-size:8px;letter-spacing:1px;text-transform:uppercase;color:var(--muted);">${d.toLocaleString('en',{month:'short'}).toUpperCase()}</div></div><div><div style="font-size:13px;font-weight:600;">${m.title}</div><div style="font-size:11px;color:var(--cyan);margin-top:3px;">🕐 ${m.time||'TBD'}${m.loc?' · 📍'+m.loc:''}</div></div></div>`;}).join(''):`<div class="empty-state"><div class="ei">📅</div><p>No upcoming meetings</p></div>`;
 }
 
-// ── MODAL / TOAST / HELPERS ──
-function openMo(id){document.getElementById(id).classList.add('open');}
-function closeMo(id){document.getElementById(id).classList.remove('open');}
-document.querySelectorAll('.modal-ov').forEach(o=>o.addEventListener('click',e=>{if(e.target===o)o.classList.remove('open');}));
+// ══════════════════════════════════════
+//  BADGES
+// ══════════════════════════════════════
+function updateBadges() {
+  document.getElementById('nb-members').textContent=state.members.length;
+  document.getElementById('nb-tasks').textContent=state.tasks.filter(t=>t.status!=='done').length;
+  document.getElementById('nb-chat').textContent=state.messages.length;
+  document.getElementById('nb-anns').textContent=state.announcements.length;
+  document.getElementById('nb-meets').textContent=state.meetings.filter(m=>m.status==='upcoming').length;
+}
 
+// ══════════════════════════════════════
+//  MODAL/TOAST/NAV
+// ══════════════════════════════════════
+function openMo(id){ document.getElementById(id).classList.add('open'); }
+function closeMo(id){ document.getElementById(id).classList.remove('open'); }
+document.querySelectorAll('.modal-ov').forEach(o=>o.addEventListener('click',e=>{ if(e.target===o)o.classList.remove('open'); }));
 let toastT;
-function toast(msg,type='ok'){
-const t=document.getElementById('toast');
-t.textContent=(type==='ok'?'✓ ':type==='err'?'⚠ ':'ℹ ')+msg;
-t.className='toast '+type+' show';clearTimeout(toastT);
-toastT=setTimeout(()=>t.classList.remove('show'),3200);
+function toast(msg,type='ok') {
+  const t=document.getElementById('toast');
+  t.textContent=(type==='ok'?'✓ ':type==='err'?'⚠ ':'ℹ ')+msg;
+  t.className='toast '+type+' show'; clearTimeout(toastT);
+  toastT=setTimeout(()=>t.classList.remove('show'),3200);
 }
-function v(id){return(document.getElementById(id)?.value||'').trim();}
-function clearFs(ids){ids.forEach(id=>{const e=document.getElementById(id);if(e)e.value='';})}
-function toggleSb(){document.getElementById('sidebar').classList.toggle('open');document.getElementById('sbOv').classList.toggle('open');}
-function closeSb(){document.getElementById('sidebar').classList.remove('open');document.getElementById('sbOv').classList.remove('open');}
+function toggleSb(){ document.getElementById('sidebar').classList.toggle('open'); document.getElementById('sbOv').classList.toggle('open'); }
+function closeSb(){ document.getElementById('sidebar').classList.remove('open'); document.getElementById('sbOv').classList.remove('open'); }
 
-const today=new Date().toISOString().split('T')[0];
-document.getElementById('mf-joined').value=today;
-document.getElementById('mef-date').value=today;
+// ══════════════════════════════════════
+//  BOOT
+// ══════════════════════════════════════
+window.addEventListener('load', async () => {
+  initParticles('particles');
+  const ls=document.getElementById('loadingScreen');
+  const lm=document.getElementById('loadMsg');
+  lm.textContent='Connecting to Firebase…';
+  await loadFromFirebase();
+  lm.textContent='Checking session…';
+  populateAssigneeDropdowns();
+  const today=new Date().toISOString().split('T')[0];
+  document.getElementById('mf-joined').value=today;
+  document.getElementById('mef-date').value=today;
+
+  // Check saved session
+  let restored=false;
+  try{
+    const uid=localStorage.getItem('sh_user');
+    if(uid){ const m=state.members.find(x=>x.id===uid); if(m){ currentUser=m; restored=true; } }
+  }catch(e){}
+
+  ls.classList.add('hide');
+  if(restored) {
+    document.getElementById('mainApp').style.display='flex';
+    updateUserDisplay(); renderAll(); startChatPoll();
+    toast(`Welcome back, ${currentUser.name.split(' ')[0]}! 🔥`,'ok');
+  } else {
+    populateLoginDropdown();
+    document.getElementById('loginPage').classList.remove('hide');
+  }
+});
 </script>
 </body>
 </html>
